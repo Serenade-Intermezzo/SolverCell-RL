@@ -1,5 +1,7 @@
 # SolverCell-RL
 
+**Latest controlled study,2026-11-04:** [all12 preference tuning/replication runs are complete](reports/preference_tuning_20261104/RESULTS.md). Temperature.1 improves diffusion's seed0 last-window direct validation203.018→297.661 at matched4000 updates; tuned sphere reaches359.450. Both new training seeds favor sphere. Centered relative guide fitting improves a small prefix-calibration fixture but SMC still equals terminal weighting with extra cost. See [interpretation](reports/preference_tuning_20261104/INTERPRETATION.md), [full curves](reports/preference_tuning_20261104/tuning_and_replication.png), and the [prespecified design](docs/PREFERENCE_TUNING_V2.md). There is no established diffusion superiority.
+
 **Latest research focus:** [decision-consistent preference control](docs/PREFERENCE_CONTROL_REDESIGN.md), now implemented in a separate [preference-learning harness](docs/PREFERENCE_IMPLEMENTATION.md). Conditional diffusion and spherical flow share a vector critic and native quotient decoder. Diffusion additionally supports a joint noise-level continuation guide and finite-particle SMC; both methods support equal-particle terminal weighting. The [two-model server pilot is complete and audited](reports/preference_pilot_20261104/RESULTS.md): diffusion's default SMC never resamples and exactly matches terminal weighting while adding guide cost. This is an implementation pilot, not a diffusion advantage. Assignment remains an audited future extension.
 
 **Historical single-objective status, 2026-11-04:** all32 runs are complete, including the [18-run native-structure follow-up](reports/native_revision_study_20261104/RESULTS.md). Cell coupling did not establish a consistent advantage. Point diffusion's promising seed-0 result against quotient spherical flow did not replicate on new seeds1/2. Those frozen experiments remain separate from the new preference extension. The original implementation and design history follow below.
@@ -28,6 +30,18 @@ git -C vendor/lsflow checkout 7e50d03e7129974a11061c9ce500bc2dc5593246
 The upstream checkout is preserved unchanged and excluded from this repository. Its Python source hashes are included in every experiment's source manifest. Original code is MIT licensed; see [upstream license](https://github.com/anagha-satish/combinatorial-diffusion/blob/main/LICENSE).
 
 ## Run
+
+The new tuning harness has90 passing tests and a source-frozen eight-arm template. Its separate two-lane controller immediately hands ready independent work to a freed CPU lane. Each arm records exact config, source, worker/CPU identity, exit, full curves and complete checkpoints. To run a fresh declared screen:
+
+```bash
+.venv/bin/python -m tools.prepare_preference_tuning --campaign-id my_preference_tuning
+.venv/bin/python -m tools.preference_campaign --manifest experiments/my_preference_tuning/manifest.json
+.venv/bin/python analysis/select_preference_tuning.py --manifest experiments/my_preference_tuning/manifest.json --output reports/my_preference_selection.json
+.venv/bin/python -m tools.prepare_preference_tuning --campaign-id my_preference_replication --selection reports/my_preference_selection.json
+.venv/bin/python -m tools.preference_campaign --manifest experiments/my_preference_replication/manifest.json
+```
+
+The template uses CPUs24/25 on wflow-server,4000 updates and at most two workers. Adjust available CPU sets before using another host. The selected configuration is locked using validation only; fresh final episode seeds do not select settings. Grouped-absolute and centered guide controls leave base learning bitwise identical. Historical default learner checkpoints remain loadable for inference with their original schedule; scientific training continuation still requires identical source/config. Rebuild the shipped completed study with`python analysis/build_preference_tuning_report.py` when its raw artifacts are present under`outputs/`.
 
 For the new preference extension, use the dedicated entrypoint and controller:
 

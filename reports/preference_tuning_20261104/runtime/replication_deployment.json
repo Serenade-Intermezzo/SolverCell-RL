@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "controller_pid": 2194028,
+  "selection_lock_commit": "cbc1cfe",
+  "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+  "selection_sha256": "9791eba0dcc29721076c6120cecee15acc677263de8e1ae05d00ef2b1ebb8e84",
+  "started_unix": 1793793637.2168925,
+  "command": [
+    "/home/li/SolverCell-RL/.venv/bin/python",
+    "-m",
+    "tools.preference_campaign",
+    "--manifest",
+    "experiments/preference_replication_20261104/manifest.json"
+  ],
+  "finished_unix": 1793793954.9575844
+}

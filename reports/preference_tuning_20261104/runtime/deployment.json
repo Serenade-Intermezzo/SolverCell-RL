@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "controller_pid": 2187322,
+  "command": [
+    "/home/li/SolverCell-RL/.venv/bin/python",
+    "-m",
+    "tools.preference_campaign",
+    "--manifest",
+    "experiments/preference_tuning_20261104/manifest.json"
+  ],
+  "git_commit": "9855144",
+  "implementation_commit": "b183ef1",
+  "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+  "started_unix": 1793793166.2339869,
+  "preflight": {
+    "jobs": 8,
+    "all_exit0": true,
+    "plotting": "server lacks matplotlib; full audit and plots executed locally"
+  },
+  "finished_unix": 1793793954.9570935
+}

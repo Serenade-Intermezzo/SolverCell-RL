@@ -1,0 +1,553 @@
+{
+  "status": "complete",
+  "recorded_utc": "2026-11-04T12:05:54Z",
+  "runs": {
+    "center_b060_t010": {
+      "pid": 2191300,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_tuning_20261104/center_b060_t010",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "b9c6363bdaf56450e139912cbbbc84e4f068fe2dfbc437bac5494e12f460cab4"
+    },
+    "diff_b020_t010": {
+      "pid": 2189916,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_tuning_20261104/diff_b020_t010",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "2a37af1175b6773201ed8549ec7d9b76ff577e2fcff5dfadf662f2e73b219a2a"
+    },
+    "diff_b020_t050": {
+      "pid": 2188466,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_tuning_20261104/diff_b020_t050",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "e02e748732b8c58503b0054ffd376ece7b71230b968ff5435deffea3ea48daba"
+    },
+    "diff_b060_t010": {
+      "pid": 2189917,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_tuning_20261104/diff_b060_t010",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "dfc6dc412be51eb81f6fffd128f64408acee7e1eb52e7a63ab5b796f9cea7370"
+    },
+    "diff_b060_t050": {
+      "pid": 2188467,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_tuning_20261104/diff_b060_t050",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "9bf7f122953ec2ebe53bcce240151e3a3cc4d2709cba07e15d84a791cc453a0f"
+    },
+    "group_b060_t010": {
+      "pid": 2191299,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_tuning_20261104/group_b060_t010",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "0764a662e8f382111ca3488848f2c86fd7b7d00c97bd838c4519f57c0caf2d4d"
+    },
+    "sphere_t010": {
+      "pid": 2187338,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_tuning_20261104/sphere_t010",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "493a3a8e3c92583fc8dcb4816536b6ff10aa47fc9efe52500ac4e8d8e05221c1"
+    },
+    "sphere_t050": {
+      "pid": 2187336,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_tuning_20261104/sphere_t050",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "999da22db47c4c10e18e1d8edcd0a69a8e57050cfea4663a690108a93ae9029c"
+    },
+    "diffusion_seed1": {
+      "pid": 2194040,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_replication_20261104/diffusion_seed1",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "0529a241730a5e6d55de0110327c78b9b01f11bbc8e463ef5f995c72f11b3096"
+    },
+    "diffusion_seed2": {
+      "pid": 2195571,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_replication_20261104/diffusion_seed2",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "910911c348326d3895eafcedbb142aff695ae0307444a45c899f42c5fc4790b1"
+    },
+    "sphere_seed1": {
+      "pid": 2194039,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_replication_20261104/sphere_seed1",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "f9f85e1e3f8b2947f2312c08091bee03e5dfc8195005a9f72c2624b2b1327833"
+    },
+    "sphere_seed2": {
+      "pid": 2195178,
+      "proc_exists": false,
+      "returncode": 0,
+      "updates": 4000,
+      "env_steps": 4256,
+      "output": "outputs/preference_replication_20261104/sphere_seed2",
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "checkpoint_sha256": "e3c5eb746871c6b6414dd30f71ece8b44fa42d5c102f493004fe12b251dc4bbf"
+    }
+  },
+  "campaigns": {
+    "preference_tuning_20261104": {
+      "campaign_id": "preference_tuning_20261104",
+      "controller": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2187322,
+        "python": "3.10.21",
+        "start_ticks": "96475206",
+        "started_utc": "2026-11-04T11:52:47Z",
+        "torch": "2.5.1"
+      },
+      "finished_unix": 1793793550.0461154,
+      "jobs": {
+        "center_b060_t010": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_tuning_20261104/center_b060_t010.json",
+            "--output",
+            "outputs/preference_tuning_20261104/center_b060_t010"
+          ],
+          "config_sha256": "3a495c5d26c678a91ba6ed9b1f4765061d8733fcf49ecb1c78c7880c37d96c4b",
+          "cpus": [
+            25
+          ],
+          "finished_unix": 1793793550.0449626,
+          "output": "outputs/preference_tuning_20261104/center_b060_t010",
+          "pid": 2191300,
+          "returncode": 0,
+          "started_unix": 1793793449.891635,
+          "status": "complete"
+        },
+        "diff_b020_t010": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_tuning_20261104/diff_b020_t010.json",
+            "--output",
+            "outputs/preference_tuning_20261104/diff_b020_t010"
+          ],
+          "config_sha256": "111bf746a9f0ed433a0e5257feb84f9952afb823945527402267f8e6991eb8ce",
+          "cpus": [
+            24
+          ],
+          "finished_unix": 1793793449.8533947,
+          "output": "outputs/preference_tuning_20261104/diff_b020_t010",
+          "pid": 2189916,
+          "returncode": 0,
+          "started_unix": 1793793347.6736033,
+          "status": "complete"
+        },
+        "diff_b020_t050": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_tuning_20261104/diff_b020_t050.json",
+            "--output",
+            "outputs/preference_tuning_20261104/diff_b020_t050"
+          ],
+          "config_sha256": "fb29fc71bf4ed5ba142a8daf219efff75b78c088574de04e780605750c1774d8",
+          "cpus": [
+            24
+          ],
+          "finished_unix": 1793793347.6547694,
+          "output": "outputs/preference_tuning_20261104/diff_b020_t050",
+          "pid": 2188466,
+          "returncode": 0,
+          "started_unix": 1793793247.479184,
+          "status": "complete"
+        },
+        "diff_b060_t010": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_tuning_20261104/diff_b060_t010.json",
+            "--output",
+            "outputs/preference_tuning_20261104/diff_b060_t010"
+          ],
+          "config_sha256": "f1cac8f5688b7c22d14691bc1e85d98a356a0431e8d8f7fc7e0af4237496b732",
+          "cpus": [
+            25
+          ],
+          "finished_unix": 1793793449.8537378,
+          "output": "outputs/preference_tuning_20261104/diff_b060_t010",
+          "pid": 2189917,
+          "returncode": 0,
+          "started_unix": 1793793347.6900897,
+          "status": "complete"
+        },
+        "diff_b060_t050": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_tuning_20261104/diff_b060_t050.json",
+            "--output",
+            "outputs/preference_tuning_20261104/diff_b060_t050"
+          ],
+          "config_sha256": "e403b70e696b9f247caa91065f372095ad19da88eece00d2c92a32ead7b43012",
+          "cpus": [
+            25
+          ],
+          "finished_unix": 1793793347.6550791,
+          "output": "outputs/preference_tuning_20261104/diff_b060_t050",
+          "pid": 2188467,
+          "returncode": 0,
+          "started_unix": 1793793247.4949317,
+          "status": "complete"
+        },
+        "group_b060_t010": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_tuning_20261104/group_b060_t010.json",
+            "--output",
+            "outputs/preference_tuning_20261104/group_b060_t010"
+          ],
+          "config_sha256": "40f467b0d4fe86ad27ad96c2ea34a65394bfb8c60055cff9f7b7e4fa5276dbbe",
+          "cpus": [
+            24
+          ],
+          "finished_unix": 1793793548.0410874,
+          "output": "outputs/preference_tuning_20261104/group_b060_t010",
+          "pid": 2191299,
+          "returncode": 0,
+          "started_unix": 1793793449.8741403,
+          "status": "complete"
+        },
+        "sphere_t010": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_tuning_20261104/sphere_t010.json",
+            "--output",
+            "outputs/preference_tuning_20261104/sphere_t010"
+          ],
+          "config_sha256": "536f37ce53946bccf95239eb42bce2d0f604ced3ea2ee17c0561a1744961f0d2",
+          "cpus": [
+            25
+          ],
+          "finished_unix": 1793793247.4603145,
+          "output": "outputs/preference_tuning_20261104/sphere_t010",
+          "pid": 2187338,
+          "returncode": 0,
+          "started_unix": 1793793167.3383396,
+          "status": "complete"
+        },
+        "sphere_t050": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_tuning_20261104/sphere_t050.json",
+            "--output",
+            "outputs/preference_tuning_20261104/sphere_t050"
+          ],
+          "config_sha256": "280ad45ce09de338a59703bf3d92565de0f68e22a8e13033cc2d3e6791a91061",
+          "cpus": [
+            24
+          ],
+          "finished_unix": 1793793247.4600012,
+          "output": "outputs/preference_tuning_20261104/sphere_t050",
+          "pid": 2187336,
+          "returncode": 0,
+          "started_unix": 1793793167.3074515,
+          "status": "complete"
+        }
+      },
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "status": "complete",
+      "updated_unix": 1793793550.044975
+    },
+    "preference_replication_20261104": {
+      "campaign_id": "preference_replication_20261104",
+      "controller": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2194028,
+        "python": "3.10.21",
+        "start_ticks": "96522304",
+        "started_utc": "2026-11-04T12:00:38Z",
+        "torch": "2.5.1"
+      },
+      "finished_unix": 1793793842.6706774,
+      "jobs": {
+        "diffusion_seed1": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_replication_20261104/diffusion_seed1.json",
+            "--output",
+            "outputs/preference_replication_20261104/diffusion_seed1"
+          ],
+          "config_sha256": "cd42d178298c0d3188b617a3022bd4acc974f18618687b0aff2b4860cc18f346",
+          "cpus": [
+            25
+          ],
+          "finished_unix": 1793793740.4911826,
+          "output": "outputs/preference_replication_20261104/diffusion_seed1",
+          "pid": 2194040,
+          "returncode": 0,
+          "started_unix": 1793793638.314544,
+          "status": "complete"
+        },
+        "diffusion_seed2": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_replication_20261104/diffusion_seed2.json",
+            "--output",
+            "outputs/preference_replication_20261104/diffusion_seed2"
+          ],
+          "config_sha256": "df98fe90878b2cd1a10bf05685fcb2084b1208e7bcee45739000685dc93cfae2",
+          "cpus": [
+            25
+          ],
+          "finished_unix": 1793793842.6697593,
+          "output": "outputs/preference_replication_20261104/diffusion_seed2",
+          "pid": 2195571,
+          "returncode": 0,
+          "started_unix": 1793793740.50778,
+          "status": "complete"
+        },
+        "sphere_seed1": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_replication_20261104/sphere_seed1.json",
+            "--output",
+            "outputs/preference_replication_20261104/sphere_seed1"
+          ],
+          "config_sha256": "ac4ddeefc59d8747b4e983a5cb692f41ef94bc4da21e2121d4156c7e1df6cc00",
+          "cpus": [
+            24
+          ],
+          "finished_unix": 1793793720.4432187,
+          "output": "outputs/preference_replication_20261104/sphere_seed1",
+          "pid": 2194039,
+          "returncode": 0,
+          "started_unix": 1793793638.2869353,
+          "status": "complete"
+        },
+        "sphere_seed2": {
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "-m",
+            "tools.run_preference",
+            "--config",
+            "experiments/preference_replication_20261104/sphere_seed2.json",
+            "--output",
+            "outputs/preference_replication_20261104/sphere_seed2"
+          ],
+          "config_sha256": "b66cff2a611c97864a864b93b75c433103bfb05b18fb4206aa6b82b2344ece9c",
+          "cpus": [
+            24
+          ],
+          "finished_unix": 1793793802.602561,
+          "output": "outputs/preference_replication_20261104/sphere_seed2",
+          "pid": 2195178,
+          "returncode": 0,
+          "started_unix": 1793793720.4606023,
+          "status": "complete"
+        }
+      },
+      "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+      "status": "complete",
+      "updated_unix": 1793793842.6697712
+    }
+  },
+  "active_preference_workers": [],
+  "gpu_training_launched": false,
+  "gpu_observation": "NVIDIA RTX A6000, 785 MiB, 4 %"
+}

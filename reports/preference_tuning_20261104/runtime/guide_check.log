@@ -1,0 +1,4 @@
+{"arm": "diff_b060_t010", "complete": true}
+{"arm": "group_b060_t010", "complete": true}
+{"arm": "center_b060_t010", "complete": true}
+{"complete": true, "output": "reports/preference_tuning_20261104/guide_check"}

@@ -1,0 +1,46 @@
+{
+  "recorded_unix": 1793793831.418934,
+  "jobs": {
+    "diffusion_seed1": {
+      "queue_status": "complete",
+      "updates": 4000,
+      "phase": "finished",
+      "pid": 2194040,
+      "cpus": [
+        25
+      ]
+    },
+    "diffusion_seed2": {
+      "queue_status": "running",
+      "updates": 3500,
+      "phase": "validation",
+      "pid": 2195571,
+      "cpus": [
+        25
+      ],
+      "comm": "llmagent",
+      "actual_cpus": [
+        25
+      ],
+      "ps": "    PID COMMAND         COMMAND\n2195571 llmagent        /home/li/SolverCell-RL/.venv/bin/python -m tools.run_preference --config experiments/preference_replication_20261104/diffusion_seed2.json --output outputs/preference_replication_20261104/diffusion_seed2\n"
+    },
+    "sphere_seed1": {
+      "queue_status": "complete",
+      "updates": 4000,
+      "phase": "finished",
+      "pid": 2194039,
+      "cpus": [
+        24
+      ]
+    },
+    "sphere_seed2": {
+      "queue_status": "complete",
+      "updates": 4000,
+      "phase": "finished",
+      "pid": 2195178,
+      "cpus": [
+        24
+      ]
+    }
+  }
+}

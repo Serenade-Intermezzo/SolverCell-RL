@@ -1,0 +1,45 @@
+{
+  "campaign_id": "preference_replication_20261104",
+  "cpu_sets": [
+    [
+      24
+    ],
+    [
+      25
+    ]
+  ],
+  "design": "docs/PREFERENCE_TUNING_V2.md",
+  "device": "cpu",
+  "expected_source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+  "jobs": [
+    {
+      "config": "experiments/preference_replication_20261104/sphere_seed1.json",
+      "config_sha256": "ac4ddeefc59d8747b4e983a5cb692f41ef94bc4da21e2121d4156c7e1df6cc00",
+      "cpu_set": [
+        24
+      ],
+      "id": "sphere_seed1",
+      "output": "outputs/preference_replication_20261104/sphere_seed1"
+    },
+    {
+      "config": "experiments/preference_replication_20261104/diffusion_seed1.json",
+      "config_sha256": "cd42d178298c0d3188b617a3022bd4acc974f18618687b0aff2b4860cc18f346",
+      "cpu_set": [
+        25
+      ],
+      "id": "diffusion_seed1",
+      "output": "outputs/preference_replication_20261104/diffusion_seed1"
+    }
+  ],
+  "max_parallel": 2,
+  "parents": {
+    "selection": {
+      "path": "reports/preference_tuning_20261104/selection.json",
+      "sha256": "9791eba0dcc29721076c6120cecee15acc677263de8e1ae05d00ef2b1ebb8e84"
+    }
+  },
+  "runner_module": "tools.run_preference",
+  "schema": "preference_tuning_v2",
+  "scope": "declared source-frozen independent two-lane queue; no retries; retain all arms",
+  "stage": "replication"
+}

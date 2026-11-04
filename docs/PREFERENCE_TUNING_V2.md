@@ -31,6 +31,8 @@ Primary: mean direct scalarized validation utility over the final two checkpoint
 
 Select each base policy independently so sphere remains a strong tuned comparator. Sphere candidates are its two temperatures. Diffusion candidates are the four original-absolute-guide factorial arms; the two guide arms are not additional independent base candidates. Rank by primary metric, then AUC, then original configuration preference. Promote a nonreference setting only if primary improves at least2% over the4000-update reference (.5 temperature, diffusion beta-end.2) and AUC is no worse than98% of reference; otherwise retain reference. Freeze selection JSON before reporting heldout values. This is discovery selection, not replication or significance evidence.
 
+**Completion note, added after the screen:** the selector ranks candidates eligible under that gain/AUC guard; the reference always remains eligible. No final-result fields are used. The actual validation selection was frozen at commit`cbc1cfe` before the new-seed workers launched. The original decision rule above is unchanged.
+
 Then run the frozen selected sphere and diffusion settings at new training seeds1/2 (four runs), same budget and instance. Report discovery seed0 separately, full curves, seed-wise differences and uncertainty limits. Do not tune further from replication/heldout values within this task.
 
 ## Guide mechanism checks and decision gates

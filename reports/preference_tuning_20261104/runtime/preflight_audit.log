@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/li/anaconda3/envs/wflow-rl/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/li/anaconda3/envs/wflow-rl/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/li/SolverCell-RL/deployments/preference_tuning_20261104/source/tools/report_preference.py", line 206, in <module>
+    main()
+  File "/home/li/SolverCell-RL/deployments/preference_tuning_20261104/source/tools/report_preference.py", line 173, in main
+    import matplotlib
+ModuleNotFoundError: No module named 'matplotlib'

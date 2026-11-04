@@ -1,0 +1,24 @@
+{
+  "arms": [
+    "diff_b060_t010",
+    "group_b060_t010",
+    "center_b060_t010"
+  ],
+  "calibration": "two same replay rows;16 actual prefixes\u00d7128 suffixes;fixed context;split-half MC check",
+  "decision": "No guide promotion without calibration and utility benefit; no threshold selected from final results",
+  "episode_seed_start": 500000,
+  "episodes": 16,
+  "guide_temperature": 0.5,
+  "parent_manifest": "experiments/preference_tuning_20261104/manifest.json",
+  "scope": "validation-only post-training mechanism check; no heldout selection",
+  "smc_ess_fractions": [
+    0.5,
+    0.9
+  ],
+  "source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+  "validation_preferences": [
+    0,
+    0.5,
+    1
+  ]
+}

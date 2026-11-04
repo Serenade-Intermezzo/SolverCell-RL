@@ -1,0 +1,87 @@
+{
+  "recorded_unix": 1793793242.2251706,
+  "workers": {
+    "center_b060_t010": {
+      "queue_status": "queued",
+      "updates": null,
+      "phase": null,
+      "cpus": [
+        25
+      ],
+      "pid": null
+    },
+    "diff_b020_t010": {
+      "queue_status": "queued",
+      "updates": null,
+      "phase": null,
+      "cpus": [
+        24
+      ],
+      "pid": null
+    },
+    "diff_b020_t050": {
+      "queue_status": "queued",
+      "updates": null,
+      "phase": null,
+      "cpus": [
+        24
+      ],
+      "pid": null
+    },
+    "diff_b060_t010": {
+      "queue_status": "queued",
+      "updates": null,
+      "phase": null,
+      "cpus": [
+        25
+      ],
+      "pid": null
+    },
+    "diff_b060_t050": {
+      "queue_status": "queued",
+      "updates": null,
+      "phase": null,
+      "cpus": [
+        25
+      ],
+      "pid": null
+    },
+    "group_b060_t010": {
+      "queue_status": "queued",
+      "updates": null,
+      "phase": null,
+      "cpus": [
+        24
+      ],
+      "pid": null
+    },
+    "sphere_t010": {
+      "queue_status": "running",
+      "updates": 4000,
+      "phase": "validation",
+      "cpus": [
+        25
+      ],
+      "pid": 2187338,
+      "comm": "llmagent",
+      "actual_cpus": [
+        25
+      ],
+      "ps": "    PID COMMAND         COMMAND\n2187338 llmagent        /home/li/SolverCell-RL/.venv/bin/python -m tools.run_preference --config experiments/preference_tuning_20261104/sphere_t010.json --output outputs/preference_tuning_20261104/sphere_t010\n"
+    },
+    "sphere_t050": {
+      "queue_status": "running",
+      "updates": 4000,
+      "phase": "validation",
+      "cpus": [
+        24
+      ],
+      "pid": 2187336,
+      "comm": "llmagent",
+      "actual_cpus": [
+        24
+      ],
+      "ps": "    PID COMMAND         COMMAND\n2187336 llmagent        /home/li/SolverCell-RL/.venv/bin/python -m tools.run_preference --config experiments/preference_tuning_20261104/sphere_t050.json --output outputs/preference_tuning_20261104/sphere_t050\n"
+    }
+  }
+}

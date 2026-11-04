@@ -1,0 +1,49 @@
+{
+  "arms": [
+    "diff_b060_t010",
+    "group_b060_t010",
+    "center_b060_t010"
+  ],
+  "checkpoint_sha256": {
+    "center_b060_t010": "b9c6363bdaf56450e139912cbbbc84e4f068fe2dfbc437bac5494e12f460cab4",
+    "diff_b060_t010": "dfc6dc412be51eb81f6fffd128f64408acee7e1eb52e7a63ab5b796f9cea7370",
+    "group_b060_t010": "0764a662e8f382111ca3488848f2c86fd7b7d00c97bd838c4519f57c0caf2d4d"
+  },
+  "learner_fields": [
+    "actor",
+    "target_actor",
+    "q1",
+    "q2",
+    "tq1",
+    "tq2",
+    "actor_optim",
+    "q_optim",
+    "generator",
+    "preference_generator",
+    "behavior_generator",
+    "updates",
+    "actor_updates"
+  ],
+  "status": "bitwise_equal",
+  "training_fields": [
+    "replay",
+    "env_state",
+    "env_t",
+    "env_rng",
+    "replay_rng",
+    "cost_rng",
+    "episode_rng",
+    "behavior_generator",
+    "python_rng",
+    "numpy_rng",
+    "torch_rng",
+    "cuda_rng",
+    "env_steps",
+    "train_steps",
+    "episode_count",
+    "episode_components",
+    "episode_return",
+    "preference",
+    "validation"
+  ]
+}
