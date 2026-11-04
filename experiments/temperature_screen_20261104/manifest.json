@@ -1,0 +1,52 @@
+{
+  "campaign_id": "temperature_screen_20261104",
+  "cpu_sets": [
+    [
+      24
+    ],
+    [
+      26
+    ]
+  ],
+  "device": "cpu",
+  "expected_source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+  "jobs": [
+    {
+      "config": "experiments/temperature_screen_20261104/cell_t010.json",
+      "config_sha256": "d8495b8a25b14299c5a78b3b03bfb545225486126f4bbb8f0983148209064f5f",
+      "id": "cell_t010",
+      "output": "outputs/temperature_screen_20261104/cell_t010"
+    },
+    {
+      "config": "experiments/temperature_screen_20261104/point_t010.json",
+      "config_sha256": "0df3e32385f431a45b719402742c137193d0c15988319a158e64a8ea9614ed1a",
+      "id": "point_t010",
+      "output": "outputs/temperature_screen_20261104/point_t010"
+    },
+    {
+      "config": "experiments/temperature_screen_20261104/independent_t010.json",
+      "config_sha256": "f88fd0fe74857a929d52425b06aaeb75b27978d231914ebb883716293c1d8192",
+      "id": "independent_t010",
+      "output": "outputs/temperature_screen_20261104/independent_t010"
+    },
+    {
+      "config": "experiments/temperature_screen_20261104/cell_t025.json",
+      "config_sha256": "4f2b51f8d3c368714fd35f51c77dd5f3ce4754404802e5db27d4521a639fec28",
+      "id": "cell_t025",
+      "output": "outputs/temperature_screen_20261104/cell_t025"
+    },
+    {
+      "config": "experiments/temperature_screen_20261104/point_t025.json",
+      "config_sha256": "da6838637572eefccb858a809aefef75f998e79b926088a7fc5b2377635b7add",
+      "id": "point_t025",
+      "output": "outputs/temperature_screen_20261104/point_t025"
+    },
+    {
+      "config": "experiments/temperature_screen_20261104/independent_t025.json",
+      "config_sha256": "9637951a4cf6839c53109c4168611c86d524bc8dd242da1ff860d16a8afe73ce",
+      "id": "independent_t025",
+      "output": "outputs/temperature_screen_20261104/independent_t025"
+    }
+  ],
+  "max_parallel": 2
+}

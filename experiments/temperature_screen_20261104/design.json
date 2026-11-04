@@ -1,0 +1,102 @@
+{
+  "campaign_id": "temperature_screen_20261104",
+  "changes": [
+    {
+      "changed_fields": {
+        "temperature": {
+          "from": 1.0,
+          "to": 0.1
+        }
+      },
+      "id": "cell_t010",
+      "parent_config": "experiments/intervention_screen_20261104/cell_m010.json",
+      "parent_config_sha256": "ff3cb31f2a9f39664c2736c5d1a5dd29aae77b5ff1c7b911f10a51eccd47c0e9"
+    },
+    {
+      "changed_fields": {
+        "temperature": {
+          "from": 1.0,
+          "to": 0.1
+        }
+      },
+      "id": "point_t010",
+      "parent_config": "experiments/intervention_screen_20261104/point.json",
+      "parent_config_sha256": "1ab5fe546e2496d971b439e1864fa41a8d54952baf8be50adaabcda2f10f98ca"
+    },
+    {
+      "changed_fields": {
+        "temperature": {
+          "from": 1.0,
+          "to": 0.1
+        }
+      },
+      "id": "independent_t010",
+      "parent_config": "experiments/intervention_screen_20261104/cell_independent.json",
+      "parent_config_sha256": "17ed946c07eeaec5c6c24ce67cf55d3a7d085ee141b9f12666d349456d5c76d2"
+    },
+    {
+      "changed_fields": {
+        "temperature": {
+          "from": 1.0,
+          "to": 0.25
+        }
+      },
+      "id": "cell_t025",
+      "parent_config": "experiments/intervention_screen_20261104/cell_m010.json",
+      "parent_config_sha256": "ff3cb31f2a9f39664c2736c5d1a5dd29aae77b5ff1c7b911f10a51eccd47c0e9"
+    },
+    {
+      "changed_fields": {
+        "temperature": {
+          "from": 1.0,
+          "to": 0.25
+        }
+      },
+      "id": "point_t025",
+      "parent_config": "experiments/intervention_screen_20261104/point.json",
+      "parent_config_sha256": "1ab5fe546e2496d971b439e1864fa41a8d54952baf8be50adaabcda2f10f98ca"
+    },
+    {
+      "changed_fields": {
+        "temperature": {
+          "from": 1.0,
+          "to": 0.25
+        }
+      },
+      "id": "independent_t025",
+      "parent_config": "experiments/intervention_screen_20261104/cell_independent.json",
+      "parent_config_sha256": "17ed946c07eeaec5c6c24ce67cf55d3a7d085ee141b9f12666d349456d5c76d2"
+    }
+  ],
+  "evidence": [
+    "reports/intervention_screen_20261104/diagnostics/cell_m010.json",
+    "reports/intervention_screen_20261104/diagnostics/point.json"
+  ],
+  "factors": {
+    "method": [
+      "cell_diffusion",
+      "point_diffusion",
+      "cell_independent_diffusion"
+    ],
+    "temperature": [
+      0.1,
+      0.25
+    ]
+  },
+  "fixed_margin": 0.1,
+  "instance_seed": 0,
+  "selection": {
+    "heldout_used_for_selection": false,
+    "primary": "validation last_window_return",
+    "secondary": "validation_auc",
+    "shared_temperature": "mean last_window_return across all three completed methods; tie-break mean validation_auc"
+  },
+  "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+  "status": "prepared_not_launched",
+  "total_arms": 6,
+  "total_environment_steps": 30000,
+  "total_training_steps": 24000,
+  "train_steps_per_arm": 4000,
+  "training_seed": 0,
+  "warmup_steps_per_arm": 1000
+}
