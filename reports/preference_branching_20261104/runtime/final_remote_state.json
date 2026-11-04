@@ -1,0 +1,246 @@
+{
+  "status": "complete",
+  "host": "li-Precision-7960-Tower",
+  "checked_utc": "2026-11-04T13:12:30.213596+00:00",
+  "workers": {
+    "screen": {
+      "identity": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          24
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2243869,
+        "python": "3.10.21",
+        "start_ticks": "96917859",
+        "started_utc": "2026-11-04T13:06:33Z",
+        "torch": "2.5.1"
+      },
+      "exit": {
+        "error": null,
+        "returncode": 0
+      },
+      "live": false
+    },
+    "final_seed0": {
+      "identity": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          24
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2246425,
+        "python": "3.10.21",
+        "start_ticks": "96931603",
+        "started_utc": "2026-11-04T13:08:51Z",
+        "torch": "2.5.1"
+      },
+      "exit": {
+        "error": null,
+        "returncode": 0
+      },
+      "live": false
+    },
+    "final_seed1": {
+      "identity": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          25
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2246426,
+        "python": "3.10.21",
+        "start_ticks": "96931603",
+        "started_utc": "2026-11-04T13:08:51Z",
+        "torch": "2.5.1"
+      },
+      "exit": {
+        "error": null,
+        "returncode": 0
+      },
+      "live": false
+    },
+    "final_seed2": {
+      "identity": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          24
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2247736,
+        "python": "3.10.21",
+        "start_ticks": "96940012",
+        "started_utc": "2026-11-04T13:10:15Z",
+        "torch": "2.5.1"
+      },
+      "exit": {
+        "error": null,
+        "returncode": 0
+      },
+      "live": false
+    }
+  },
+  "parent_hashes": {
+    "diffusion_seed0": {
+      "checkpoint.pt": "2a37af1175b6773201ed8549ec7d9b76ff577e2fcff5dfadf662f2e73b219a2a",
+      "config.json": "58aca5846ae1e8d72827cf30f2fe3de8101cdf6a89361fa5d08906dc5d4363c4",
+      "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+    },
+    "diffusion_seed1": {
+      "checkpoint.pt": "0529a241730a5e6d55de0110327c78b9b01f11bbc8e463ef5f995c72f11b3096",
+      "config.json": "4776d11eb4cd58240c85031e2fec6c6ae7cf0d3a9db5c3539e045497a6f239e4",
+      "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+    },
+    "diffusion_seed2": {
+      "checkpoint.pt": "910911c348326d3895eafcedbb142aff695ae0307444a45c899f42c5fc4790b1",
+      "config.json": "8f0e6e1fe3d7bede4471f92aa4d3b5b9357b206ee7fbce68fd191d4017194dd1",
+      "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+    },
+    "sphere_seed0": {
+      "checkpoint.pt": "493a3a8e3c92583fc8dcb4816536b6ff10aa47fc9efe52500ac4e8d8e05221c1",
+      "config.json": "e380635a746ad93e0569170e5f5bf83419a5e2dd5067f54d5f76d063efdfa653",
+      "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+    },
+    "sphere_seed1": {
+      "checkpoint.pt": "f9f85e1e3f8b2947f2312c08091bee03e5dfc8195005a9f72c2624b2b1327833",
+      "config.json": "2f47261b257d1037288c79c8562c617ac0a640964b448181e9d3fe5b16769d00",
+      "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+    },
+    "sphere_seed2": {
+      "checkpoint.pt": "e3c5eb746871c6b6414dd30f71ece8b44fa42d5c102f493004fe12b251dc4bbf",
+      "config.json": "35b771654909508fb1c9745cc9ba63580cb48cfe1af0f3119987b770583d57fd",
+      "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+    }
+  },
+  "training_updates_performed": 0,
+  "live_workers": 0,
+  "queued_jobs": 0,
+  "devices": [
+    "cpu"
+  ],
+  "gpu_workers_launched": 0,
+  "controllers": {
+    "screen": {
+      "stage": "screen",
+      "pid": 2243868,
+      "controller_sha256": "aed02575575d1b662c6bd4fb9bc352195a572572498ae891334f178ad95a92ef",
+      "status": "complete",
+      "jobs": [
+        {
+          "seed": 0,
+          "status": "complete",
+          "pid": 2243869,
+          "cpu": 24,
+          "started": 1793797592.7692273,
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "analysis/run_preference_branching.py",
+            "--manifest",
+            "experiments/preference_branching_20261104/manifest.json",
+            "--output",
+            "outputs/preference_branching_20261104/screen",
+            "--checkpoint-root",
+            "/home/li/SolverCell-RL/deployments/preference_tuning_20261104/source",
+            "--stage",
+            "screen",
+            "--seed",
+            "0"
+          ],
+          "output": "outputs/preference_branching_20261104/screen",
+          "returncode": 0,
+          "finished": 1793797692.8706203
+        }
+      ]
+    },
+    "final": {
+      "stage": "final",
+      "pid": 2246424,
+      "controller_sha256": "aed02575575d1b662c6bd4fb9bc352195a572572498ae891334f178ad95a92ef",
+      "status": "complete",
+      "jobs": [
+        {
+          "seed": 0,
+          "status": "complete",
+          "pid": 2246425,
+          "cpu": 24,
+          "started": 1793797730.2092054,
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "analysis/run_preference_branching.py",
+            "--manifest",
+            "experiments/preference_branching_20261104/manifest.json",
+            "--output",
+            "outputs/preference_branching_20261104/final_seed0",
+            "--checkpoint-root",
+            "/home/li/SolverCell-RL/deployments/preference_tuning_20261104/source",
+            "--stage",
+            "final",
+            "--seed",
+            "0",
+            "--selection",
+            "/home/li/SolverCell-RL/deployments/preference_branching_20261104/selection.json"
+          ],
+          "output": "outputs/preference_branching_20261104/final_seed0",
+          "returncode": 0,
+          "finished": 1793797814.2958667
+        },
+        {
+          "seed": 1,
+          "status": "complete",
+          "pid": 2246426,
+          "cpu": 25,
+          "started": 1793797730.2102199,
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "analysis/run_preference_branching.py",
+            "--manifest",
+            "experiments/preference_branching_20261104/manifest.json",
+            "--output",
+            "outputs/preference_branching_20261104/final_seed1",
+            "--checkpoint-root",
+            "/home/li/SolverCell-RL/deployments/preference_tuning_20261104/source",
+            "--stage",
+            "final",
+            "--seed",
+            "1",
+            "--selection",
+            "/home/li/SolverCell-RL/deployments/preference_branching_20261104/selection.json"
+          ],
+          "output": "outputs/preference_branching_20261104/final_seed1",
+          "returncode": 0,
+          "finished": 1793797814.2968817
+        },
+        {
+          "seed": 2,
+          "status": "complete",
+          "pid": 2247736,
+          "cpu": 24,
+          "started": 1793797814.2987535,
+          "command": [
+            "/home/li/SolverCell-RL/.venv/bin/python",
+            "analysis/run_preference_branching.py",
+            "--manifest",
+            "experiments/preference_branching_20261104/manifest.json",
+            "--output",
+            "outputs/preference_branching_20261104/final_seed2",
+            "--checkpoint-root",
+            "/home/li/SolverCell-RL/deployments/preference_tuning_20261104/source",
+            "--stage",
+            "final",
+            "--seed",
+            "2",
+            "--selection",
+            "/home/li/SolverCell-RL/deployments/preference_branching_20261104/selection.json"
+          ],
+          "output": "outputs/preference_branching_20261104/final_seed2",
+          "returncode": 0,
+          "finished": 1793797898.3796844
+        }
+      ]
+    }
+  }
+}

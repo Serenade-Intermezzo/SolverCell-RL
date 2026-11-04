@@ -1,0 +1,86 @@
+{
+  "stage": "final",
+  "pid": 2246424,
+  "controller_sha256": "aed02575575d1b662c6bd4fb9bc352195a572572498ae891334f178ad95a92ef",
+  "status": "complete",
+  "jobs": [
+    {
+      "seed": 0,
+      "status": "complete",
+      "pid": 2246425,
+      "cpu": 24,
+      "started": 1793797730.2092054,
+      "command": [
+        "/home/li/SolverCell-RL/.venv/bin/python",
+        "analysis/run_preference_branching.py",
+        "--manifest",
+        "experiments/preference_branching_20261104/manifest.json",
+        "--output",
+        "outputs/preference_branching_20261104/final_seed0",
+        "--checkpoint-root",
+        "/home/li/SolverCell-RL/deployments/preference_tuning_20261104/source",
+        "--stage",
+        "final",
+        "--seed",
+        "0",
+        "--selection",
+        "/home/li/SolverCell-RL/deployments/preference_branching_20261104/selection.json"
+      ],
+      "output": "outputs/preference_branching_20261104/final_seed0",
+      "returncode": 0,
+      "finished": 1793797814.2958667
+    },
+    {
+      "seed": 1,
+      "status": "complete",
+      "pid": 2246426,
+      "cpu": 25,
+      "started": 1793797730.2102199,
+      "command": [
+        "/home/li/SolverCell-RL/.venv/bin/python",
+        "analysis/run_preference_branching.py",
+        "--manifest",
+        "experiments/preference_branching_20261104/manifest.json",
+        "--output",
+        "outputs/preference_branching_20261104/final_seed1",
+        "--checkpoint-root",
+        "/home/li/SolverCell-RL/deployments/preference_tuning_20261104/source",
+        "--stage",
+        "final",
+        "--seed",
+        "1",
+        "--selection",
+        "/home/li/SolverCell-RL/deployments/preference_branching_20261104/selection.json"
+      ],
+      "output": "outputs/preference_branching_20261104/final_seed1",
+      "returncode": 0,
+      "finished": 1793797814.2968817
+    },
+    {
+      "seed": 2,
+      "status": "complete",
+      "pid": 2247736,
+      "cpu": 24,
+      "started": 1793797814.2987535,
+      "command": [
+        "/home/li/SolverCell-RL/.venv/bin/python",
+        "analysis/run_preference_branching.py",
+        "--manifest",
+        "experiments/preference_branching_20261104/manifest.json",
+        "--output",
+        "outputs/preference_branching_20261104/final_seed2",
+        "--checkpoint-root",
+        "/home/li/SolverCell-RL/deployments/preference_tuning_20261104/source",
+        "--stage",
+        "final",
+        "--seed",
+        "2",
+        "--selection",
+        "/home/li/SolverCell-RL/deployments/preference_branching_20261104/selection.json"
+      ],
+      "output": "outputs/preference_branching_20261104/final_seed2",
+      "returncode": 0,
+      "finished": 1793797898.3796844
+    }
+  ]
+}

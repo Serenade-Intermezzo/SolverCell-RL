@@ -1,0 +1,8 @@
+{"model": "sphere_seed2", "preference": 0.125, "complete": true}
+{"model": "sphere_seed2", "preference": 0.375, "complete": true}
+{"model": "sphere_seed2", "preference": 0.625, "complete": true}
+{"model": "sphere_seed2", "preference": 0.875, "complete": true}
+{"model": "diffusion_seed2", "preference": 0.125, "complete": true}
+{"model": "diffusion_seed2", "preference": 0.375, "complete": true}
+{"model": "diffusion_seed2", "preference": 0.625, "complete": true}
+{"model": "diffusion_seed2", "preference": 0.875, "complete": true}

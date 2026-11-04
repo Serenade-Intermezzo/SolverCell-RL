@@ -69,7 +69,15 @@ def main():
     manifest['_file_sha256']=hashlib.sha256(args.manifest.read_bytes()).hexdigest()
     selection['_file_sha256']=hashlib.sha256((out/'selection.json').read_bytes()).hexdigest()
     assert selection['heldout_used'] is False and selection['source_sha256']==manifest['expected_source_sha256']
-    screen=audit(ROOT/f"outputs/{manifest['campaign_id']}/screen",manifest,'screen',0,selection)
+    screen_path=ROOT/f"outputs/{manifest['campaign_id']}/screen"
+    if not manifest['debug']:
+        assert selection['manifest_sha256']==manifest['_file_sha256']
+        assert selection['screen_summary_sha256']==hashlib.sha256((screen_path/'summary.json').read_bytes()).hexdigest()
+    screen=audit(screen_path,manifest,'screen',0,selection)
+    for parent in screen['parents']:
+        assert len(parent['support_audit'])==2*len(manifest['screen_preferences'])
+        assert all(value['sample_count']==2*len(manifest['screen_preferences'])*manifest['timing_cycles'] for value in parent['timing'].values())
+        if parent['model'].startswith('diffusion'):assert len(parent['variance_audit'])==6*len(manifest['screen_preferences'])
     finals=[audit(ROOT/f"outputs/{manifest['campaign_id']}/final_seed{seed}",manifest,'final',seed,selection) for seed in (0,1,2)]
     chosen=selection['evaluated_topology'];comparisons=[]
     for result in finals:
@@ -104,7 +112,7 @@ def main():
         f"{selection['reason']}. No final episode or preference selected this topology.",'',
         'Weight ESS measures normalized weight concentration only; it does not account for correlated siblings. '
         'The variance/support audits in study.json separately measure the actual conditional branch structure.', '',
-        '## Fresh final episodes at unseen fitting preferences','',
+        '## Fresh final episodes at held-out preference weights','',
         '| Model training seed | Scope | Independent8 mean | Branch mean | Paired mean difference | Episode-mean SE | Environment-inclusive wall ratio |',
         '|---:|---|---:|---:|---:|---:|---:|']
     for r in comparisons:
@@ -143,6 +151,10 @@ def main():
                 row=selection['candidates'][name]
                 axes[1].scatter(row['median_latency_fraction_vs_is8'],row['utility_fraction_vs_is8'],marker='x')
                 axes[1].annotate(name,(row['median_latency_fraction_vs_is8'],row['utility_fraction_vs_is8']),fontsize=6)
+    axes[0].scatter([],[],color='tab:blue',label='Conditional sphere')
+    axes[0].scatter([],[],color='tab:orange',label='Conditional diffusion')
+    axes[0].legend(fontsize=8,loc='lower right')
+    axes[0].margins(x=.08)
     axes[0].set(xlabel='Actor forward rows per action',ylabel='Validation scalarized utility',title='Seed0: independent circles, trees crosses')
     axes[1].axvline(1.,color='gray',linestyle=':');axes[1].axhline(1.,color='gray',linestyle=':')
     axes[1].set(xlabel='Median inference latency / independent8',ylabel='Validation utility / independent8',title='Diffusion branching screen')

@@ -2,6 +2,8 @@
 
 Repository: [Serenade-Intermezzo/SolverCell-RL](https://github.com/Serenade-Intermezzo/SolverCell-RL). Source, frozen experiment configurations, reports, figures and full commit history are published on`main`. Raw training checkpoints are retained locally/on the experiment server; their hashes and audit evidence are included in the reports.
 
+**Latest mechanism study,2026-11-04:** [shared-prefix diffusion inference is complete](reports/preference_branching_20261104/RESULTS.md). The validation-locked two-root/four-suffix configuration reduces actor rows64→28 while retaining final utility on three fixed v2 models; deltas versus independent8 are+3.986/+8.901/+4.100, with episode-paired SE5.804/5.948/5.031. Median CPU latency changes only1.853ms→1.803ms. Tuned sphere remains stronger. Branching is optional, with no standalone novelty claim. See [interpretation and budget controls](reports/preference_branching_20261104/INTERPRETATION.md), [figure](reports/preference_branching_20261104/branching_tradeoff.png) and [design](docs/PREFERENCE_BRANCHING_V3.md). All7680 formal episodes finish H20; all98 tests pass; zero training updates, live workers or queued jobs.
+
 **Latest controlled study,2026-11-04:** [all12 preference tuning/replication runs are complete](reports/preference_tuning_20261104/RESULTS.md). Temperature.1 improves diffusion's seed0 last-window direct validation203.018→297.661 at matched4000 updates; tuned sphere reaches359.450. Both new training seeds favor sphere. Centered relative guide fitting improves a small prefix-calibration fixture but SMC still equals terminal weighting with extra cost. See [interpretation](reports/preference_tuning_20261104/INTERPRETATION.md), [full curves](reports/preference_tuning_20261104/tuning_and_replication.png), and the [prespecified design](docs/PREFERENCE_TUNING_V2.md). There is no established diffusion superiority.
 
 **Latest research focus:** [decision-consistent preference control](docs/PREFERENCE_CONTROL_REDESIGN.md), now implemented in a separate [preference-learning harness](docs/PREFERENCE_IMPLEMENTATION.md). Conditional diffusion and spherical flow share a vector critic and native quotient decoder. Diffusion additionally supports a joint noise-level continuation guide and finite-particle SMC; both methods support equal-particle terminal weighting. The [two-model server pilot is complete and audited](reports/preference_pilot_20261104/RESULTS.md): diffusion's default SMC never resamples and exactly matches terminal weighting while adding guide cost. This is an implementation pilot, not a diffusion advantage. Assignment remains an audited future extension.
@@ -33,7 +35,7 @@ The upstream checkout is preserved unchanged and excluded from this repository. 
 
 ## Run
 
-The new tuning harness has90 passing tests and a source-frozen eight-arm template. Its separate two-lane controller immediately hands ready independent work to a freed CPU lane. Each arm records exact config, source, worker/CPU identity, exit, full curves and complete checkpoints. To run a fresh declared screen:
+The preference harness has98 passing tests and a source-frozen eight-arm template. Its separate two-lane controller immediately hands ready independent work to a freed CPU lane. Each arm records exact config, source, worker/CPU identity, exit, full curves and complete checkpoints. To run a fresh declared screen:
 
 ```bash
 .venv/bin/python -m tools.prepare_preference_tuning --campaign-id my_preference_tuning
@@ -88,6 +90,22 @@ A deliberately interrupted individual run can be continued with the exact same s
 | `tests/` | Numerical, environment, random-stream and controller checks |
 
 `lsflow_native` preserves the original arm-cost decoder and learning update, with explicitly shortened sampling/training settings. `sphere_matched` is a controlled spherical-policy adaptation with the same primitive decoder and action critic as diffusion; it is not an official LSFlow reproduction. Compare cell versus point for the overall endpoint design; compare cell versus independent-cell to isolate source/endpoint pairing at a fixed conditional endpoint law. The native reference provides context across the larger adaptation boundary.
+
+## Shared-prefix diffusion preference pools
+
+The additive [branching sampler](solvercell/preference_branching.py) shares actual stochastic prefixes and generates fresh conditional suffixes before global terminal preference weighting. Unequal fixed branch counts use inverse-count root corrections. It changes no trained actor/critic or Bellman target. See the [prespecified mechanism design](docs/PREFERENCE_BRANCHING_V3.md) for correlation, finite-pool bias, consistency and full compute boundaries.
+
+The frozen v3 campaign uses the six existing v2 checkpoints, which must be present under their recorded `outputs/` paths and match the manifest hashes; raw checkpoints are not distributed through GitHub. Reproduce in a fresh campaign directory, with the pinned upstream checkout and unchanged parent source files:
+
+```bash
+.venv/bin/python analysis/prepare_preference_branching.py --campaign-id my_branching
+.venv/bin/python analysis/control_preference_branching.py --manifest experiments/my_branching/manifest.json --runtime .runtime/my_branching --checkpoint-root . --python /absolute/path/to/python --stage screen
+.venv/bin/python analysis/select_preference_branching.py --manifest experiments/my_branching/manifest.json --screen outputs/my_branching/screen --output reports/my_branching/selection.json
+.venv/bin/python analysis/control_preference_branching.py --manifest experiments/my_branching/manifest.json --runtime .runtime/my_branching --checkpoint-root . --python /absolute/path/to/python --stage final --selection reports/my_branching/selection.json
+.venv/bin/python analysis/report_preference_branching.py --manifest experiments/my_branching/manifest.json --output reports/my_branching
+```
+
+The controller is fixed to the declared server CPU lanes24/25 and admits two workers. Selection is locked before final evaluation. `--debug` on preparation produces an explicitly engineering-only preflight; its report does not establish a performance result.
 
 ## Frozen experiments versus current development
 

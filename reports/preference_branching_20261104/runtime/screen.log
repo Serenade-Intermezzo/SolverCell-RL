@@ -1,0 +1,6 @@
+{"model": "sphere_seed0", "preference": 0.0, "complete": true}
+{"model": "sphere_seed0", "preference": 0.5, "complete": true}
+{"model": "sphere_seed0", "preference": 1.0, "complete": true}
+{"model": "diffusion_seed0", "preference": 0.0, "complete": true}
+{"model": "diffusion_seed0", "preference": 0.5, "complete": true}
+{"model": "diffusion_seed0", "preference": 1.0, "complete": true}

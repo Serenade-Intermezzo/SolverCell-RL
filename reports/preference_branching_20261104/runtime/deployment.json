@@ -1,0 +1,20 @@
+{
+  "implementation_commit": "d21a377",
+  "source_sha256": "05c3cfffb6e7ed1bad6a077085e7da70bfaef41ad88323108052a261740fcd10",
+  "controller_pid": 2243868,
+  "command": [
+    "/home/li/SolverCell-RL/.venv/bin/python",
+    "analysis/control_preference_branching.py",
+    "--manifest",
+    "experiments/preference_branching_20261104/manifest.json",
+    "--runtime",
+    "/home/li/SolverCell-RL/deployments/preference_branching_20261104/runtime",
+    "--checkpoint-root",
+    "/home/li/SolverCell-RL/deployments/preference_tuning_20261104/source",
+    "--python",
+    "/home/li/SolverCell-RL/.venv/bin/python",
+    "--stage",
+    "screen"
+  ],
+  "source": "/home/li/SolverCell-RL/deployments/preference_branching_20261104/source"
+}

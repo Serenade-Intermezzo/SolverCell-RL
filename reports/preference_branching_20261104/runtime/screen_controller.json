@@ -1,0 +1,32 @@
+{
+  "stage": "screen",
+  "pid": 2243868,
+  "controller_sha256": "aed02575575d1b662c6bd4fb9bc352195a572572498ae891334f178ad95a92ef",
+  "status": "complete",
+  "jobs": [
+    {
+      "seed": 0,
+      "status": "complete",
+      "pid": 2243869,
+      "cpu": 24,
+      "started": 1793797592.7692273,
+      "command": [
+        "/home/li/SolverCell-RL/.venv/bin/python",
+        "analysis/run_preference_branching.py",
+        "--manifest",
+        "experiments/preference_branching_20261104/manifest.json",
+        "--output",
+        "outputs/preference_branching_20261104/screen",
+        "--checkpoint-root",
+        "/home/li/SolverCell-RL/deployments/preference_tuning_20261104/source",
+        "--stage",
+        "screen",
+        "--seed",
+        "0"
+      ],
+      "output": "outputs/preference_branching_20261104/screen",
+      "returncode": 0,
+      "finished": 1793797692.8706203
+    }
+  ]
+}
