@@ -4,7 +4,7 @@
 
 Build a source-grounded diffusion-policy workspace around a released LSFlow combinatorial-RL benchmark, run bounded controlled experiments on wflow-server, and use the completed evidence to decide whether the proposed mechanism merits further work.
 
-**2026-11-04: all 32 authorized runs across four campaigns are complete.** The original 14-run matched-harness study and the subsequent 18-run native-structure study remain separate scientific comparisons. There are zero failed, partial, live or queued arms. The final recorded remote snapshot is 09:36:30 UTC; it contains no experiment workers. No additional RL experiment is launched by this plan update or the research redesign notes.
+**2026-11-04: all32 historical single-objective runs across four campaigns are complete.** The original14-run matched-harness study and subsequent18-run native-structure study remain separate scientific comparisons. Their final remote snapshot was09:36:30 UTC. A new preference harness is now implemented and being validated independently; current preference status is recorded at the end of this file.
 
 The current research direction is documented in [Diffusion redesign decision](docs/DIFFUSION_REDESIGN_DECISION.md). It is a proposed design, not a validated RL result. The current cell-coupling implementation did not establish a consistent advantage, and point diffusion's promising discovery seed did not replicate against quotient spherical flow on new seeds 1 and 2.
 
@@ -54,7 +54,7 @@ The current research direction is documented in [Diffusion redesign decision](do
 - [Continuation critic and negative efficiency gate](docs/NOISE_CONTINUATION_CRITIC.md), [fixed-kernel branch diagnostic](reports/continuation_branch_audit/summary.json).
 - All complete run artifacts and checkpoints are mirrored under Git-ignored `outputs/`. Campaign-specific `reports/` preserve CSV/JSON/LaTeX summaries, deployments and independent audits.
 
-## Proposed next research work: no experiments launched
+## Preference extension: implementation and bounded validation
 
 The latest user direction is preference-controllable generation: one policy changes its real decision distribution with deployment priorities. See [preference redesign](docs/PREFERENCE_CONTROL_REDESIGN.md), [Scheduling/Assignment audit](docs/PREFERENCE_BENCHMARK_SCHEDULING_ASSIGNMENT.md), [Intervention/Disease audit](docs/PREFERENCE_BENCHMARK_INTERVENTION_DISEASE.md), and [guidance methodology](docs/PREFERENCE_GUIDANCE_METHODOLOGY.md).
 
@@ -65,4 +65,10 @@ The latest user direction is preference-controllable generation: one policy chan
 - [done] Document Disease's fixed-world semantics, absent local graph data, sampler/RNG and truncation-metric boundaries before proposing risk/fairness claims.
 - [done] Define clean-cell preference tilt and joint noise-level soft continuation; preserve the execution-noise/initial-law and future-preference Bellman conditions. Compare against correctly conditioned FM, not only fixed-reward LSFlow.
 
-The recommended next task is a bounded preference mechanism fixture on the existing Intervention instance, followed by Assignment's utility–resource tradeoff. First validate fixed-utility preference targets, goal conflicts, controllability and solver/NFE/Q cost; only then implement a shared conditional RL comparison. Joint preference guidance must outperform direct conditioning and equal-budget terminal weighting to merit a diffusion-specific claim. The earlier two-query branch estimator remains behind its failed cost gate; no RB or margin training sweep is planned. All32 historical training runs remain complete, and no new preference RL run is launched by this analysis.
+- [done] Implement vector reward/replay, time-aware observation, preference relabeling with consistent Bellman weights, and matched conditional sphere/diffusion actors in a separate harness.
+- [done] Implement actual-chain suffix targets, a joint log-exponential continuation guide, exact terminal weighting, and SMC with initial weights and ancestor/potential accounting.
+- [done] Add isolated evaluation, complete checkpoints, bitwise mid-episode continuation, source/config guards and invocation-owned exit evidence. Preserve the old single-objective code and immutable campaigns.
+- [in progress] Freeze the implementation, run two bounded server arms (one model each, seed0,256 warmup+1000 updates), and audit complete curves and unseen preference response. Engineering validation and scientific performance remain separate.
+- [pending] Assignment utility–resource implementation and multi-instance/multi-seed replication. Neither is part of this first implementation pilot.
+
+See the [implementation contract](docs/PREFERENCE_IMPLEMENTATION.md) for actual algorithm semantics, compute scope and approximation boundaries. Joint guidance must improve on equal-particle terminal weighting after counting extra guide cost before supporting a diffusion-specific efficiency claim. The earlier two-query branch estimator remains behind its failed cost gate; no RB or margin training sweep is planned.

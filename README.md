@@ -1,8 +1,8 @@
 # SolverCell-RL
 
-**Latest research focus:** [decision-consistent preference control](docs/PREFERENCE_CONTROL_REDESIGN.md). Source audits establish conflicting response-cohort utilities in Intervention and utility–resource tradeoffs in Assignment; these are explicit multi-objective extensions. The routing interface and disease-data/evaluation limitations are recorded before choosing further benchmarks. This is analysis and reproducible oracle validation, not newly trained preference policies.
+**Latest research focus:** [decision-consistent preference control](docs/PREFERENCE_CONTROL_REDESIGN.md), now implemented in a separate [preference-learning harness](docs/PREFERENCE_IMPLEMENTATION.md). Conditional diffusion and spherical flow share a vector critic and native quotient decoder. Diffusion additionally supports a joint noise-level continuation guide and finite-particle SMC; both methods support equal-particle terminal weighting. The bounded server pilot and its evidence are recorded below when complete. Assignment remains an audited future extension.
 
-**Current status, 2026-11-04:** all 32 authorized runs are complete, including the [18-run native-structure follow-up](reports/native_revision_study_20261104/RESULTS.md). Cell coupling did not establish a consistent advantage. Point diffusion's promising seed-0 result against quotient spherical flow did not replicate on new seeds 1 and 2. The [diffusion redesign decision](docs/DIFFUSION_REDESIGN_DECISION.md) records the proposed next research direction; it is not a validated algorithm or a new running experiment. The original implementation and design history follow below.
+**Historical single-objective status, 2026-11-04:** all32 runs are complete, including the [18-run native-structure follow-up](reports/native_revision_study_20261104/RESULTS.md). Cell coupling did not establish a consistent advantage. Point diffusion's promising seed-0 result against quotient spherical flow did not replicate on new seeds1/2. Those frozen experiments remain separate from the new preference extension. The original implementation and design history follow below.
 
 A research workspace for **source-conditioned decision-cell diffusion policies** in combinatorial reinforcement learning. The first experiment uses the released LSFlow Dynamic Intervention environment. This is an experimental method, with no established novelty, convergence or performance claim.
 
@@ -28,6 +28,19 @@ git -C vendor/lsflow checkout 7e50d03e7129974a11061c9ce500bc2dc5593246
 The upstream checkout is preserved unchanged and excluded from this repository. Its Python source hashes are included in every experiment's source manifest. Original code is MIT licensed; see [upstream license](https://github.com/anagha-satish/combinatorial-diffusion/blob/main/LICENSE).
 
 ## Run
+
+For the new preference extension, use the dedicated entrypoint and controller:
+
+```bash
+.venv/bin/python -m tools.prepare_preference --campaign-id my_preference_pilot
+.venv/bin/python -m tools.run_preference --config experiments/my_preference_pilot/diffusion.json --output outputs/my_preference_debug --debug
+.venv/bin/python -m tools.preference_campaign --manifest experiments/my_preference_pilot/manifest.json
+.venv/bin/python -m tools.report_preference --manifest experiments/my_preference_pilot/manifest.json --output reports/my_preference_pilot
+```
+
+The template declares two CPU workers on CPUs24/25, seed0, one instance,256 warmup and1000 updates. It freezes source/config identities and refuses existing outputs. The same checkpoint is tested with direct conditioning, terminal weighting and (diffusion only) SMC. Training uses five preferences; final interpolation uses four unseen preferences. See the [implementation contract and approximation boundaries](docs/PREFERENCE_IMPLEMENTATION.md). This is a new multi-objective harness, not an upstream DPMD reproduction.
+
+For the historical single-objective cell study:
 
 Generate a new eight-arm screen from the template. Existing experiment directories are never overwritten:
 
