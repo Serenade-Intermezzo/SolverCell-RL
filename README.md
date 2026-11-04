@@ -1,5 +1,7 @@
 # SolverCell-RL
 
+**Latest research focus:** [decision-consistent preference control](docs/PREFERENCE_CONTROL_REDESIGN.md). Source audits establish conflicting response-cohort utilities in Intervention and utility–resource tradeoffs in Assignment; these are explicit multi-objective extensions. The routing interface and disease-data/evaluation limitations are recorded before choosing further benchmarks. This is analysis and reproducible oracle validation, not newly trained preference policies.
+
 **Current status, 2026-11-04:** all 32 authorized runs are complete, including the [18-run native-structure follow-up](reports/native_revision_study_20261104/RESULTS.md). Cell coupling did not establish a consistent advantage. Point diffusion's promising seed-0 result against quotient spherical flow did not replicate on new seeds 1 and 2. The [diffusion redesign decision](docs/DIFFUSION_REDESIGN_DECISION.md) records the proposed next research direction; it is not a validated algorithm or a new running experiment. The original implementation and design history follow below.
 
 A research workspace for **source-conditioned decision-cell diffusion policies** in combinatorial reinforcement learning. The first experiment uses the released LSFlow Dynamic Intervention environment. This is an experimental method, with no established novelty, convergence or performance claim.
