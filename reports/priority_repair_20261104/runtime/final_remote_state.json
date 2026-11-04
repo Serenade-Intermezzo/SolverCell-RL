@@ -1,0 +1,199 @@
+{
+  "status": "complete",
+  "checked_utc": "2026-11-04T14:23:28.313286+00:00",
+  "source_sha256": "eec36f7e3d63572e34f709e4343ceb0c67f3b216c8c6ba29c9dc3a7a85fdf022",
+  "jobs": {
+    "sphere_epsilon_s0": {
+      "worker": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          24
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2297105,
+        "python": "3.10.21",
+        "start_ticks": "97336691",
+        "started_utc": "2026-11-04T14:16:22Z",
+        "torch": "2.5.1"
+      },
+      "live": false,
+      "checkpoint_sha256": "a96fcfddaac4de8a65aba2bad96a7f2f77bb1c1b9f8ab4b6fea4af38debb6f60",
+      "exit": {
+        "error": null,
+        "returncode": 0
+      }
+    },
+    "diffusion_epsilon_s0": {
+      "worker": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          25
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2297106,
+        "python": "3.10.21",
+        "start_ticks": "97336691",
+        "started_utc": "2026-11-04T14:16:22Z",
+        "torch": "2.5.1"
+      },
+      "live": false,
+      "checkpoint_sha256": "53811df660479f66e0c901f31319cf9718343aad55981867d54c1a0380e89ee3",
+      "exit": {
+        "error": null,
+        "returncode": 0
+      }
+    },
+    "diffusion_x0_s0": {
+      "worker": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          24
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2297434,
+        "python": "3.10.21",
+        "start_ticks": "97338093",
+        "started_utc": "2026-11-04T14:16:36Z",
+        "torch": "2.5.1"
+      },
+      "live": false,
+      "checkpoint_sha256": "fd18b899c3ad9de21b35a5b7c41dcb9b2f490b036faacbbdc0bfe5a9a2ba0796",
+      "exit": {
+        "error": null,
+        "returncode": 0
+      }
+    },
+    "sphere_epsilon_s1": {
+      "worker": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          25
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2297551,
+        "python": "3.10.21",
+        "start_ticks": "97338694",
+        "started_utc": "2026-11-04T14:16:42Z",
+        "torch": "2.5.1"
+      },
+      "live": false,
+      "checkpoint_sha256": "a941e68023992582bd0e1e4ecdd9dc7d247e8877cf5204721df41d031b6598bd",
+      "exit": {
+        "error": null,
+        "returncode": 0
+      }
+    },
+    "diffusion_epsilon_s1": {
+      "worker": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          25
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2297815,
+        "python": "3.10.21",
+        "start_ticks": "97340096",
+        "started_utc": "2026-11-04T14:16:56Z",
+        "torch": "2.5.1"
+      },
+      "live": false,
+      "checkpoint_sha256": "de52b088041d88c7935e58dc4bfe5b695e4cb11ece9dcc40bcd5701071256f03",
+      "exit": {
+        "error": null,
+        "returncode": 0
+      }
+    },
+    "diffusion_x0_s1": {
+      "worker": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          24
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2297899,
+        "python": "3.10.21",
+        "start_ticks": "97340296",
+        "started_utc": "2026-11-04T14:16:58Z",
+        "torch": "2.5.1"
+      },
+      "live": false,
+      "checkpoint_sha256": "36361da9cab0a5accd1c0c6ed4e2d353489670a5eb3d81f38ed472471284adfa",
+      "exit": {
+        "error": null,
+        "returncode": 0
+      }
+    },
+    "sphere_epsilon_s2": {
+      "worker": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          25
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2298261,
+        "python": "3.10.21",
+        "start_ticks": "97342298",
+        "started_utc": "2026-11-04T14:17:18Z",
+        "torch": "2.5.1"
+      },
+      "live": false,
+      "checkpoint_sha256": "6cb872e0fe592911761784db8fa48c5da90d58c5fb66f2754df000e8eb0a3cea",
+      "exit": {
+        "error": null,
+        "returncode": 0
+      }
+    },
+    "diffusion_epsilon_s2": {
+      "worker": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          24
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2298340,
+        "python": "3.10.21",
+        "start_ticks": "97342499",
+        "started_utc": "2026-11-04T14:17:20Z",
+        "torch": "2.5.1"
+      },
+      "live": false,
+      "checkpoint_sha256": "87918d4a79178f11f0ef2a4fb51cf5f9f23fe7cd070c187036e3c5beb4f81a1e",
+      "exit": {
+        "error": null,
+        "returncode": 0
+      }
+    },
+    "diffusion_x0_s2": {
+      "worker": {
+        "comm": "llmagent",
+        "cpu_affinity": [
+          25
+        ],
+        "host": "li-Precision-7960-Tower",
+        "numpy": "2.2.6",
+        "pid": 2298511,
+        "python": "3.10.21",
+        "start_ticks": "97343700",
+        "started_utc": "2026-11-04T14:17:32Z",
+        "torch": "2.5.1"
+      },
+      "live": false,
+      "checkpoint_sha256": "57789a86be859d52fc17afa3cf972b2e3f6389b35362ac52c37fd8f2a827e854",
+      "exit": {
+        "error": null,
+        "returncode": 0
+      }
+    }
+  },
+  "live_workers": 0,
+  "queued_jobs": 0,
+  "GPU_workers_launched": 0
+}

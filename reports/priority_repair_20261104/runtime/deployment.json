@@ -1,0 +1,13 @@
+{
+  "implementation_commit": "af3f1a8",
+  "controller_pid": 2297031,
+  "command": [
+    "/home/li/SolverCell-RL/.venv/bin/python",
+    "analysis/control_fixed_endpoint_repair.py",
+    "--manifest",
+    "experiments/priority_fixed_20261104/manifest.json",
+    "--runtime",
+    "/home/li/SolverCell-RL/deployments/priority_repair_20261104/runtime"
+  ],
+  "source": "/home/li/SolverCell-RL/deployments/priority_repair_20261104/source"
+}

@@ -1,0 +1,29 @@
+{
+  "sphere_epsilon_s0": {
+    "status": "complete",
+    "steps": 4,
+    "source_sha256": "eec36f7e3d63572e34f709e4343ceb0c67f3b216c8c6ba29c9dc3a7a85fdf022",
+    "summary_sha256": "ce005d9f982f24fb9af5ea6f534f26ff880b4413aa8ccdb68d5a79843bb0dbbe"
+  },
+  "diffusion_epsilon_s0": {
+    "status": "complete",
+    "steps": 4,
+    "source_sha256": "eec36f7e3d63572e34f709e4343ceb0c67f3b216c8c6ba29c9dc3a7a85fdf022",
+    "summary_sha256": "8733ed540c32051c9531fd6e8c0444d813f52336d7ab7efc763acca4607308d9"
+  },
+  "diffusion_x0_s0": {
+    "status": "complete",
+    "steps": 4,
+    "source_sha256": "eec36f7e3d63572e34f709e4343ceb0c67f3b216c8c6ba29c9dc3a7a85fdf022",
+    "summary_sha256": "44d2edc1e33c3363059f5259540a67ff7130a69511a5497209ac0cd8cc48a629"
+  },
+  "repaired_online_harness": {
+    "status": "complete",
+    "updates": 4,
+    "env_steps": 12,
+    "complete_training_episodes": 0,
+    "source_sha256": "eec36f7e3d63572e34f709e4343ceb0c67f3b216c8c6ba29c9dc3a7a85fdf022",
+    "metrics_sha256": "18bd3be92364ddaed58080062b118e6e2d448b4c1c1ce106e1595aee6057f20c",
+    "scope": "engineering-only; partial training episode"
+  }
+}

@@ -1,0 +1,5 @@
+{"step": 0, "training_probe_TV": 0.9923457500408404, "training_probe_utility_gap": -0.011310712729468738}
+{"step": 500, "training_probe_TV": 0.43081328835493576, "training_probe_utility_gap": -0.003961627596392239}
+{"step": 1000, "training_probe_TV": 0.41657751783107716, "training_probe_utility_gap": -0.002565333120539029}
+{"step": 1500, "training_probe_TV": 0.3954602974311759, "training_probe_utility_gap": -0.002362207950213712}
+{"step": 2000, "training_probe_TV": 0.39378899194222566, "training_probe_utility_gap": -0.0014876511624166173}

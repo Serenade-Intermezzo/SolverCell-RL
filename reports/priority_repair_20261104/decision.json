@@ -1,0 +1,20 @@
+{
+  "action": "do not launch staged guidance; unresolved finite-step actor fitting remains the next research node",
+  "actor_fit_gates": {
+    "epsilon": {
+      "difference_vs_sphere": 0.02451948342847271,
+      "mean_heldout_TV": 0.27704092296122934,
+      "passed": false,
+      "sphere_mean_TV": 0.25252143953275663
+    },
+    "x0": {
+      "difference_vs_sphere": 0.0387648963126897,
+      "mean_heldout_TV": 0.29128633584544633,
+      "passed": false,
+      "sphere_mean_TV": 0.25252143953275663
+    }
+  },
+  "scope": "Prespecified fixed-distribution fit gate, not a statistical superiority claim; no heldout tuning.",
+  "staged_guidance_permitted": false,
+  "task_gate_passed": true
+}

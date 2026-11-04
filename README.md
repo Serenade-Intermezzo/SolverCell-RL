@@ -2,6 +2,8 @@
 
 Repository: [Serenade-Intermezzo/SolverCell-RL](https://github.com/Serenade-Intermezzo/SolverCell-RL). Source, frozen experiment configurations, reports, figures and full commit history are published on`main`. Raw training checkpoints are retained locally/on the experiment server; their hashes and audit evidence are included in the reports.
 
+**Latest priority repair,2026-11-04:** [implemented repairs and completed nine-fit study](reports/priority_repair_20261104/RESULTS.md). Training-side model-informed references establish a real cohort tradeoff; frozen scales calibrate new v4 TD/evaluation while retaining raw rewards. The explicit v4 factory uses a clean terminal kernel and rejects incompatible old guide states.104 tests pass. Common fixed-data mean heldout TV is sphere.2525, epsilon-clean.2770, x0-clean.2913; both diffusion variants fail the preset.15 gate, so no new staged guidance is launched. Actor fitting and learned online preference quality remain unresolved. [Interpretation](reports/priority_repair_20261104/INTERPRETATION.md) · [Figure](reports/priority_repair_20261104/repair_results.png). All9 server workers completed; no jobs remain live/queued.
+
 **Latest diagnosis,2026-11-04:** [methodology audit](reports/method_diagnosis_20261104/DIAGNOSIS.md) identifies weak learned preference tradeoffs and a harmful last-noise choice. In864 fresh complete episodes, removing only final diffusion noise improves fixed-model means by17.348/16.710/18.126 at unchanged8 actor rows, while tuned sphere remains stronger. This is a post-hoc mechanism probe; production defaults and trained models are unchanged. Common-state MC probes support useful critic ranking for high-response/mixed goals, but low-response-only action values are nearly flat. [Raw data and audit](reports/method_diagnosis_20261104/audit.json) · [Figure](reports/method_diagnosis_20261104/diagnosis.png).
 
 **Latest mechanism study,2026-11-04:** [shared-prefix diffusion inference is complete](reports/preference_branching_20261104/RESULTS.md). The validation-locked two-root/four-suffix configuration reduces actor rows64→28 while retaining final utility on three fixed v2 models; deltas versus independent8 are+3.986/+8.901/+4.100, with episode-paired SE5.804/5.948/5.031. Median CPU latency changes only1.853ms→1.803ms. Tuned sphere remains stronger. Branching is optional, with no standalone novelty claim. See [interpretation and budget controls](reports/preference_branching_20261104/INTERPRETATION.md), [figure](reports/preference_branching_20261104/branching_tradeoff.png) and [design](docs/PREFERENCE_BRANCHING_V3.md). All7680 formal episodes finish H20; all98 tests pass; zero training updates, live workers or queued jobs.
@@ -142,3 +144,19 @@ The six-arm native revision and twelve-arm margin/replication campaign are compl
 Rebuild the completed report with `python analysis/build_native_study_report.py`. The script verifies saved configs, exits, exact counters, complete validation curves and audit outcomes before computing the validation-only selections. Heldout results are a separate descriptive section. This study matches interactions and updates, while spherical flow uses 24 neural evaluations per sample and diffusion uses 12; it does not establish matched-compute or intrinsic speed superiority. All results are from one environment instance and short 4,000-update runs.
 
 The recorded 2026-11-04 09:36:30 UTC remote snapshot has all four campaigns complete and no experiment workers. Runs used CPU; no GPU training was launched. Frozen sources and manifests remain immutable. See [plan.md](plan.md) for source hashes, complete scope and proposed work.
+
+## Explicit repaired preference profile
+
+Historical PreferenceConfig defaults preserve the legacy unit-scale/noisy terminal policy. Use the new factory for a declared calibrated objective and clean terminal diffusion; it requires the frozen training-side calibration and rejects a failed task gate:
+
+```python
+from solvercell.preference_repair import repaired_preference_config
+from solvercell.storage import atomic_json
+cfg, provenance = repaired_preference_config(
+    "reports/priority_repair_20261104/task_audit.json",
+    method="preference_diffusion", seed=0, train_steps=4000)
+atomic_json("experiments/my_repair/config.json", cfg.to_dict())
+atomic_json("experiments/my_repair/calibration.json", provenance)
+```
+
+Run a new headless job with `python -m tools.run_preference --config experiments/my_repair/config.json --output outputs/my_repair`; use `--debug` for engineering validation. This example prepares a new experiment, not a shipped performance result. New normalized scores cannot be compared directly to old raw-objective scores. Standalone x0 prediction is available as a declared ablation and has not been promoted. The common fixed-endpoint data/configs are distributed under `experiments/priority_fixed_20261104/`; raw learned checkpoints remain local/server artifacts.
