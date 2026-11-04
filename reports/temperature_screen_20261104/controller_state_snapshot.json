@@ -1,0 +1,101 @@
+{
+  "campaign_id": "temperature_screen_20261104",
+  "controller": {
+    "host": "li-Precision-7960-Tower",
+    "pid": 437421,
+    "process_state": "R",
+    "start_ticks": "95170300"
+  },
+  "created_unix": 1793780117.2206578,
+  "jobs": {
+    "cell_t010": {
+      "audit_errors": [],
+      "config_sha256": "d8495b8a25b14299c5a78b3b03bfb545225486126f4bbb8f0983148209064f5f",
+      "output": "/home/li/SolverCell-RL/deployments/temperature_screen_20261104/source/outputs/temperature_screen_20261104/cell_t010",
+      "slot": 0,
+      "started_unix": 1793780117.2240663,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 437429,
+        "process_state": "R",
+        "start_ticks": "95170305"
+      }
+    },
+    "cell_t025": {
+      "audit_errors": [],
+      "config_sha256": "4f2b51f8d3c368714fd35f51c77dd5f3ce4754404802e5db27d4521a639fec28",
+      "output": "/home/li/SolverCell-RL/deployments/temperature_screen_20261104/source/outputs/temperature_screen_20261104/cell_t025",
+      "slot": 1,
+      "started_unix": 1793780197.3638935,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 529986,
+        "process_state": "R",
+        "start_ticks": "95178318"
+      }
+    },
+    "independent_t010": {
+      "audit_errors": [],
+      "config_sha256": "f88fd0fe74857a929d52425b06aaeb75b27978d231914ebb883716293c1d8192",
+      "output": "/home/li/SolverCell-RL/deployments/temperature_screen_20261104/source/outputs/temperature_screen_20261104/independent_t010",
+      "slot": 0,
+      "started_unix": 1793780197.3626306,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 529985,
+        "process_state": "R",
+        "start_ticks": "95178318"
+      }
+    },
+    "independent_t025": {
+      "audit_errors": [],
+      "config_sha256": "9637951a4cf6839c53109c4168611c86d524bc8dd242da1ff860d16a8afe73ce",
+      "output": "/home/li/SolverCell-RL/deployments/temperature_screen_20261104/source/outputs/temperature_screen_20261104/independent_t025",
+      "slot": 1,
+      "started_unix": 1793780277.5134602,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 621985,
+        "process_state": "R",
+        "start_ticks": "95186333"
+      }
+    },
+    "point_t010": {
+      "audit_errors": [],
+      "config_sha256": "0df3e32385f431a45b719402742c137193d0c15988319a158e64a8ea9614ed1a",
+      "output": "/home/li/SolverCell-RL/deployments/temperature_screen_20261104/source/outputs/temperature_screen_20261104/point_t010",
+      "slot": 1,
+      "started_unix": 1793780117.225186,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 437431,
+        "process_state": "R",
+        "start_ticks": "95170305"
+      }
+    },
+    "point_t025": {
+      "audit_errors": [],
+      "config_sha256": "da6838637572eefccb858a809aefef75f998e79b926088a7fc5b2377635b7add",
+      "output": "/home/li/SolverCell-RL/deployments/temperature_screen_20261104/source/outputs/temperature_screen_20261104/point_t025",
+      "slot": 0,
+      "started_unix": 1793780277.512437,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 621984,
+        "process_state": "R",
+        "start_ticks": "95186333"
+      }
+    }
+  },
+  "manifest_sha256": "0b0e7bae8a68a6e2ea05d22189b63ed9279182721701c6a8f1b10ef43c6c6f63",
+  "resource_gate": "CPU campaign",
+  "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+  "status": "complete",
+  "updated_unix": 1793780357.648776
+}

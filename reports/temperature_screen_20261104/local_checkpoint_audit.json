@@ -1,0 +1,90 @@
+{
+  "campaign_id": "temperature_screen_20261104",
+  "runs": [
+    {
+      "id": "cell_t010",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/temperature_screen_20261104/cell_t010",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 2000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    },
+    {
+      "id": "point_t010",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/temperature_screen_20261104/point_t010",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 2000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    },
+    {
+      "id": "independent_t010",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/temperature_screen_20261104/independent_t010",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 2000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    },
+    {
+      "id": "cell_t025",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/temperature_screen_20261104/cell_t025",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 2000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    },
+    {
+      "id": "point_t025",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/temperature_screen_20261104/point_t025",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 2000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    },
+    {
+      "id": "independent_t025",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/temperature_screen_20261104/independent_t025",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 2000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    }
+  ],
+  "all_verified_complete": true
+}

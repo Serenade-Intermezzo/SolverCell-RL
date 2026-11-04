@@ -1,0 +1,34 @@
+{
+  "captured_utc": "2026-11-04T08:26:56.443517+00:00",
+  "training_workers": [],
+  "campaigns": {
+    "intervention_screen_20261104": {
+      "status": "complete",
+      "jobs": {
+        "cell_flow": "complete",
+        "cell_independent": "complete",
+        "cell_m005": "complete",
+        "cell_m010": "complete",
+        "cell_m020": "complete",
+        "lsflow_native": "complete",
+        "point": "complete",
+        "sphere_matched": "complete"
+      },
+      "source": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914"
+    },
+    "temperature_screen_20261104": {
+      "status": "complete",
+      "jobs": {
+        "cell_t010": "complete",
+        "cell_t025": "complete",
+        "independent_t010": "complete",
+        "independent_t025": "complete",
+        "point_t010": "complete",
+        "point_t025": "complete"
+      },
+      "source": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914"
+    }
+  },
+  "gpu": "NVIDIA RTX A6000, 44718 MiB, 100 %",
+  "unrelated_original_worker_exists": true
+}

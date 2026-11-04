@@ -25,13 +25,13 @@ The upstream checkout is preserved unchanged and excluded from this repository. 
 
 ## Run
 
-Generate the fixed eight-arm screen once before freezing its manifest:
+Generate a new eight-arm screen from the template. Existing experiment directories are never overwritten:
 
 ```bash
-.venv/bin/python configs.py
-.venv/bin/python run.py --config experiments/intervention_screen_20261104/cell_m010.json --output outputs/my_debug --debug
-.venv/bin/python tools/campaign.py run --manifest experiments/intervention_screen_20261104/manifest.json
-.venv/bin/python aggregate.py --manifest experiments/intervention_screen_20261104/manifest.json --output reports/screen
+.venv/bin/python configs.py --campaign-id my_screen
+.venv/bin/python run.py --config experiments/my_screen/cell_m010.json --output outputs/my_debug --debug
+.venv/bin/python tools/campaign.py run --manifest experiments/my_screen/manifest.json
+.venv/bin/python aggregate.py --manifest experiments/my_screen/manifest.json --output reports/screen
 ```
 
 The shipped screen uses two single-thread CPU workers pinned to CPUs 24 and 25 on `wflow-server`. Change the CPU affinity before running on another machine. It uses 1,000 warm-up steps plus 4,000 training updates per arm, seed 0, one fixed instance, validation every 500 updates, and 50 held-out rollout episodes. It is a short tuning screen; the released full training budget is 40,000 updates.
@@ -55,3 +55,9 @@ A deliberately interrupted individual run can be continued with the exact same s
 | `tests/` | Numerical, environment, random-stream and controller checks |
 
 `lsflow_native` preserves the original arm-cost decoder and learning update, with explicitly shortened sampling/training settings. `sphere_matched` is a controlled spherical-policy adaptation with the same primitive decoder and action critic as diffusion; it is not an official LSFlow reproduction. Compare cell versus point for the overall endpoint design; compare cell versus independent-cell to isolate source/endpoint pairing at a fixed conditional endpoint law. The native reference provides context across the larger adaptation boundary.
+
+## Frozen experiments versus current development
+
+The two 2026-11-04 screens use scientific source SHA256 `258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914`. Their complete source snapshots are preserved on the server in `deployments/<campaign>/source`. Initial source commit: `ec41ef1`; temperature campaign preparation commit: `f6b7d1d` (same scientific code). The local development version subsequently fixes actor metric logging and prevents config generation from overwriting an existing campaign. These changes are not present in those experimental checkpoints.
+
+For exact old-source reproduction, use the recorded commit or preserved server snapshot, its pinned upstream checkout and a fresh output directory. Running a historical manifest against changed source is deliberately refused. Do not regenerate or edit the historical manifests.

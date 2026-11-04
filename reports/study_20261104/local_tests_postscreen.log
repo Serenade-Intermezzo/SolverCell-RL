@@ -1,0 +1,26 @@
+{"campaign": "fake-test", "status": "running", "source": "7038a275df891d5ce01e72ce88d11c07406944704d9e5b061396beced154c638"}
+{"job": "s0", "status": "running", "pid": 1843114, "slot": 0}
+{"job": "s0", "status": "complete", "errors": []}
+{"campaign": "fake-test", "status": "running", "source": "7038a275df891d5ce01e72ce88d11c07406944704d9e5b061396beced154c638"}
+{"campaign": "fake-test", "status": "running", "source": "7038a275df891d5ce01e72ce88d11c07406944704d9e5b061396beced154c638"}
+{"job": "s9", "status": "running", "pid": 1843116, "slot": 0}
+{"job": "s0", "status": "running", "pid": 1843117, "slot": 1}
+{"job": "s9", "status": "failed", "errors": ["missing artifacts: source.json, metrics.json, metrics.jsonl, evaluations.jsonl, checkpoint.pt"]}
+{"job": "s0", "status": "complete", "errors": []}
+{"campaign": "fake-test", "status": "running", "source": "7038a275df891d5ce01e72ce88d11c07406944704d9e5b061396beced154c638"}
+{"campaign": "fake-test", "status": "running", "source": "7038a275df891d5ce01e72ce88d11c07406944704d9e5b061396beced154c638"}
+{"job": "s7", "status": "complete", "errors": []}
+<unknown>:111: DeprecationWarning: invalid escape sequence '\o'
+<unknown>:112: DeprecationWarning: invalid escape sequence '\p'
+<unknown>:139: DeprecationWarning: invalid escape sequence '\o'
+<unknown>:111: DeprecationWarning: invalid escape sequence '\o'
+<unknown>:112: DeprecationWarning: invalid escape sequence '\p'
+<unknown>:139: DeprecationWarning: invalid escape sequence '\o'
+/home/serenade/AI/src/RL/SolverCell-RL/solvercell/trainer.py:290: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  "validation_auc": float(np.trapz(ys, xs) / cfg.train_steps),
+/home/serenade/AI/src/RL/SolverCell-RL/solvercell/trainer.py:290: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  "validation_auc": float(np.trapz(ys, xs) / cfg.train_steps),
+----------------------------------------------------------------------
+Ran 34 tests in 3.339s
+
+OK

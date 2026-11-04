@@ -18,6 +18,16 @@ from .learner import ALGORITHMS, Replay
 from .storage import atomic_json, append_json, atomic_checkpoint, source_manifest, worker_identity
 
 
+# These diagnostics are emitted only when the learner optimizes its actor.
+# Carry them across critic-only logging steps without carrying stale critic
+# metrics. The update index below uses completed, one-based learner updates.
+_ACTOR_DIAGNOSTIC_KEYS = frozenset({
+    "policy_loss", "native_log_alpha", "endpoint_transport", "old_point_transport",
+    "margin_matched_point_transport", "candidate_unique_actions", "weight_ess",
+    "projection_seconds", "velocity_mse", "noise_mse",
+})
+
+
 def evaluate(env, learner, episodes, seed_start, mode="policy"):
     """Paired rollout seeds; no validation RNG state leaks into training."""
     returns, counts, actions_seen = [], [], set()
@@ -126,6 +136,8 @@ def train(cfg: Config, output: Path, resume=False):
     for signum in (signal.SIGTERM, signal.SIGINT):
         old_handlers[signum] = signal.signal(signum, lambda *_: stopped.__setitem__(0, True))
     pretrain_done = False
+    last_actor_info = {}
+    last_actor_update = None
 
     if resume:
         learner.load_state_dict(checkpoint["learner"])
@@ -143,6 +155,9 @@ def train(cfg: Config, output: Path, resume=False):
         env_steps, train_steps = checkpoint["env_steps"], checkpoint["train_steps"]
         episode_count, episode_return = checkpoint["episode_count"], checkpoint["episode_return"]
         pretrain_done, validation = checkpoint["pretrain_done"], checkpoint["validation"]
+        actor_cache = checkpoint.get("actor_metrics_cache", {})
+        last_actor_info = dict(actor_cache.get("metrics", {}))
+        last_actor_update = actor_cache.get("update")
         elapsed_previous = checkpoint["wall_seconds"]
         # Discard only this run's journal entries newer than the last complete checkpoint.
         for filename in ("metrics.jsonl", "evaluations.jsonl", "episodes.jsonl"):
@@ -172,6 +187,7 @@ def train(cfg: Config, output: Path, resume=False):
             "torch_rng": torch.get_rng_state(), "cuda_rng": torch.cuda.get_rng_state_all() if cfg.device.startswith("cuda") else None,
             "env_steps": env_steps, "train_steps": train_steps, "episode_count": episode_count,
             "episode_return": episode_return, "pretrain_done": pretrain_done,
+            "actor_metrics_cache": {"update": last_actor_update, "metrics": last_actor_info},
             "validation": validation, "wall_seconds": wall(), "instance_hash": env.instance_hash})
 
     def validate():
@@ -224,10 +240,18 @@ def train(cfg: Config, output: Path, resume=False):
                 continue
             last_info = learner.update(replay.sample(cfg.batch_size, replay_rng))
             train_steps += 1
+            if "actor_loss" in last_info:
+                last_actor_info = {key: value for key, value in last_info.items()
+                                   if key.startswith("actor_") or key in _ACTOR_DIAGNOSTIC_KEYS}
+                last_actor_update = learner.updates
             if train_steps % cfg.log_interval == 0:
+                log_info = {**last_actor_info, **last_info}
+                if last_actor_update is not None:
+                    log_info.update({"actor_metrics_update": last_actor_update,
+                                     "actor_metrics_age_updates": learner.updates - last_actor_update})
                 append_json(output / "metrics.jsonl", {"env_steps": env_steps, "train_steps": train_steps,
                             "updates": learner.updates, "actor_updates": learner.actor_updates,
-                            "wall_seconds": wall(), **last_info})
+                            "wall_seconds": wall(), **log_info})
             if train_steps % cfg.eval_interval == 0 or train_steps == cfg.train_steps:
                 status("running", phase="validation")
                 validate()

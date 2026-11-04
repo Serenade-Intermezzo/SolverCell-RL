@@ -1,0 +1,33 @@
+{
+  "candidate_action_count_mean": 9.24462890625,
+  "candidate_q_range_mean": 0.7840534448623657,
+  "candidate_q_std_mean": 0.2641718089580536,
+  "candidates": 8,
+  "diagnostic_script_sha256": "fec607c64339a18037bef91962c7a9cb1481a005ff0dd5062c354cd5a01e4e81",
+  "ess_by_temperature": {
+    "0.025": 1.3141858577728271,
+    "0.05": 1.726480484008789,
+    "0.1": 2.6448118686676025,
+    "0.25": 4.952043533325195,
+    "1.0": 7.556187629699707
+  },
+  "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+  "max_weight_by_temperature": {
+    "0.025": 0.8814883232116699,
+    "0.05": 0.7649180889129639,
+    "0.1": 0.5835258960723877,
+    "0.25": 0.3334554135799408,
+    "1.0": 0.17166532576084137
+  },
+  "replay_sample_seed": 882013,
+  "run": "/home/li/SolverCell-RL/deployments/intervention_screen_20261104/source/outputs/intervention_screen_20261104/point",
+  "sampled_cost_norm_mean": 7.836221694946289,
+  "sampling_seed": 882014,
+  "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+  "states": 512,
+  "train_steps": 4000,
+  "transport_independent_cell": 29.791473388671875,
+  "transport_margin_point": 81.54470825195312,
+  "transport_paired_cell": 11.03569507598877,
+  "unique_candidates_mean": 8.0
+}

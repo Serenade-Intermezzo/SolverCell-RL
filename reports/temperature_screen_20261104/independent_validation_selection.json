@@ -1,0 +1,77 @@
+{
+  "status": "all_six_complete",
+  "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+  "heldout_used_for_selection": false,
+  "selection_criterion": "mean last-window validation across three methods; mean validation AUC tie-break",
+  "selected_temperature": 0.1,
+  "rows": [
+    {
+      "id": "cell_t010",
+      "method": "cell_diffusion",
+      "temperature": 0.1,
+      "last_window_return": 147.63500320911407,
+      "validation_auc": 156.66687805652617,
+      "final_validation_return": 145.37250328063965,
+      "wall_seconds": 74.55702255095821
+    },
+    {
+      "id": "point_t010",
+      "method": "point_diffusion",
+      "temperature": 0.1,
+      "last_window_return": 181.34625284671785,
+      "validation_auc": 174.60265940278768,
+      "final_validation_return": 184.8600026845932,
+      "wall_seconds": 75.62259297608398
+    },
+    {
+      "id": "independent_t010",
+      "method": "cell_independent_diffusion",
+      "temperature": 0.1,
+      "last_window_return": 143.6475030183792,
+      "validation_auc": 157.18500312566758,
+      "final_validation_return": 139.91750297546386,
+      "wall_seconds": 74.62017238594126
+    },
+    {
+      "id": "cell_t025",
+      "method": "cell_diffusion",
+      "temperature": 0.25,
+      "last_window_return": 140.35875297784804,
+      "validation_auc": 150.63406547158957,
+      "final_validation_return": 140.65750319957732,
+      "wall_seconds": 75.87468017102219
+    },
+    {
+      "id": "point_t025",
+      "method": "point_diffusion",
+      "temperature": 0.25,
+      "last_window_return": 153.34000267982483,
+      "validation_auc": 153.94344027340412,
+      "final_validation_return": 153.59750261306763,
+      "wall_seconds": 74.9541793409735
+    },
+    {
+      "id": "independent_t025",
+      "method": "cell_independent_diffusion",
+      "temperature": 0.25,
+      "last_window_return": 144.89625296592712,
+      "validation_auc": 149.19390942603349,
+      "final_validation_return": 141.3850026845932,
+      "wall_seconds": 75.53859390493017
+    }
+  ],
+  "temperature_scores": {
+    "0.1": {
+      "mean_last_window_return": 157.5429196914037,
+      "mean_validation_auc": 162.8181801949938,
+      "cell_minus_point": -33.71124963760377,
+      "cell_minus_independent": 3.9875001907348633
+    },
+    "0.25": {
+      "mean_last_window_return": 146.19833620786667,
+      "mean_validation_auc": 151.2571383903424,
+      "cell_minus_point": -12.981249701976793,
+      "cell_minus_independent": -4.537499988079077
+    }
+  }
+}

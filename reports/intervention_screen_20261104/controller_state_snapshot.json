@@ -1,0 +1,129 @@
+{
+  "campaign_id": "intervention_screen_20261104",
+  "controller": {
+    "host": "li-Precision-7960-Tower",
+    "pid": 4167233,
+    "process_state": "R",
+    "start_ticks": "95130547"
+  },
+  "created_unix": 1793779719.6970701,
+  "jobs": {
+    "cell_flow": {
+      "audit_errors": [],
+      "config_sha256": "34ae582cc5b14f64515a8eb7137e46c7a6673526767cf7b419bed39841093398",
+      "output": "/home/li/SolverCell-RL/deployments/intervention_screen_20261104/source/outputs/intervention_screen_20261104/cell_flow",
+      "slot": 0,
+      "started_unix": 1793779880.0146348,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 164026,
+        "process_state": "R",
+        "start_ticks": "95146584"
+      }
+    },
+    "cell_independent": {
+      "audit_errors": [],
+      "config_sha256": "17ed946c07eeaec5c6c24ce67cf55d3a7d085ee141b9f12666d349456d5c76d2",
+      "output": "/home/li/SolverCell-RL/deployments/intervention_screen_20261104/source/outputs/intervention_screen_20261104/cell_independent",
+      "slot": 0,
+      "started_unix": 1793779799.856225,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 69473,
+        "process_state": "R",
+        "start_ticks": "95138568"
+      }
+    },
+    "cell_m005": {
+      "audit_errors": [],
+      "config_sha256": "4cde391a05eac796003d68d250911efcb29435d74f54e0e7fa935708bc35a850",
+      "output": "/home/li/SolverCell-RL/deployments/intervention_screen_20261104/source/outputs/intervention_screen_20261104/cell_m005",
+      "slot": 1,
+      "started_unix": 1793779925.1028247,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 216247,
+        "process_state": "R",
+        "start_ticks": "95151092"
+      }
+    },
+    "cell_m010": {
+      "audit_errors": [],
+      "config_sha256": "ff3cb31f2a9f39664c2736c5d1a5dd29aae77b5ff1c7b911f10a51eccd47c0e9",
+      "output": "/home/li/SolverCell-RL/deployments/intervention_screen_20261104/source/outputs/intervention_screen_20261104/cell_m010",
+      "slot": 0,
+      "started_unix": 1793779719.7003338,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 4167237,
+        "process_state": "R",
+        "start_ticks": "95130552"
+      }
+    },
+    "cell_m020": {
+      "audit_errors": [],
+      "config_sha256": "ab01ca670b0d207760611bc4bd1aaa03dc2658b480c9b35e51e3c07742a5f218",
+      "output": "/home/li/SolverCell-RL/deployments/intervention_screen_20261104/source/outputs/intervention_screen_20261104/cell_m020",
+      "slot": 0,
+      "started_unix": 1793779955.1526392,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 250159,
+        "process_state": "R",
+        "start_ticks": "95154097"
+      }
+    },
+    "lsflow_native": {
+      "audit_errors": [],
+      "config_sha256": "045339bbb8305c4ff672e0d16900d684a69c00ac1df8d78143dc1e717ea572db",
+      "output": "/home/li/SolverCell-RL/deployments/intervention_screen_20261104/source/outputs/intervention_screen_20261104/lsflow_native",
+      "slot": 1,
+      "started_unix": 1793780005.2438886,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 307903,
+        "process_state": "R",
+        "start_ticks": "95159106"
+      }
+    },
+    "point": {
+      "audit_errors": [],
+      "config_sha256": "1ab5fe546e2496d971b439e1864fa41a8d54952baf8be50adaabcda2f10f98ca",
+      "output": "/home/li/SolverCell-RL/deployments/intervention_screen_20261104/source/outputs/intervention_screen_20261104/point",
+      "slot": 1,
+      "started_unix": 1793779719.7012954,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 4167238,
+        "process_state": "R",
+        "start_ticks": "95130552"
+      }
+    },
+    "sphere_matched": {
+      "audit_errors": [],
+      "config_sha256": "7e42275a26034174628a620d1bac04044c0ee52efe81b1fd94fc477f8ac267fb",
+      "output": "/home/li/SolverCell-RL/deployments/intervention_screen_20261104/source/outputs/intervention_screen_20261104/sphere_matched",
+      "slot": 1,
+      "started_unix": 1793779799.8574743,
+      "status": "complete",
+      "supervisor": {
+        "host": "li-Precision-7960-Tower",
+        "pid": 69474,
+        "process_state": "R",
+        "start_ticks": "95138568"
+      }
+    }
+  },
+  "manifest_sha256": "9d109d07b769624a3352c98550d1b214f62ec4e402ea6ca04a56e1094b9fb81d",
+  "resource_gate": "CPU campaign",
+  "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+  "status": "complete",
+  "updated_unix": 1793780501.1448097
+}
