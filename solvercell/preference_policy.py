@@ -1,8 +1,9 @@
 """Preference-conditioned finite policies and inference-time importance samplers.
 
 The diffusion policy uses a known VP corruption and an epsilon predictor, but
-its deployed finite reverse kernels deliberately have variance beta_t even at
-the final step.  The Gaussian initial prior and this variance choice are not an
+its legacy finite reverse kernels have variance beta_t even at the final step.
+The explicit repaired configuration uses a deterministic final mean; earlier
+steps retain their actual positive-variance kernels.  The Gaussian initial prior and this variance choice are not an
 exact reverse-posterior claim.  Likelihoods and potentials refer to RAW chain
 states; only the cost returned to a caller is normalized.
 
@@ -79,6 +80,7 @@ class PreferenceActor(nn.Module):
     def __init__(
         self, obs_dim: int, act_dim: int, hidden: int = 128,
         steps: int = 8, kind: str = "diffusion", beta_end: float = .20,
+        final_noise: bool = True, prediction_type: str = "epsilon",
     ) -> None:
         super().__init__()
         if min(obs_dim, act_dim, hidden) < 1:
@@ -91,6 +93,9 @@ class PreferenceActor(nn.Module):
             raise ValueError('beta_end must lie in [.02,1)')
         if kind == "sphere" and act_dim < 2:
             raise ValueError("sphere requires act_dim >= 2")
+        if type(final_noise) is not bool or prediction_type not in {"epsilon", "x0"}:
+            raise ValueError("Invalid terminal noise or prediction type")
+        self.final_noise, self.prediction_type = final_noise, prediction_type
         self.obs_dim, self.act_dim = obs_dim, act_dim
         self.hidden, self.steps, self.kind = hidden, steps, kind
         self.sampler_nfe = steps
@@ -130,8 +135,9 @@ class PreferenceActor(nn.Module):
             x = abar.sqrt() * targets + (1.0 - abar).sqrt() * epsilon
             t = (level.to(obs.dtype) + 1.0) / self.steps
             prediction = self(obs, prefs, x, t)
-            errors = (prediction - epsilon).square().mean(-1)
-            diagnostic_key = "noise_mse"
+            target = epsilon if self.prediction_type == "epsilon" else targets
+            errors = (prediction - target).square().mean(-1)
+            diagnostic_key = "noise_mse" if self.prediction_type == "epsilon" else "endpoint_mse"
         else:
             start = torch.randn(targets.shape, device=targets.device, dtype=targets.dtype, generator=generator)
             t = torch.rand((obs.shape[0], 1), device=obs.device, dtype=obs.dtype, generator=generator)
@@ -156,7 +162,7 @@ class PreferenceActor(nn.Module):
         """Actual RAW Gaussian kernel mean and scalar std (differentiable).
 
         ``index`` increases in generation time. The VP level decreases from
-        ``steps - 1`` to 0; even level 0 retains strictly positive noise.
+        ``steps - 1`` to 0; level0 is deterministic when final_noise=False.
         """
         if self.kind != "diffusion":
             raise ValueError("raw Gaussian transitions only exist for diffusion")
@@ -165,15 +171,19 @@ class PreferenceActor(nn.Module):
         x = _state(x, obs.shape[0], self.act_dim)
         level = self.steps - 1 - index
         t = obs.new_full((obs.shape[0], 1), (level + 1.0) / self.steps)
-        epsilon = self(obs, prefs, x, t)
+        prediction = self(obs, prefs, x, t)
+        epsilon = prediction if self.prediction_type == "epsilon" else (x-self.alpha_bars[level].sqrt()*prediction)/(1-self.alpha_bars[level]).sqrt()
         mean = (x - self.betas[level] / (1.0 - self.alpha_bars[level]).sqrt() * epsilon) / self.alphas[level].sqrt()
-        return mean, self.betas[level].sqrt()
+        std = self.betas[level].sqrt() if level > 0 or self.final_noise else self.betas.new_zeros(())
+        return mean, std
 
     def transition_log_prob(
         self, obs: Tensor, prefs: Tensor, x: Tensor, next_x: Tensor, index: int,
     ) -> Tensor:
         """Conditional log-density of raw states, never of normalized costs."""
         mean, std = self.transition_parameters(obs, prefs, x, index)
+        if not bool(std > 0):
+            raise ValueError("Deterministic terminal kernel has no Lebesgue Gaussian density")
         next_x = _state(next_x, mean.shape[0], self.act_dim)
         return (-0.5 * ((next_x - mean) / std).square() - std.log() - 0.5 * math.log(2.0 * math.pi)).sum(-1)
 

@@ -1,0 +1,99 @@
+{
+  "actor_config": {
+    "actor_interval": 1,
+    "batch_size": 64,
+    "bootstrap_candidates": 1,
+    "budget": 10,
+    "candidates": 8,
+    "checkpoint_interval": 250,
+    "component_scales": [
+      87.07187530398369,
+      563.5656227767467
+    ],
+    "device": "cpu",
+    "diffusion_beta_end": 0.2,
+    "diffusion_final_noise": false,
+    "diffusion_prediction": "epsilon",
+    "eval_episodes": 4,
+    "eval_interval": 250,
+    "eval_seed_start": 100000,
+    "final_eval_episodes": 8,
+    "final_seed_start": 200000,
+    "gamma": 0.99,
+    "guide_batch_size": 16,
+    "guide_ess_fraction": 0.5,
+    "guide_interval": 4,
+    "guide_objective": "absolute",
+    "guide_particles": 8,
+    "guide_prefixes": 4,
+    "guide_suffixes": 4,
+    "guide_temperature": 0.1,
+    "heldout_preferences": [
+      0.125,
+      0.375,
+      0.625,
+      0.875
+    ],
+    "hidden": 128,
+    "horizon": 20,
+    "instance_seed": 0,
+    "log_interval": 25,
+    "lr": 0.0004,
+    "method": "preference_sphere",
+    "n_actions": 20,
+    "n_arms": 40,
+    "profile": "preference_repair_v4",
+    "replay_capacity": 100000,
+    "reward_scale": 1.0,
+    "sampling_steps": 8,
+    "seed": 2,
+    "tau": 0.005,
+    "temperature": 0.1,
+    "threads": 1,
+    "train_preferences": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "train_steps": 1000,
+    "validation_preferences": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "warmup_steps": 256
+  },
+  "batch_size": 64,
+  "calibration": {
+    "calibration_sha256": "a1dcbb811fcf72320fa6ef418f7a3c678737c1cf8ab9106b23562b79d8c97104",
+    "legacy_objective": false,
+    "objective": "requested preference dot raw components / frozen component scales",
+    "raw_components_unchanged": true
+  },
+  "chunk_size": 2048,
+  "data_sha256": "7b90246174690832cdcf114cf47a637d3d76dbb303b8ae30c3048b669a20b841",
+  "eval_interval": 500,
+  "eval_samples": 8192,
+  "heldout_preferences": [
+    0.125,
+    0.375,
+    0.625,
+    0.875
+  ],
+  "id": "sphere_epsilon_s2",
+  "log_interval": 100,
+  "method": "sphere",
+  "prediction": "epsilon",
+  "seed": 2,
+  "steps": 2000,
+  "temperature": 0.1,
+  "train_preferences": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ]
+}

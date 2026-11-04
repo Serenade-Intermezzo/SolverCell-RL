@@ -28,6 +28,9 @@ class PreferenceConfig:
     bootstrap_candidates: int = 1
     sampling_steps: int = 8
     diffusion_beta_end: float = .20
+    diffusion_final_noise: bool = True
+    diffusion_prediction: str = 'epsilon'
+    component_scales: tuple = (1., 1.)
     temperature: float = .5
     reward_scale: float = .025
     guide_interval: int = 4
@@ -69,6 +72,10 @@ class PreferenceConfig:
             raise ValueError('Use even NFE: spherical Heun takes NFE/2 steps')
         if not math.isfinite(self.diffusion_beta_end) or not .02 <= self.diffusion_beta_end < 1:
             raise ValueError('diffusion_beta_end must lie in [.02,1)')
+        if type(self.diffusion_final_noise) is not bool or self.diffusion_prediction not in {'epsilon','x0'}:
+            raise ValueError('Invalid diffusion endpoint or prediction type')
+        if len(self.component_scales)!=2 or any(not math.isfinite(v) or v<=0 for v in self.component_scales):
+            raise ValueError('Two positive finite component scales required')
         if self.guide_objective not in {'absolute', 'grouped_absolute', 'centered'}:
             raise ValueError('Unknown guide objective')
         if type(self.guide_prefixes) is not int or self.guide_prefixes < 2:
@@ -109,7 +116,7 @@ class PreferenceConfig:
 
 def load_preference_config(path):
     raw = json.loads(Path(path).read_text())
-    for name in ('train_preferences', 'validation_preferences', 'heldout_preferences'):
+    for name in ('train_preferences', 'validation_preferences', 'heldout_preferences','component_scales'):
         if name in raw:
             raw[name] = tuple(raw[name])
     return PreferenceConfig(**raw).validate()

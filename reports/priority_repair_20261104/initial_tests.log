@@ -1,0 +1,137 @@
+test_completed_skip_requires_config_and_source_evidence (test_campaign.CampaignTests) ... {"campaign": "fake-test", "status": "running", "source": "7038a275df891d5ce01e72ce88d11c07406944704d9e5b061396beced154c638"}
+{"job": "s0", "status": "running", "pid": 2984632, "slot": 0}
+{"job": "s0", "status": "complete", "errors": []}
+{"campaign": "fake-test", "status": "running", "source": "7038a275df891d5ce01e72ce88d11c07406944704d9e5b061396beced154c638"}
+ok
+test_concurrent_controller_is_refused (test_campaign.CampaignTests) ... ok
+test_config_drift_is_rejected_before_a_worker_starts (test_campaign.CampaignTests) ... ok
+test_failures_do_not_stop_independent_arms_or_auto_retry (test_campaign.CampaignTests) ... {"campaign": "fake-test", "status": "running", "source": "7038a275df891d5ce01e72ce88d11c07406944704d9e5b061396beced154c638"}
+{"job": "s9", "status": "running", "pid": 2984634, "slot": 0}
+{"job": "s0", "status": "running", "pid": 2984635, "slot": 1}
+{"job": "s9", "status": "failed", "errors": ["missing artifacts: source.json, metrics.json, metrics.jsonl, evaluations.jsonl, checkpoint.pt"]}
+{"job": "s0", "status": "complete", "errors": []}
+{"campaign": "fake-test", "status": "running", "source": "7038a275df891d5ce01e72ce88d11c07406944704d9e5b061396beced154c638"}
+ok
+test_intervals_resample_training_seeds_and_keep_configs_separate (test_campaign.CampaignTests) ... ok
+test_resume_observes_surviving_worker_without_duplicate_launch (test_campaign.CampaignTests) ... {"campaign": "fake-test", "status": "running", "source": "7038a275df891d5ce01e72ce88d11c07406944704d9e5b061396beced154c638"}
+{"job": "s7", "status": "complete", "errors": []}
+ok
+test_projection_modes_choose_old_actual_or_independent_unit_source (test_diffusion_service.DiffusionServiceTests) ... ok
+test_raw_weighted_loss_has_correct_coordinate_reductions (test_diffusion_service.DiffusionServiceTests) ... ok
+test_real_native_dpmd_updates_with_only_service_replaced (test_diffusion_service.DiffusionServiceTests) ... ok
+test_sampling_targets_and_native_perturbation_keep_unit_costs (test_diffusion_service.DiffusionServiceTests) ... ok
+test_eval_stream_and_instance_roundtrip (test_environment.EnvironmentTest) ... ok
+test_expected_reward_manual_and_boundaries (test_environment.EnvironmentTest) ... ok
+test_global_rng_is_not_changed_and_seed_repeats (test_environment.EnvironmentTest) ... ok
+test_instance_matches_pinned_upstream (test_environment.EnvironmentTest) ... <unknown>:111: DeprecationWarning: invalid escape sequence '\o'
+<unknown>:112: DeprecationWarning: invalid escape sequence '\p'
+<unknown>:139: DeprecationWarning: invalid escape sequence '\o'
+ok
+test_preserves_upstream_failure_at_40_actions (test_environment.EnvironmentTest) ... ok
+test_transition_matches_original_with_common_legacy_random_draws (test_environment.EnvironmentTest) ... <unknown>:111: DeprecationWarning: invalid escape sequence '\o'
+<unknown>:112: DeprecationWarning: invalid escape sequence '\p'
+<unknown>:139: DeprecationWarning: invalid escape sequence '\o'
+ok
+test_valid_actions_done_and_greedy (test_environment.EnvironmentTest) ... ok
+test_behavior_and_evaluation_match_with_same_checkpoint (test_fast_native.TensorNativeTests) ... ok
+test_candidate_and_trimmed_value_match_with_multiple_perturbations (test_fast_native.TensorNativeTests) ... ok
+test_two_real_updates_match_all_state_bitwise (test_fast_native.TensorNativeTests) ... ok
+test_batched_projection_is_idempotent_and_preserves_decoder (test_geometry.GeometryTests) ... ok
+test_decoder_has_stable_ties_and_omits_nonpositive_scores (test_geometry.GeometryTests) ... ok
+test_decoder_matches_exhaustive_linear_optimization (test_geometry.GeometryTests) ... ok
+test_dtype_and_input_validation (test_geometry.GeometryTests) ... ok
+test_projection_matches_full_action_space_qp (test_geometry.GeometryTests) ... ok
+test_zero_budget_has_no_cell_constraints (test_geometry.GeometryTests) ... ok
+test_zero_margin_boundary_and_zero_threshold_boundary (test_geometry.GeometryTests) ... ok
+test_even_log_steps_keep_latest_actor_diagnostics (test_logging.ActorLoggingTest) ... /home/serenade/AI/src/RL/SolverCell-RL/solvercell/trainer.py:301: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  "validation_auc": float(np.trapz(ys, xs) / cfg.train_steps),
+ok
+test_resume_restores_actor_cache_before_next_critic_only_log (test_logging.ActorLoggingTest) ... /home/serenade/AI/src/RL/SolverCell-RL/solvercell/trainer.py:301: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  "validation_auc": float(np.trapz(ys, xs) / cfg.train_steps),
+ok
+test_evaluation_does_not_perturb_training_random_streams (test_native_diffusion.NativeDiffusionTests) ... ok
+test_every_actor_replacement_preserves_original_critic_initialization (test_native_diffusion.NativeDiffusionTests) ... ok
+test_quotient_samples_and_projected_endpoints_stay_in_the_native_cost_domain (test_native_diffusion.NativeDiffusionTests) ... ok
+test_real_updates_train_inner_actor_and_checkpoint_resumes_exactly (test_native_diffusion.NativeDiffusionTests) ... ok
+test_invalid_fallback_and_unsupported_weights_are_rejected (test_native_geometry.NativeGeometryTests) ... ok
+test_matches_independent_ambient_quadratic_program (test_native_geometry.NativeGeometryTests) ... ok
+test_original_benchmark_batched_decode_kernel_and_normalization (test_native_geometry.NativeGeometryTests) ... ok
+test_partial_tie_uses_canonical_prefix_and_multiple_ties_fall_back (test_native_geometry.NativeGeometryTests) ... ok
+test_single_partial_group_is_positive_and_separated_from_other_groups (test_native_geometry.NativeGeometryTests) ... ok
+test_finite_gradients_and_reproducible_sampling (test_policies.PolicyTests) ... ok
+test_geodesic_endpoints_tangency_and_antipodes (test_policies.PolicyTests) ... ok
+test_sde_noise_ablation_preserves_training (test_policies.PolicyTests) ... ok
+test_tiny_fixed_interpolants_can_be_learned (test_policies.PolicyTests) ... ok
+test_adapter_preserves_rng_and_matches_all_actual_query_counts (test_preference_branching.PreferenceBranchingTests) ... ok
+test_default_adapter_rng_is_learner_owned (test_preference_branching.PreferenceBranchingTests) ... ok
+test_invalid_support_and_deterministic_flow_are_rejected (test_preference_branching.PreferenceBranchingTests) ... ok
+test_leaf_gaussian_marginals_and_sibling_covariance (test_preference_branching.PreferenceBranchingTests) ... ok
+test_one_child_exactly_equals_original_importance_sampler (test_preference_branching.PreferenceBranchingTests) ... ok
+test_shared_prefixes_have_fresh_suffixes_and_exact_forward_cost (test_preference_branching.PreferenceBranchingTests) ... ok
+test_single_observation_shape_and_terminal_fork_degeneracy (test_preference_branching.PreferenceBranchingTests) ... ok
+test_unequal_counts_do_not_reweight_root_population (test_preference_branching.PreferenceBranchingTests) ... ok
+test_bad_add_rejected_atomically (test_preference_data.PreferenceReplayTest) ... ok
+test_bad_snapshot_rejected_atomically (test_preference_data.PreferenceReplayTest) ... ok
+test_empty_and_full_snapshots (test_preference_data.PreferenceReplayTest) ... ok
+test_partial_numpy_bridge_independence_and_no_rng_use (test_preference_data.PreferenceReplayTest) ... ok
+test_wrapped_physical_ring_and_resume_samples (test_preference_data.PreferenceReplayTest) ... ok
+test_cuda_decode_matches_cpu (test_preference_data.PreferenceTaskTest) ... ok
+test_exact_one_step_oracle_and_source_conflict (test_preference_data.PreferenceTaskTest) ... ok
+test_malformed_task_inputs_and_unequal_partition (test_preference_data.PreferenceTaskTest) ... ok
+test_native_quotient_decoding_and_ties (test_preference_data.PreferenceTaskTest) ... ok
+test_original_reward_units_and_fixed_cohort_values (test_preference_data.PreferenceTaskTest) ... ok
+test_time_encoding_and_no_mutation (test_preference_data.PreferenceTaskTest) ... ok
+test_rejected_duplicate_and_completed_resume_preserve_exit (test_preference_entrypoint.PreferenceEntrypointTest) ... ok
+test_behavior_preference_does_not_leak_into_relabelled_continuation (test_preference_learner.PreferenceLearnerTest) ... ok
+test_external_evaluation_rng_and_actual_forward_row_counts (test_preference_learner.PreferenceLearnerTest) ... ok
+test_guide_fitting_does_not_change_direct_base_learning (test_preference_learner.PreferenceLearnerTest) ... ok
+test_guide_targets_restart_actual_prefix_and_use_joint_logmeanexp (test_preference_learner.PreferenceLearnerTest) ... ok
+test_matched_critics_preference_streams_and_initialization_rng (test_preference_learner.PreferenceLearnerTest) ... ok
+test_same_preference_bootstrap_uses_whole_lower_scalarized_vector (test_preference_learner.PreferenceLearnerTest) ... ok
+test_serialized_exact_checkpoint_continuation_and_inference (test_preference_learner.PreferenceLearnerTest) ... ok
+test_terminal_batch_never_queries_next_actor_or_critics (test_preference_learner.PreferenceLearnerTest) ... ok
+test_equal_nfe_parameter_counts_and_both_losses_train (test_preference_policy.PreferencePolicyTests) ... ok
+test_initial_tilt_resampling_matches_explicit_ancestor_oracle (test_preference_policy.PreferencePolicyTests) ... ok
+test_joint_potential_indices_gradient_and_state_roundtrip (test_preference_policy.PreferencePolicyTests) ... ok
+test_no_resampling_telescopes_to_terminal_importance_sampler (test_preference_policy.PreferencePolicyTests) ... ok
+test_raw_gaussian_kernel_path_and_checkpoint_rng (test_preference_policy.PreferencePolicyTests) ... ok
+test_resampling_gauge_invariance_and_zero_support_errors (test_preference_policy.PreferencePolicyTests) ... ok
+test_vp_training_corruption_and_normalized_weight_reduction (test_preference_policy.PreferencePolicyTests) ... ok
+test_config_rejects_fitting_heldout_overlap (test_preference_trainer.PreferenceTrainerTest) ... ok
+test_debug_completes_both_methods_with_full_artifacts (test_preference_trainer.PreferenceTrainerTest) ... /home/serenade/AI/src/RL/SolverCell-RL/solvercell/preference_trainer.py:344: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  'validation_auc': float(np.trapz(y, x) / cfg.train_steps),
+/home/serenade/AI/src/RL/SolverCell-RL/solvercell/preference_trainer.py:344: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  'validation_auc': float(np.trapz(y, x) / cfg.train_steps),
+ok
+test_evaluation_isolates_environment_all_training_rng_and_parameters (test_preference_trainer.PreferenceTrainerTest) ... ok
+test_interrupted_resume_is_exact_including_ring_rng_and_journals (test_preference_trainer.PreferenceTrainerTest) ... /home/serenade/AI/src/RL/SolverCell-RL/solvercell/preference_trainer.py:344: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  'validation_auc': float(np.trapz(y, x) / cfg.train_steps),
+/home/serenade/AI/src/RL/SolverCell-RL/solvercell/preference_trainer.py:344: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  'validation_auc': float(np.trapz(y, x) / cfg.train_steps),
+/home/serenade/AI/src/RL/SolverCell-RL/solvercell/preference_trainer.py:344: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  'validation_auc': float(np.trapz(y, x) / cfg.train_steps),
+/home/serenade/AI/src/RL/SolverCell-RL/solvercell/preference_trainer.py:344: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+  'validation_auc': float(np.trapz(y, x) / cfg.train_steps),
+ok
+test_centered_loss_has_gauge_invariance_and_correct_scale (test_preference_tuning.PreferenceTuningTests) ... ok
+test_default_schedule_exact_and_stronger_terminal_noise (test_preference_tuning.PreferenceTuningTests) ... ok
+test_group_conditions_and_guide_objective_do_not_change_base_learning (test_preference_tuning.PreferenceTuningTests) ... ok
+test_group_validation_and_centered_checkpoint_recovery (test_preference_tuning.PreferenceTuningTests) ... ok
+test_legacy_default_checkpoint_loads_but_cannot_silently_change_schedule (test_preference_tuning.PreferenceTuningTests) ... ok
+test_empty_partial_full_and_wrapped_roundtrip_next_samples_and_writes (test_replay_storage.ReplayStorageTests) ... ok
+test_invalid_payload_rejected_before_mutation (test_replay_storage.ReplayStorageTests) ... ok
+test_legacy_full_snapshot_preserves_unused_rows (test_replay_storage.ReplayStorageTests) ... ok
+test_snapshot_and_restore_do_not_alias_or_advance_rng (test_replay_storage.ReplayStorageTests) ... ok
+test_evaluation_preserves_every_training_rng (test_training.TrainingTest) ... ok
+test_independent_cell_preserves_endpoint_marginal_but_changes_pairing (test_training.TrainingTest) ... ok
+test_matched_critic_initialization_across_methods (test_training.TrainingTest) ... ok
+test_serialized_learner_roundtrip_continues_exactly (test_training.TrainingTest) ... ok
+test_terminal_targets_do_not_bootstrap (test_training.TrainingTest) ... ok
+test_two_identical_seed_tiny_loops (test_training.TrainingTest) ... ok
+test_native_linear_decoder_matches_exhaustive_objective (test_upstream.NativeLSFlowTests) ... ok
+test_native_updates_pretrain_checkpoint_and_rng_isolation (test_upstream.NativeLSFlowTests) ... ok
+
+----------------------------------------------------------------------
+Ran 98 tests in 5.728s
+
+OK

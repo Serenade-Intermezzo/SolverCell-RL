@@ -1,0 +1,49 @@
+{
+  "campaign_id": "priority_fixed_debug_20261104",
+  "cpu_sets": [
+    [
+      24
+    ],
+    [
+      25
+    ]
+  ],
+  "data_path": "experiments/priority_fixed_debug_20261104/data.npz",
+  "data_sha256": "532606f33d9ddab60f4dcc192bdd899b7c01f63abf1f29006006faace953f361",
+  "debug": true,
+  "gate": {
+    "diffusion_TV_max": 0.15,
+    "diffusion_minus_sphere_TV_max": 0.05
+  },
+  "jobs": [
+    {
+      "config": "experiments/priority_fixed_debug_20261104/sphere_epsilon_s0.json",
+      "config_sha256": "dc0cfad23032ea36187699d6f2f4f2011b88f5b9a44dfe90c18e60dfc534f9d3",
+      "id": "sphere_epsilon_s0",
+      "output": "outputs/priority_fixed_debug_20261104/sphere_epsilon_s0"
+    },
+    {
+      "config": "experiments/priority_fixed_debug_20261104/diffusion_epsilon_s0.json",
+      "config_sha256": "8488f99c933b7d0a75eee95418ba0978e8c81d0eb7a3373e8a6b05e01711530d",
+      "id": "diffusion_epsilon_s0",
+      "output": "outputs/priority_fixed_debug_20261104/diffusion_epsilon_s0"
+    },
+    {
+      "config": "experiments/priority_fixed_debug_20261104/diffusion_x0_s0.json",
+      "config_sha256": "7257c70b913c9fe5deccdc597e5b6e759c19e90cac856b26a6db4d2b1df51873",
+      "id": "diffusion_x0_s0",
+      "output": "outputs/priority_fixed_debug_20261104/diffusion_x0_s0"
+    }
+  ],
+  "max_parallel": 2,
+  "parent_checkpoint_sha256": {
+    "diffusion": "2a37af1175b6773201ed8549ec7d9b76ff577e2fcff5dfadf662f2e73b219a2a",
+    "sphere": "493a3a8e3c92583fc8dcb4816536b6ff10aa47fc9efe52500ac4e8d8e05221c1"
+  },
+  "runner_sha256": "0cdc3d7cfe3d8dc4bf56ec84d285cda3b9a8d016ff6df0f6c0f6fa6428ea206c",
+  "schema": "fixed_endpoint_repair_v4",
+  "scope": "Common fixed finite endpoint distribution fitting; not RL or cumulative reward experiment.",
+  "source_sha256": "eec36f7e3d63572e34f709e4343ceb0c67f3b216c8c6ba29c9dc3a7a85fdf022",
+  "train_contexts": 2,
+  "validation_contexts": 1
+}

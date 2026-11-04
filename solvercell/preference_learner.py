@@ -84,7 +84,8 @@ class PreferenceLearner:
             torch.manual_seed(cfg.seed + 701)
             self.actor = PreferenceActor(self.obs_dim, self.cost_dim, hidden=cfg.hidden,
                                          steps=cfg.sampling_steps, kind=self.kind,
-                                         beta_end=cfg.diffusion_beta_end).to(self.device)
+                                         beta_end=cfg.diffusion_beta_end, final_noise=cfg.diffusion_final_noise,
+                                         prediction_type=cfg.diffusion_prediction).to(self.device)
         with torch.random.fork_rng(devices=[]):
             torch.manual_seed(cfg.seed + 702)
             self.q1 = PreferenceVectorQ(self.obs_dim, self.action_dim, cfg.hidden).to(self.device)
@@ -184,7 +185,7 @@ class PreferenceLearner:
     def critic_targets(self, batch, prefs):
         batch = self._batch(batch)
         prefs = self._preferences(prefs, len(batch["obs"]))
-        targets = batch["reward_components"] * self.cfg.reward_scale
+        targets = batch["reward_components"] / self._tensor(self.cfg.component_scales) * self.cfg.reward_scale
         active = batch["done"] == 0
         if active.any():
             count = self.cfg.bootstrap_candidates
@@ -386,6 +387,8 @@ class PreferenceLearner:
                 "action_dim": self.action_dim, "sampling_steps": self.cfg.sampling_steps,
                 "train_preferences": self.preference_grid.detach().cpu().tolist(),
                 "diffusion_beta_end": self.cfg.diffusion_beta_end,
+                "diffusion_final_noise":self.cfg.diffusion_final_noise,"diffusion_prediction":self.cfg.diffusion_prediction,
+                "component_scales":list(self.cfg.component_scales),
                 "guide_objective": self.cfg.guide_objective, "guide_prefixes": self.cfg.guide_prefixes}
 
     def state_dict(self):
@@ -404,6 +407,8 @@ class PreferenceLearner:
         if state.get('format_version') == 1:
             for key, value in {'diffusion_beta_end': .2, 'guide_objective': 'absolute', 'guide_prefixes': 4}.items():
                 spec.setdefault(key, value)
+        for key,value in {'diffusion_final_noise':True,'diffusion_prediction':'epsilon','component_scales':[1.,1.]}.items():
+            spec.setdefault(key,value)
         if state.get("format_version") not in (1, 2) or spec != self._spec():
             raise ValueError("Incompatible preference learner checkpoint specification")
         if set(state["counters"]) != set(self.COUNTER_KEYS):

@@ -53,6 +53,8 @@ def evaluate_preference(task, learner, weight, mode, episodes, seed_start):
     env = task.env.clone()
     local = PreferenceTask(env)
     preference = np.array([weight, 1 - weight], np.float32)
+    cfg=getattr(learner, "cfg", getattr(getattr(learner,"learner",None),"cfg",None))
+    scales=np.asarray(getattr(cfg,"component_scales",(1.,1.)),dtype=np.float64)
     component_returns, original_returns, counts, completed_lengths = [], [], [], []
     actions_seen, totals, diagnostics = set(), {}, {}
     diagnostic_keys = {'ess_mean', 'ess_min', 'ess_final', 'ess_final_fraction',
@@ -71,7 +73,7 @@ def evaluate_preference(task, learner, weight, mode, episodes, seed_start):
                 action = local.decode(torch.from_numpy(cost[None])).cpu().numpy()[0]
                 stats = {'decoder_rows': 1.}
             elif mode == 'myopic_primitive':
-                action = myopic_action(local, state, preference)
+                action = myopic_action(local, state, preference/scales)
                 stats = {}
             else:
                 action, _, stats = learner.act(encoded, preference, mode=mode, generator=gen)
@@ -95,10 +97,11 @@ def evaluate_preference(task, learner, weight, mode, episodes, seed_start):
         original_returns.append(original)
         completed_lengths.append(steps)
     matrix = np.asarray(component_returns)
-    returns = matrix @ preference
+    returns = (matrix / scales) @ preference
     return {'preference': preference.tolist(), 'low_response_weight': float(weight),
             'mode': mode, 'episodes': episodes, 'seed_start': seed_start,
             'component_returns': component_returns, 'component_return_mean': matrix.mean(0).tolist(),
+            'component_scales':scales.tolist(),'raw_scalarized_returns':(matrix@preference).tolist(),
             'scalarized_returns': returns.tolist(), 'return_mean': float(returns.mean()),
             'return_std': float(returns.std(ddof=1)) if episodes > 1 else 0.,
             'original_returns': original_returns, 'original_return_mean': float(np.mean(original_returns)),
@@ -195,7 +198,8 @@ def train_preference(cfg, output, *, resume=False, stop_after_updates=None):
         'profile': cfg.profile, 'decoder': 'native rank quotient; stable original W scores',
         'obs': 'state/3 plus remaining-horizon fraction', 'cost_dim': task.cost_dim,
         'reward_components': 'N times per-capita utility in low/high response cohorts',
-        'equal_preference_original_reward': True, 'critic_reward_scale': cfg.reward_scale,
+        'equal_preference_original_reward': list(cfg.component_scales)==[1.,1.], 'critic_reward_scale': cfg.reward_scale,'component_scales':list(cfg.component_scales),
+        'diffusion_final_noise':cfg.diffusion_final_noise,'diffusion_prediction':cfg.diffusion_prediction,
         'behavior': 'one direct conditional target-actor sample; no final execution perturbation',
         'bellman': 'same relabeled preference and direct target actor; inner guide does not alter TD policy',
         'guide': 'joint log-exponential continuation, fresh actual base suffixes; finite sample labels',
