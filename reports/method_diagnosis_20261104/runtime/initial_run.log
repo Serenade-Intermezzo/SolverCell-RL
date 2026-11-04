@@ -1,0 +1,7 @@
+{"phase": "critic", "row": 4000, "weight": 0.0, "complete": true}
+{"phase": "critic", "row": 4000, "weight": 0.5, "complete": true}
+{"phase": "critic", "row": 4000, "weight": 1.0, "complete": true}
+{"phase": "critic", "row": 4255, "weight": 0.0, "complete": true}
+{"phase": "critic", "row": 4255, "weight": 0.5, "complete": true}
+{"phase": "critic", "row": 4255, "weight": 1.0, "complete": true}
+{"status": "complete", "wall_seconds": 18.224985976004973}
