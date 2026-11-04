@@ -1,0 +1,32 @@
+{
+  "campaign_id": "preference_pilot_20261104",
+  "cpu_sets": [
+    [
+      24
+    ],
+    [
+      25
+    ]
+  ],
+  "device": "cpu",
+  "expected_source_sha256": "9b8a1b044b789a34ca7d3898bb3613db85f9e0008163287cdde5cb1b4b626b8c",
+  "jobs": [
+    {
+      "config": "experiments/preference_pilot_20261104/sphere.json",
+      "config_sha256": "29a223260cfb42b27afe40539f2b47b4b42096217509285b419b30f7a7e60ded",
+      "id": "sphere",
+      "output": "outputs/preference_pilot_20261104/sphere"
+    },
+    {
+      "config": "experiments/preference_pilot_20261104/diffusion.json",
+      "config_sha256": "25457bbc8115327952c3623d42670f5fb62664e5f6b01141979508d8ef0c0579",
+      "id": "diffusion",
+      "output": "outputs/preference_pilot_20261104/diffusion"
+    }
+  ],
+  "max_parallel": 2,
+  "not_compatible_with_legacy_campaign_runner": true,
+  "runner_module": "tools.run_preference",
+  "schema": "preference_pilot_v1",
+  "scope": "two model seed0 implementation pilot; direct/terminal/SMC share each checkpoint"
+}
