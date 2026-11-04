@@ -1,0 +1,82 @@
+{
+  "host": "serenade-Legion-Y9000P-IAH7H",
+  "processor": "x86_64",
+  "python": "3.10.17",
+  "torch": "2.3.0+cu121",
+  "numpy": "2.0.1",
+  "threads": 1,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "device": "cpu",
+  "batch_size": 64,
+  "candidates": 12,
+  "bootstrap_candidates": 16,
+  "sampling_steps": 12,
+  "warmup_updates_per_variant": 3,
+  "timed_updates_per_chunk": 10,
+  "counterbalanced_order": [
+    "original",
+    "tensor",
+    "tensor",
+    "original"
+  ],
+  "rows": [
+    {
+      "variant": "original",
+      "updates": 10,
+      "seconds": 1.0546857829904184,
+      "seconds_per_update": 0.10546857829904184
+    },
+    {
+      "variant": "tensor",
+      "updates": 10,
+      "seconds": 1.0492812559969025,
+      "seconds_per_update": 0.10492812559969025
+    },
+    {
+      "variant": "tensor",
+      "updates": 10,
+      "seconds": 1.0525935879995814,
+      "seconds_per_update": 0.10525935879995814
+    },
+    {
+      "variant": "original",
+      "updates": 10,
+      "seconds": 1.0634766040020622,
+      "seconds_per_update": 0.10634766040020623
+    }
+  ],
+  "mean_seconds_per_update": {
+    "original": 0.10590811934962403,
+    "tensor": 0.1050937421998242
+  },
+  "speedup_original_over_tensor": 1.0077490546321148,
+  "all_final_states_and_update_metrics_bitwise_equal": true,
+  "checkpoint": "outputs/intervention_screen_20261104/lsflow_native/checkpoint.pt",
+  "checkpoint_sha256": "b662cc8b403a76101820f482e7ca5e43020000a0f5aec3c1ba58e6a1b6940d15",
+  "source_files_sha256": {
+    "solvercell/upstream.py": "13e18bdbda70627cc38487b14784bd69385e86bab49a8c078d70dd34fcea5426",
+    "solvercell/fast_native.py": "7d2cd6884e60724e11560cc9065f06779637234893461aa484249e1c91abb943"
+  },
+  "limitations": "Short local CPU microbenchmark; not a server or end-to-end training speed claim. Each restore deep-copies state to avoid optimizer-state aliasing."
+}

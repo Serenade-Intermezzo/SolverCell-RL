@@ -11,7 +11,7 @@ import time
 import numpy as np
 import torch
 
-from .config import Config
+from .config import Config, is_native_method
 from .environment import InterventionEnv
 from .geometry import decode
 from .learner import ALGORITHMS, Replay
@@ -101,9 +101,16 @@ def train(cfg: Config, output: Path, resume=False):
     atomic_json(output / "source.json", source)
     atomic_json(output / "worker.json", identity)
     atomic_json(output / "instance.json", env.instance_dict())
+    native = is_native_method(cfg.method)
     if cfg.method == "lsflow_upstream":
         from .upstream import NativeLSFlow
         learner = NativeLSFlow(cfg, env)
+    elif cfg.method == "lsflow_tensor":
+        from .fast_native import TensorNativeLSFlow
+        learner = TensorNativeLSFlow(cfg, env)
+    elif native:
+        from .native_diffusion import NativeDiffusion
+        learner = NativeDiffusion(cfg, env)
     else:
         learner = ALGORITHMS[cfg.method](cfg, env)
     effective_algorithm = {"method": cfg.method, "parameter_counts": learner.parameter_counts(),
@@ -113,15 +120,17 @@ def train(cfg: Config, output: Path, resume=False):
                            "point_target": "old_cost_projected_to_same_margin_cell",
                            "cell_target": ("independent_gaussian_projected_to_margin_cell" if cfg.method == "cell_independent_diffusion"
                                            else "new_initial_noise_projected_to_margin_cell")}
-    if cfg.method == "lsflow_upstream":
+    if native:
         effective_algorithm.update({"decoder": "upstream_weights_transpose_then_positive_topk",
                                     "latent_dim": cfg.n_arms, "critic_input": "clean_cost_center",
                                     "reward_scale": 1.0, "observation_scale": 1.0,
                                     "actor_update_interval": 1,
                                     "native_config": asdict(learner.native_config),
                                     "screen_overrides": learner.screen_overrides})
+        if hasattr(learner, "bridge_spec"):
+            effective_algorithm["actor_replacement"] = learner.bridge_spec
     atomic_json(output / "algorithm.json", effective_algorithm)
-    cost_dim = cfg.n_arms if cfg.method == "lsflow_upstream" else cfg.n_actions
+    cost_dim = cfg.n_arms if native else cfg.n_actions
     replay = Replay(cfg.replay_capacity, cfg.n_arms, cfg.n_actions, cost_dim)
     replay_rng = np.random.default_rng(cfg.seed + 101)
     behavior_rng = np.random.default_rng(cfg.seed + 102)
@@ -209,7 +218,7 @@ def train(cfg: Config, output: Path, resume=False):
         last_info = {}
         while train_steps < cfg.train_steps and not stopped[0]:
             warmup = env_steps < cfg.warmup_steps
-            if cfg.method == "lsflow_upstream":
+            if native:
                 action, cost = learner.act(obs, stochastic=True)
             elif warmup or behavior_rng.random() < cfg.exploration_epsilon:
                 # Uniform random objective; same sampler for every matched method.
@@ -224,7 +233,7 @@ def train(cfg: Config, output: Path, resume=False):
             obs = nxt
             if done:
                 episode_count += 1
-                if cfg.method == "lsflow_upstream":
+                if native:
                     learner.native.policy_version += 1
                 append_json(output / "episodes.jsonl", {"env_steps": env_steps, "episode": episode_count,
                             "return": episode_return, "length": env.horizon, "phase": "warmup" if warmup else "train"})
@@ -293,12 +302,12 @@ def train(cfg: Config, output: Path, resume=False):
                   "train_updates_per_wall_second": train_steps / wall(),
                   "parameter_counts": learner.parameter_counts(), "source_sha256": source["source_sha256"],
                   "instance_hash": env.instance_hash, "decoder_calls": learner.decoder_calls,
-                  "decoder_calls_scope": "learner policy candidates including evaluations; excludes trainer random actions and endpoint checks",
+                  "decoder_calls_scope": ("native executed actions including evaluation" if native else "matched policy candidates including evaluation; excludes trainer random actions and endpoint checks"),
                   "projection_seconds": learner.projection_seconds,
                   "feasibility_rate": heldout["feasibility_rate"],
                   "evaluation_count": len(validation), "seed_scope": "single_training_seed",
                   "sampling_steps": cfg.sampling_steps,
-                  "network_evaluations_per_sample": cfg.sampling_steps * (2 if cfg.method in {"sphere_actioncritic", "lsflow_upstream"} else 1)}
+                  "network_evaluations_per_sample": cfg.sampling_steps * (2 if cfg.method in {"sphere_actioncritic", "lsflow_upstream", "lsflow_tensor", "native_quotient_sphere"} else 1)}
         atomic_json(output / "metrics.json", result)
         status("complete", phase="finished")
         print(json.dumps({"event": "complete", **result}), flush=True)

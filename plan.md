@@ -35,3 +35,11 @@ Implement decision-cell diffusion, select a released LSFlow benchmark, and run c
 - `reports/study_20261104/study.json`: machine-readable status and metrics.
 - `reports/{intervention_screen_20261104,temperature_screen_20261104}/`: CSV/JSON/LaTeX and independent audits.
 - `outputs/`: all final run artifacts including checkpoints (Git-ignored).
+
+## Active follow-up: native quotient revision
+- User authorized method/code improvements and further tuning on2026-11-04.
+- Implemented native-policy diffusion replacement and8D decoder quotient, while preserving40D native critics and update rules.
+- Added exact tie-aware original-decoder projection, matched point/cell/independent controls and quotient spherical reference.
+- Tensor-only native paths pass bitwise equivalence; local timing1.008x, no substantial speedup claim.
+- Local debug runs and server30-update preflight pass. Six-arm4k campaign prepared; complete integration tests/source freeze and dispatch next.
+- Design: docs/NATIVE_REVISION_DESIGN.md. Prior14 results remain a completed historical study.

@@ -3,6 +3,16 @@ import hashlib
 import json
 
 
+NATIVE_METHODS = {"lsflow_upstream", "lsflow_tensor", "native_full_point_diffusion",
+                  "native_quotient_sphere", "native_quotient_point_diffusion",
+                  "native_quotient_cell_diffusion", "native_quotient_independent_diffusion",
+                  "native_quotient_cell_flow"}
+
+
+def is_native_method(method):
+    return method in NATIVE_METHODS
+
+
 @dataclass(frozen=True)
 class Config:
     method: str = "cell_diffusion"
@@ -43,7 +53,7 @@ class Config:
     reference_profile: str = "controlled_short_screen"
 
     def validate(self):
-        methods = {"cell_diffusion", "cell_independent_diffusion", "point_diffusion", "canonical_diffusion", "cell_flow", "sphere_actioncritic", "lsflow_upstream"}
+        methods = {"cell_diffusion", "cell_independent_diffusion", "point_diffusion", "canonical_diffusion", "cell_flow", "sphere_actioncritic"} | NATIVE_METHODS
         if self.method not in methods:
             raise ValueError(f"Unknown method: {self.method}")
         if not 0 < self.budget < self.n_actions:
@@ -54,7 +64,7 @@ class Config:
             raise ValueError("Budgets must be positive")
         if self.eval_seed_start + self.eval_episodes > self.final_seed_start:
             raise ValueError("Validation and held-out evaluation seeds overlap")
-        if self.method == "cell_flow" and self.diffusion_scale != 0:
+        if self.method in {"cell_flow", "native_quotient_cell_flow"} and self.diffusion_scale != 0:
             raise ValueError("cell_flow requires diffusion_scale=0")
         return self
 

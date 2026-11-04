@@ -8,6 +8,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import numpy as np
 import torch
 from tools.campaign import audit_complete, read_json, resolved_config
+from solvercell.config import is_native_method
 
 p=argparse.ArgumentParser();p.add_argument('--manifest',required=True);p.add_argument('--root',default=str(Path(__file__).resolve().parents[1]));p.add_argument('--output',required=True);args=p.parse_args()
 root=Path(args.root);manifest=read_json(args.manifest);rows=[]
@@ -31,9 +32,9 @@ for job in manifest['jobs']:
    assert c['config']==cfg and c['source_sha256']==manifest['expected_source_sha256']
    assert c['env_steps']==cfg['train_steps']+cfg['warmup_steps'] and c['train_steps']==cfg['train_steps']
    assert c['learner']['updates']==cfg['train_steps'] and c['replay']['size']==min(c['env_steps'],cfg['replay_capacity'])
-   expected_actor=cfg['train_steps'] if cfg['method']=='lsflow_upstream' else (cfg['train_steps']+cfg['actor_interval']-1)//cfg['actor_interval']
+   expected_actor=cfg['train_steps'] if is_native_method(cfg['method']) else (cfg['train_steps']+cfg['actor_interval']-1)//cfg['actor_interval']
    assert c['learner']['actor_updates']==expected_actor
-   if cfg['method']=='lsflow_upstream':assert c['learner']['pretrain_updates']==8
+   if is_native_method(cfg['method']):assert c['learner']['pretrain_updates']==8
    walk_finite(c['learner']);walk_finite(c['replay'])
    vals=[json.loads(line) for line in (run/'evaluations.jsonl').read_text().splitlines()]
    for v in vals:
