@@ -2,6 +2,8 @@
 
 This is an explicit multi-objective extension of LSFlow Intervention, implemented in a separate harness. It preserves the original N40/A20/B10/H20 dynamics, instance constructor, native score/tie convention and feasible decoder. It does not reproduce upstream DPMD and does not pool results with the historical single-objective experiments.
 
+The first two-model [server pilot](../reports/preference_pilot_20261104/RESULTS.md) is complete and independently audited. Default SMC never resamples and matches terminal weighting with added guide cost. The [interpretation](../reports/preference_pilot_20261104/INTERPRETATION.md) and [fixed-checkpoint validation probe](../reports/preference_guide_probe_20261104/RESULTS.md) record weak preference response and uneven prefix-guide calibration. These are prototype limitations, not evidence of diffusion superiority.
+
 ## Decision and reward contract
 
 - Observation: 40 arm states divided by 3, plus remaining-horizon fraction. The time feature makes finite-horizon value prediction well specified.

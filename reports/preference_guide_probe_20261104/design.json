@@ -1,0 +1,30 @@
+{
+  "arms": [
+    "terminal_weighting",
+    "smc_ess_0",
+    "smc_ess_0.5",
+    "smc_ess_1"
+  ],
+  "calibration_prefixes": 16,
+  "calibration_suffixes": 128,
+  "checkpoint_sha256": "585cd4da5857ac72f704e5c4f977ece10fb01956c4f922bf8ae24d52aabf3861",
+  "decision_rules": [
+    "Threshold-zero mismatch is an implementation blocker.",
+    "Zero resampling establishes equivalence, not guide utility.",
+    "Report all threshold and calibration outcomes; do not select a new threshold or claim superiority."
+  ],
+  "episode_seed_start": 400000,
+  "episodes_per_arm_preference": 16,
+  "frozen_source_sha256": "9b8a1b044b789a34ca7d3898bb3613db85f9e0008163287cdde5cb1b4b626b8c",
+  "hypotheses": [
+    "With ESS threshold zero SMC telescopes to terminal weighting, exactly under paired RNG.",
+    "Nonzero resampling is necessary for this SMC implementation to change generated paths.",
+    "Within fixed obs/pref/index, a useful guide must distinguish suffix utility variation beyond finite MC noise."
+  ],
+  "preferences": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "scope": "post-hoc fixed-checkpoint validation-only mechanism probe; no fitting or heldout tuning"
+}
