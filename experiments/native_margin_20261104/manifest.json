@@ -1,0 +1,94 @@
+{
+  "campaign_id": "native_margin_20261104",
+  "cpu_sets": [
+    [
+      24
+    ],
+    [
+      25
+    ],
+    [
+      26
+    ],
+    [
+      27
+    ]
+  ],
+  "device": "cpu",
+  "expected_source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+  "jobs": [
+    {
+      "config": "experiments/native_margin_20261104/point_m010_recheck.json",
+      "config_sha256": "dd4d14084aa421b99eb1193477e46f0d6cfc4a0ce66363b55c434d3a49331189",
+      "id": "point_m010_recheck",
+      "output": "outputs/native_margin_20261104/point_m010_recheck"
+    },
+    {
+      "config": "experiments/native_margin_20261104/sphere_m010_recheck.json",
+      "config_sha256": "720f935eb7e38013d3ae8e0b05754fcf03642606435df1878f7761fde645a04a",
+      "id": "sphere_m010_recheck",
+      "output": "outputs/native_margin_20261104/sphere_m010_recheck"
+    },
+    {
+      "config": "experiments/native_margin_20261104/point_m010_seed1.json",
+      "config_sha256": "26c289cb58eae9fde5e85847e68e2fb28586a9820193770270a7968906a00503",
+      "id": "point_m010_seed1",
+      "output": "outputs/native_margin_20261104/point_m010_seed1"
+    },
+    {
+      "config": "experiments/native_margin_20261104/sphere_m010_seed1.json",
+      "config_sha256": "7fa65391ccd1e14ef4787d8156f24b81259b00321f3422a7719cf1c5fcd09be5",
+      "id": "sphere_m010_seed1",
+      "output": "outputs/native_margin_20261104/sphere_m010_seed1"
+    },
+    {
+      "config": "experiments/native_margin_20261104/point_m010_seed2.json",
+      "config_sha256": "cd9f188912a4ff828fd8ce0cdb02c23fcabd498eeaa6e348ee092c87e0d6f1a1",
+      "id": "point_m010_seed2",
+      "output": "outputs/native_margin_20261104/point_m010_seed2"
+    },
+    {
+      "config": "experiments/native_margin_20261104/sphere_m010_seed2.json",
+      "config_sha256": "dffa1592d3f541e1533768f3ba55acb7028b551126322cce4d5315086fce4ede",
+      "id": "sphere_m010_seed2",
+      "output": "outputs/native_margin_20261104/sphere_m010_seed2"
+    },
+    {
+      "config": "experiments/native_margin_20261104/point_m030.json",
+      "config_sha256": "21c78c6ec75c4c7f10547ba0e8518a04c91481ca862668fb70e926188df41864",
+      "id": "point_m030",
+      "output": "outputs/native_margin_20261104/point_m030"
+    },
+    {
+      "config": "experiments/native_margin_20261104/cell_m030.json",
+      "config_sha256": "c1d9789ab594de4164a32a5d187445ec92755728b686fe0c749f462951318229",
+      "id": "cell_m030",
+      "output": "outputs/native_margin_20261104/cell_m030"
+    },
+    {
+      "config": "experiments/native_margin_20261104/independent_m030.json",
+      "config_sha256": "48f191995f84bcad199673493978e8a3d83838afefc0ea65e6ad87b5081b5917",
+      "id": "independent_m030",
+      "output": "outputs/native_margin_20261104/independent_m030"
+    },
+    {
+      "config": "experiments/native_margin_20261104/point_m060.json",
+      "config_sha256": "b2a6fb1332e4b1e33bc148e556585dae044cf4f3cfac3cf60a5b5d6f0efd6a40",
+      "id": "point_m060",
+      "output": "outputs/native_margin_20261104/point_m060"
+    },
+    {
+      "config": "experiments/native_margin_20261104/cell_m060.json",
+      "config_sha256": "eb92155c2eec013561e82efac1667d8841073338b72a71302228220c0744f7c5",
+      "id": "cell_m060",
+      "output": "outputs/native_margin_20261104/cell_m060"
+    },
+    {
+      "config": "experiments/native_margin_20261104/independent_m060.json",
+      "config_sha256": "27867f58e4dbd877af9bf2a2ad807830094d1cb70dbab54fc6085983e14dc3a4",
+      "id": "independent_m060",
+      "output": "outputs/native_margin_20261104/independent_m060"
+    }
+  ],
+  "max_parallel": 4
+}

@@ -61,3 +61,17 @@ A deliberately interrupted individual run can be continued with the exact same s
 The two 2026-11-04 screens use scientific source SHA256 `258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914`. Their complete source snapshots are preserved on the server in `deployments/<campaign>/source`. Initial source commit: `ec41ef1`; temperature campaign preparation commit: `f6b7d1d` (same scientific code). The local development version subsequently fixes actor metric logging and prevents config generation from overwriting an existing campaign. These changes are not present in those experimental checkpoints.
 
 For exact old-source reproduction, use the recorded commit or preserved server snapshot, its pinned upstream checkout and a fresh output directory. Running a historical manifest against changed source is deliberately refused. Do not regenerate or edit the historical manifests.
+
+## Native-structure quotient revision
+
+The current method keeps native LSFlow critics, Bellman smoothing, weights and update scheduling. The actor can operate in the8-dimensional column span of the original40-dimensional decoder and lift samples back into the native critic. Exact tie-aware cell projection, point and independent endpoint controls, and an8D spherical reference are implemented. See [revision design](docs/NATIVE_REVISION_DESIGN.md).
+
+```bash
+.venv/bin/python analysis/prepare_native_revision.py --campaign-id my_native_revision
+.venv/bin/python tools/campaign.py run --manifest experiments/my_native_revision/manifest.json
+.venv/bin/python aggregate.py --manifest experiments/my_native_revision/manifest.json --output reports/my_native_revision
+```
+
+This template uses at most4 CPU workers pinned to24–27 on wflow-server; adjust affinities before using another host. Historical manifests and source snapshots remain immutable.
+
+Future checkpoints serialize only replay rows that can actually be sampled, using CPU tensors instead of NumPy pickle payloads. Legacy replay checkpoints remain loadable. The native six-arm screen launched before this storage-only change; its frozen source is recorded separately.

@@ -1,0 +1,435 @@
+{
+  "campaign_id": "native_margin_20261104",
+  "changes": [
+    {
+      "changed_fields": {},
+      "config_file_sha256": "df045b980d8c08761656d68473af9048f9a83789dc24d70d5e148671852f5a6e",
+      "config_sha256": "dd4d14084aa421b99eb1193477e46f0d6cfc4a0ce66363b55c434d3a49331189",
+      "id": "point_m010_recheck",
+      "parent_config": "experiments/native_revision_20261104/quotient_point.json",
+      "parent_config_file_sha256": "df045b980d8c08761656d68473af9048f9a83789dc24d70d5e148671852f5a6e",
+      "parent_config_sha256": "dd4d14084aa421b99eb1193477e46f0d6cfc4a0ce66363b55c434d3a49331189",
+      "stage": "fixed_point_vs_sphere_replication"
+    },
+    {
+      "changed_fields": {},
+      "config_file_sha256": "2a854ad850ee9884dd7ec6fba8ccb99534cf3a9e91169e246421821ef31bd55d",
+      "config_sha256": "720f935eb7e38013d3ae8e0b05754fcf03642606435df1878f7761fde645a04a",
+      "id": "sphere_m010_recheck",
+      "parent_config": "experiments/native_revision_20261104/quotient_sphere.json",
+      "parent_config_file_sha256": "2a854ad850ee9884dd7ec6fba8ccb99534cf3a9e91169e246421821ef31bd55d",
+      "parent_config_sha256": "720f935eb7e38013d3ae8e0b05754fcf03642606435df1878f7761fde645a04a",
+      "stage": "fixed_point_vs_sphere_replication"
+    },
+    {
+      "changed_fields": {
+        "seed": {
+          "from": 0,
+          "to": 1
+        }
+      },
+      "config_file_sha256": "2fbdf65a2887671e8b2e9beaee09d6ba4882b8802e0d3e9068c5bf81d523f9a3",
+      "config_sha256": "26c289cb58eae9fde5e85847e68e2fb28586a9820193770270a7968906a00503",
+      "id": "point_m010_seed1",
+      "parent_config": "experiments/native_revision_20261104/quotient_point.json",
+      "parent_config_file_sha256": "df045b980d8c08761656d68473af9048f9a83789dc24d70d5e148671852f5a6e",
+      "parent_config_sha256": "dd4d14084aa421b99eb1193477e46f0d6cfc4a0ce66363b55c434d3a49331189",
+      "stage": "fixed_point_vs_sphere_replication"
+    },
+    {
+      "changed_fields": {
+        "seed": {
+          "from": 0,
+          "to": 1
+        }
+      },
+      "config_file_sha256": "42246c69801ef7d4fd80113b476fd28f7500939c351a7a60cf852ac34dca7918",
+      "config_sha256": "7fa65391ccd1e14ef4787d8156f24b81259b00321f3422a7719cf1c5fcd09be5",
+      "id": "sphere_m010_seed1",
+      "parent_config": "experiments/native_revision_20261104/quotient_sphere.json",
+      "parent_config_file_sha256": "2a854ad850ee9884dd7ec6fba8ccb99534cf3a9e91169e246421821ef31bd55d",
+      "parent_config_sha256": "720f935eb7e38013d3ae8e0b05754fcf03642606435df1878f7761fde645a04a",
+      "stage": "fixed_point_vs_sphere_replication"
+    },
+    {
+      "changed_fields": {
+        "seed": {
+          "from": 0,
+          "to": 2
+        }
+      },
+      "config_file_sha256": "3bf164b112a34a674e18b1f32fb8e9c0ab1e3065e42726030ee7cbf52d164ad3",
+      "config_sha256": "cd9f188912a4ff828fd8ce0cdb02c23fcabd498eeaa6e348ee092c87e0d6f1a1",
+      "id": "point_m010_seed2",
+      "parent_config": "experiments/native_revision_20261104/quotient_point.json",
+      "parent_config_file_sha256": "df045b980d8c08761656d68473af9048f9a83789dc24d70d5e148671852f5a6e",
+      "parent_config_sha256": "dd4d14084aa421b99eb1193477e46f0d6cfc4a0ce66363b55c434d3a49331189",
+      "stage": "fixed_point_vs_sphere_replication"
+    },
+    {
+      "changed_fields": {
+        "seed": {
+          "from": 0,
+          "to": 2
+        }
+      },
+      "config_file_sha256": "ab812c40fc44068250051a5534e738d47b28a4da8f7978aa859c5845addf446c",
+      "config_sha256": "dffa1592d3f541e1533768f3ba55acb7028b551126322cce4d5315086fce4ede",
+      "id": "sphere_m010_seed2",
+      "parent_config": "experiments/native_revision_20261104/quotient_sphere.json",
+      "parent_config_file_sha256": "2a854ad850ee9884dd7ec6fba8ccb99534cf3a9e91169e246421821ef31bd55d",
+      "parent_config_sha256": "720f935eb7e38013d3ae8e0b05754fcf03642606435df1878f7761fde645a04a",
+      "stage": "fixed_point_vs_sphere_replication"
+    },
+    {
+      "changed_fields": {
+        "margin": {
+          "from": 0.1,
+          "to": 0.3
+        }
+      },
+      "config_file_sha256": "f51fee70ae1de3c357aea0f8d1f89e645d4f5869542566ddc9a4155185b60ecd",
+      "config_sha256": "21c78c6ec75c4c7f10547ba0e8518a04c91481ca862668fb70e926188df41864",
+      "id": "point_m030",
+      "parent_config": "experiments/native_revision_20261104/quotient_point.json",
+      "parent_config_file_sha256": "df045b980d8c08761656d68473af9048f9a83789dc24d70d5e148671852f5a6e",
+      "parent_config_sha256": "dd4d14084aa421b99eb1193477e46f0d6cfc4a0ce66363b55c434d3a49331189",
+      "stage": "margin_factorial"
+    },
+    {
+      "changed_fields": {
+        "margin": {
+          "from": 0.1,
+          "to": 0.3
+        }
+      },
+      "config_file_sha256": "fc735cb43ae9dc64f3f0543fe025a7597b1264bc3cc73f7b15d4f55bb6c61a2c",
+      "config_sha256": "c1d9789ab594de4164a32a5d187445ec92755728b686fe0c749f462951318229",
+      "id": "cell_m030",
+      "parent_config": "experiments/native_revision_20261104/quotient_cell.json",
+      "parent_config_file_sha256": "723e17df021e83b83343e4c89bd834e0c9a8ba408a8554eba36852beb1f2b1bb",
+      "parent_config_sha256": "6455775dd284ea9d9e5d0d69543adccfbc2a1859fefff8ef13f9d1e77d50dd2f",
+      "stage": "margin_factorial"
+    },
+    {
+      "changed_fields": {
+        "margin": {
+          "from": 0.1,
+          "to": 0.3
+        }
+      },
+      "config_file_sha256": "3be526dfe839634eec33e7259d4cb71935e77b11fa63217ffb0dca0a9185b37e",
+      "config_sha256": "48f191995f84bcad199673493978e8a3d83838afefc0ea65e6ad87b5081b5917",
+      "id": "independent_m030",
+      "parent_config": "experiments/native_revision_20261104/quotient_independent.json",
+      "parent_config_file_sha256": "e49747f63bf74473fd988796d32df7e294b15e4f0c635e603b21c2aba0e6c57f",
+      "parent_config_sha256": "5d0bd260b800506840cd691f9f6fb94dc7739c0e8f7a2acdf78491d81cdfbc61",
+      "stage": "margin_factorial"
+    },
+    {
+      "changed_fields": {
+        "margin": {
+          "from": 0.1,
+          "to": 0.6
+        }
+      },
+      "config_file_sha256": "f993f2f5f03928a529f4af397b66496a8b1c762a821961523f101dcd4b14ec30",
+      "config_sha256": "b2a6fb1332e4b1e33bc148e556585dae044cf4f3cfac3cf60a5b5d6f0efd6a40",
+      "id": "point_m060",
+      "parent_config": "experiments/native_revision_20261104/quotient_point.json",
+      "parent_config_file_sha256": "df045b980d8c08761656d68473af9048f9a83789dc24d70d5e148671852f5a6e",
+      "parent_config_sha256": "dd4d14084aa421b99eb1193477e46f0d6cfc4a0ce66363b55c434d3a49331189",
+      "stage": "margin_factorial"
+    },
+    {
+      "changed_fields": {
+        "margin": {
+          "from": 0.1,
+          "to": 0.6
+        }
+      },
+      "config_file_sha256": "289b6826cf12376f9afff4f550dc7716740c7758f78d88641bc137c437e9f285",
+      "config_sha256": "eb92155c2eec013561e82efac1667d8841073338b72a71302228220c0744f7c5",
+      "id": "cell_m060",
+      "parent_config": "experiments/native_revision_20261104/quotient_cell.json",
+      "parent_config_file_sha256": "723e17df021e83b83343e4c89bd834e0c9a8ba408a8554eba36852beb1f2b1bb",
+      "parent_config_sha256": "6455775dd284ea9d9e5d0d69543adccfbc2a1859fefff8ef13f9d1e77d50dd2f",
+      "stage": "margin_factorial"
+    },
+    {
+      "changed_fields": {
+        "margin": {
+          "from": 0.1,
+          "to": 0.6
+        }
+      },
+      "config_file_sha256": "f14a611761e55ee164035414c9ea370eb8b638b4ee9aae350654da8801c0da91",
+      "config_sha256": "27867f58e4dbd877af9bf2a2ad807830094d1cb70dbab54fc6085983e14dc3a4",
+      "id": "independent_m060",
+      "parent_config": "experiments/native_revision_20261104/quotient_independent.json",
+      "parent_config_file_sha256": "e49747f63bf74473fd988796d32df7e294b15e4f0c635e603b21c2aba0e6c57f",
+      "parent_config_sha256": "5d0bd260b800506840cd691f9f6fb94dc7739c0e8f7a2acdf78491d81cdfbc61",
+      "stage": "margin_factorial"
+    }
+  ],
+  "completion_gate": {
+    "actor_updates": 4000,
+    "critic_updates": 4000,
+    "env_steps": 5000,
+    "episode_horizon": 20,
+    "episodes": 250,
+    "heldout_episodes": 50,
+    "pretrain_updates": 8,
+    "require": [
+      "exact config/source/instance identity",
+      "worker exit0",
+      "finite metrics and checkpoint state",
+      "matching final checkpoint",
+      "complete per-episode evaluation records"
+    ],
+    "validation_evaluations": 9,
+    "validation_steps": [
+      0,
+      500,
+      1000,
+      1500,
+      2000,
+      2500,
+      3000,
+      3500,
+      4000
+    ]
+  },
+  "dispatch": {
+    "automatic_job_expansion": false,
+    "cpu_sets": [
+      [
+        24
+      ],
+      [
+        25
+      ],
+      [
+        26
+      ],
+      [
+        27
+      ]
+    ],
+    "launch_performed": false,
+    "max_parallel": 4,
+    "run_order": [
+      "point_m010_recheck",
+      "sphere_m010_recheck",
+      "point_m010_seed1",
+      "sphere_m010_seed1",
+      "point_m010_seed2",
+      "sphere_m010_seed2",
+      "point_m030",
+      "cell_m030",
+      "independent_m030",
+      "point_m060",
+      "cell_m060",
+      "independent_m060"
+    ]
+  },
+  "equivalence_check": {
+    "config_exact": true,
+    "excluded_metadata": [
+      "source hashes/manifests and artifact identity",
+      "checkpoint/replay schema representation after canonicalization",
+      "wall/evaluation/projection timings and derived throughput",
+      "process identity, timestamps and output paths"
+    ],
+    "expected_point_config_sha256": "dd4d14084aa421b99eb1193477e46f0d6cfc4a0ce66363b55c434d3a49331189",
+    "failure_action": "Do not pool historical margin0.1 anchors with stage B. Diagnose the source/runtime difference; new same-source method contrasts may still be described separately.",
+    "new_run": "point_m010_recheck",
+    "parent_run": "outputs/native_revision_20261104/quotient_point",
+    "require_exact": [
+      "all nine validation episode-return vectors and episode lengths",
+      "actor/target_actor/q1/q2/tq1/tq2 parameters",
+      "all optimizer states, log_alpha, running Q mean/std",
+      "all RNG states, environment state, episode and update counters",
+      "decoded replay arrays/capacity/size/pos and future same-RNG samples"
+    ]
+  },
+  "evidence": [
+    {
+      "file_sha256": "7f250600bcf36fb60a38374e36b081156cd949fe07e08a8d7fc7d9caf7645467",
+      "path": "reports/native_revision_20261104/native_mechanism_audit/quotient_cell_offline_margin_probe.json"
+    },
+    {
+      "file_sha256": "6ec069460e2bfb4098243a96277ede7d80ecaff0200f7683afdb75f638302539",
+      "path": "reports/native_revision_20261104/native_mechanism_audit/deep_completion_audit.json"
+    },
+    {
+      "file_sha256": "1d5e5577077b394feb10e1e3be15a9cc674592d5c63fd96f8626cbf068ccfdb0",
+      "path": "reports/native_revision_20261104/native_mechanism_audit/quotient_point.json"
+    },
+    {
+      "file_sha256": "6f59023f347a9e77e9420823797abff622ecd314fab464bbac2e1dedbc532116",
+      "path": "reports/native_revision_20261104/native_mechanism_audit/quotient_cell.json"
+    },
+    {
+      "file_sha256": "80760e72e6f820d7bf369dcc13b6e43b7822f07fb7a284ab2c4f5112b80ab2ea",
+      "path": "reports/native_revision_20261104/native_mechanism_audit/quotient_independent.json"
+    },
+    {
+      "file_sha256": "7b7cfd0e8726da0beb6775836c0756588865ea92ee4f4da91fcb44c0156d082f",
+      "path": "analysis/replay_storage_benchmark_20261104.json"
+    }
+  ],
+  "fixed_point_vs_sphere_replication": {
+    "bridge_sigma": 0.5,
+    "heldout_used": false,
+    "margin": 0.1,
+    "methods": [
+      "native_quotient_point_diffusion",
+      "native_quotient_sphere"
+    ],
+    "native_full_space_reference_scope": "Historical native_reference remains seed0-only and is not upgraded to multi-seed evidence by these quotient runs.",
+    "new_training_seeds": [
+      1,
+      2
+    ],
+    "no_margin_reselection": true,
+    "primary": "per-seed paired point-minus-sphere last-window return and its across-seed mean/sample standard deviation",
+    "secondary": "paired validation AUC; report every complete curve and paired sign",
+    "seed_0_scope": "Known discovery seed rerun under the new source; not a new unseen training seed.",
+    "selected_before_margin_results": true,
+    "selection_basis": "Completed native_revision stage A validation evidence; fixed independently of stage B margin results.",
+    "training_seeds": [
+      0,
+      1,
+      2
+    ]
+  },
+  "historical_margin_010_anchors": [
+    {
+      "checkpoint_sha256": "447367fe5a4d7c9bf1cee993415e626e9c6d458ec28138687878fbe432f94446",
+      "config": "experiments/native_revision_20261104/quotient_point.json",
+      "config_sha256": "dd4d14084aa421b99eb1193477e46f0d6cfc4a0ce66363b55c434d3a49331189",
+      "last_window_return": 335.431248986721,
+      "margin": 0.1,
+      "method": "native_quotient_point_diffusion",
+      "output": "outputs/native_revision_20261104/quotient_point",
+      "seed": 0,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "validation_auc": 293.122969417274,
+      "validation_report": "reports/native_revision_20261104/native_mechanism_audit/quotient_point.json"
+    },
+    {
+      "checkpoint_sha256": "035f8bf363c205a75cc08d626be75dbffc037e95b6f980a4d891c15747e72e5f",
+      "config": "experiments/native_revision_20261104/quotient_cell.json",
+      "config_sha256": "6455775dd284ea9d9e5d0d69543adccfbc2a1859fefff8ef13f9d1e77d50dd2f",
+      "last_window_return": 289.1150012612343,
+      "margin": 0.1,
+      "method": "native_quotient_cell_diffusion",
+      "output": "outputs/native_revision_20261104/quotient_cell",
+      "seed": 0,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "validation_auc": 270.71265783756974,
+      "validation_report": "reports/native_revision_20261104/native_mechanism_audit/quotient_cell.json"
+    },
+    {
+      "checkpoint_sha256": "3751684c87d7b52220daaf064985918e8faf524e17848b139d99f3832c3f70b0",
+      "config": "experiments/native_revision_20261104/quotient_independent.json",
+      "config_sha256": "5d0bd260b800506840cd691f9f6fb94dc7739c0e8f7a2acdf78491d81cdfbc61",
+      "last_window_return": 288.64750069379807,
+      "margin": 0.1,
+      "method": "native_quotient_independent_diffusion",
+      "output": "outputs/native_revision_20261104/quotient_independent",
+      "seed": 0,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "validation_auc": 269.20062628537414,
+      "validation_report": "reports/native_revision_20261104/native_mechanism_audit/quotient_independent.json"
+    }
+  ],
+  "instance_seed": 0,
+  "margin_factorial": {
+    "fixed_bridge_sigma": 0.5,
+    "hypothesis": "Increasing the decision-cell projection margin reduces execution-noise action flips and improves validation return for the boundary-concentrated cell endpoints; point and independent controls distinguish general robustness from coupling.",
+    "methods": [
+      "native_quotient_point_diffusion",
+      "native_quotient_cell_diffusion",
+      "native_quotient_independent_diffusion"
+    ],
+    "new_margins": [
+      0.3,
+      0.6
+    ],
+    "selection": {
+      "exact_final_tie": "choose the smaller margin",
+      "heldout_used": false,
+      "historical_margin_010_gate": "point_m010_recheck complete validation episode results and final scientific state must exactly equal historical quotient_point after canonicalizing replay storage and excluding only timing/source/artifact fields",
+      "incomplete_factorial": "do not select from incomplete or failed three-method groups; retain every arm",
+      "primary": "mean last_window_return across all three methods at the same margin",
+      "recheck_is_not_extra_replicate": true,
+      "secondary": "mean validation_auc across all three methods at the same margin"
+    },
+    "shared_margin_candidates": [
+      0.1,
+      0.3,
+      0.6
+    ],
+    "training_seeds": [
+      0
+    ]
+  },
+  "offline_margin_evidence": {
+    "kappa_exec": 28.0,
+    "path": "reports/native_revision_20261104/native_mechanism_audit/quotient_cell_offline_margin_probe.json",
+    "perturbation_seed": 882015,
+    "perturbations_per_center": 32,
+    "replay_seed": 882013,
+    "rows": [
+      {
+        "abs_native_critic_change_mean": 3.59635591506958,
+        "decode_mismatches": 0,
+        "fallback_fraction": 0.0,
+        "fraction_changed_action": 0.8966064453125,
+        "hamming_mean": 4.98846435546875,
+        "margin": 0.1,
+        "mean_native_critic_change": -0.5166611671447754,
+        "normalized_transport": 0.773019015789032,
+        "projected_norm_mean": 0.6781967878341675
+      },
+      {
+        "abs_native_critic_change_mean": 3.263777494430542,
+        "decode_mismatches": 0,
+        "fallback_fraction": 0.0,
+        "fraction_changed_action": 0.7884521484375,
+        "hamming_mean": 3.598388671875,
+        "margin": 0.3,
+        "mean_native_critic_change": -0.34942853450775146,
+        "normalized_transport": 0.9862731695175171,
+        "projected_norm_mean": 0.7003279328346252
+      },
+      {
+        "abs_native_critic_change_mean": 2.9112985134124756,
+        "decode_mismatches": 0,
+        "fallback_fraction": 0.0,
+        "fraction_changed_action": 0.6031494140625,
+        "hamming_mean": 2.235595703125,
+        "margin": 0.6,
+        "mean_native_critic_change": -0.20175816118717194,
+        "normalized_transport": 1.2449458837509155,
+        "projected_norm_mean": 0.7684157490730286
+      }
+    ],
+    "scope": "Offline fixed-checkpoint endpoint diagnostic only, not retraining and not a performance result",
+    "source_seed": 882014,
+    "states": 512
+  },
+  "parent_source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+  "pretrain_updates_per_arm": 8,
+  "source_change_scope": "Replay checkpoint serialization and trainer save/restore only; no learning-rule change. Full-run equivalence remains a required audit.",
+  "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+  "status": "prepared_not_launched",
+  "total_actor_updates": 48000,
+  "total_arms": 12,
+  "total_environment_steps": 60000,
+  "total_training_steps": 48000,
+  "train_steps_per_arm": 4000,
+  "warmup_steps_per_arm": 1000
+}

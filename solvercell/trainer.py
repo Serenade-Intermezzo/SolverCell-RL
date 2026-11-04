@@ -87,7 +87,9 @@ def train(cfg: Config, output: Path, resume=False):
     source = source_manifest()
     checkpoint = None
     if resume:
-        checkpoint = torch.load(output / "checkpoint.pt", map_location=cfg.device, weights_only=False)
+        # Replay and RNG payloads stay on CPU; model/optimizer loaders move
+        # their own tensors to the configured device.
+        checkpoint = torch.load(output / "checkpoint.pt", map_location="cpu", weights_only=False)
         if checkpoint["source_sha256"] != source["source_sha256"]:
             raise ValueError("Cannot resume with changed scientific source")
     env = InterventionEnv(cfg.n_arms, cfg.n_actions, cfg.budget, cfg.horizon,
@@ -150,7 +152,7 @@ def train(cfg: Config, output: Path, resume=False):
 
     if resume:
         learner.load_state_dict(checkpoint["learner"])
-        replay.__dict__.update(checkpoint["replay"])
+        replay.load_state_dict(checkpoint["replay"])
         env.state, env.t = checkpoint["env_state"], checkpoint["env_t"]
         env.rng.bit_generator.state = checkpoint["env_rng"]
         replay_rng.bit_generator.state = checkpoint["replay_rng"]
@@ -188,8 +190,8 @@ def train(cfg: Config, output: Path, resume=False):
 
     def save():
         atomic_checkpoint(output / "checkpoint.pt", {
-            "schema_version": 1, "config": cfg.to_dict(), "source_sha256": source["source_sha256"],
-            "learner": learner.state_dict(), "replay": replay.__dict__,
+            "schema_version": 2, "config": cfg.to_dict(), "source_sha256": source["source_sha256"],
+            "learner": learner.state_dict(), "replay": replay.state_dict(),
             "env_state": env.state, "env_t": env.t, "env_rng": env.rng.bit_generator.state,
             "replay_rng": replay_rng.bit_generator.state, "behavior_rng": behavior_rng.bit_generator.state,
             "python_rng": random.getstate(), "numpy_rng": np.random.get_state(),

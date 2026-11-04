@@ -1,0 +1,112 @@
+{
+  "date": "2026-11-04",
+  "scope": "Local future checkpoint serialization only; existing remote campaign source unchanged",
+  "host": "serenade-Legion-Y9000P-IAH7H",
+  "python": "3.10.17",
+  "torch": "2.3.0+cu121",
+  "numpy": "2.0.1",
+  "checkpoint": "outputs/intervention_screen_20261104/lsflow_native/checkpoint.pt",
+  "checkpoint_sha256": "b662cc8b403a76101820f482e7ca5e43020000a0f5aec3c1ba58e6a1b6940d15",
+  "capacity": 100000,
+  "size": 5000,
+  "pos": 5000,
+  "dimensions": {
+    "obs": 40,
+    "action": 20,
+    "cost": 40
+  },
+  "dtype": "float32",
+  "rows": [
+    {
+      "label": "legacy",
+      "bytes": 57275424,
+      "snapshot_seconds": 2.0790030248463154e-06,
+      "save_seconds": 0.12540904700290412,
+      "load_seconds": 0.034501913003623486,
+      "restore_seconds": 0.007811278992448933
+    },
+    {
+      "label": "compact",
+      "bytes": 2842248,
+      "snapshot_seconds": 0.0003024509933311492,
+      "save_seconds": 0.0010860299953492358,
+      "load_seconds": 0.00047573600022587925,
+      "restore_seconds": 0.0039033500070217997
+    },
+    {
+      "label": "compact",
+      "bytes": 2842248,
+      "snapshot_seconds": 0.0002434330090181902,
+      "save_seconds": 0.0010542110103415325,
+      "load_seconds": 0.00048272599815391004,
+      "restore_seconds": 0.0037711150071118027
+    },
+    {
+      "label": "legacy",
+      "bytes": 57275424,
+      "snapshot_seconds": 8.57995473779738e-07,
+      "save_seconds": 0.11020944399933796,
+      "load_seconds": 0.036962242986191995,
+      "restore_seconds": 0.009625065009458922
+    }
+  ],
+  "means": {
+    "legacy": {
+      "snapshot_seconds": 1.4684992493130267e-06,
+      "save_seconds": 0.11780924550112104,
+      "load_seconds": 0.03573207799490774,
+      "restore_seconds": 0.008718172000953928
+    },
+    "compact": {
+      "snapshot_seconds": 0.0002729420011746697,
+      "save_seconds": 0.0010701205028453842,
+      "load_seconds": 0.00047923099918989465,
+      "restore_seconds": 0.003837232507066801
+    }
+  },
+  "reduction_percent": 95.03757842106938,
+  "protocol": {
+    "serializer": "torch.save default pickle protocol to io.BytesIO",
+    "load": "torch.load(map_location=cpu, weights_only=False)",
+    "order": [
+      "legacy",
+      "compact",
+      "compact",
+      "legacy"
+    ],
+    "legacy_payload": "replay.__dict__, full-capacity NumPy arrays",
+    "compact_payload": "Replay.state_dict(compact=True), independent float32 CPU tensors with valid physical rows only",
+    "snapshot_timing": "measured separately from torch.save",
+    "restore_timing": "Replay.load_state_dict, excludes creating empty destination buffer",
+    "io_included": false,
+    "timing_repeats_per_variant": 2
+  },
+  "evidence": {
+    "roundtrip_all_capacity_rows_exact": true,
+    "ten_paired_B64_samples_exact": true,
+    "sampling_generators_end_equal": true,
+    "sampling_seed": 916,
+    "replay_storage_tests_passed": 4,
+    "existing_training_tests_passed": 6,
+    "tests_cover": [
+      "empty, partial, full and wrapped buffers",
+      "legacy and full new-format snapshots",
+      "sampling and writes across subsequent ring wraps",
+      "snapshot and restored-buffer ownership",
+      "NumPy and torch global RNG unchanged",
+      "invalid payload rejected without changing destination"
+    ],
+    "existing_audit_walk_finite_accepts_numpy_and_tensor_payloads": true,
+    "existing_audit_walk_finite_rejects_injected_tensor_nan": true
+  },
+  "files_sha256": {
+    "solvercell/learner.py": "6a1910d3e9f7de5e7168e11283b62806868284c5df0d317c0aa10b320492ccd9",
+    "tests/test_replay_storage.py": "b26910ade9ebc812d7b5676f8fba43ad93e8e3ff9f6e98c3b83983c0fa3c3f42"
+  },
+  "limitations": [
+    "This measures replay payload only, not total learner checkpoint size.",
+    "Short local memory serialization timings exclude filesystem I/O and are not an end-to-end training speed claim.",
+    "Runtime replay still allocates full capacity; this reduces checkpoint storage and serialization overhead.",
+    "Loader validates CPU tensors; a future GPU resume must load checkpoint to CPU or extend the loader."
+  ]
+}

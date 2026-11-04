@@ -7,14 +7,14 @@ import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import numpy as np
 import torch
-from solvercell.config import load_config
+from solvercell.config import load_config, is_native_method
 from solvercell.environment import InterventionEnv
 from solvercell.learner import Learner
 from solvercell.geometry import project_cell
 
 p=argparse.ArgumentParser();p.add_argument('--run',required=True);p.add_argument('--output',required=True);args=p.parse_args()
 run=Path(args.run);cfg=load_config(run/'config.json')
-if cfg.method=='lsflow_upstream':raise ValueError('This diagnostic is for matched action-critic methods')
+if is_native_method(cfg.method):raise ValueError('This diagnostic is for matched action-critic methods')
 torch.set_num_threads(1)
 checkpoint=torch.load(run/'checkpoint.pt',map_location='cpu',weights_only=False)
 env=InterventionEnv(cfg.n_arms,cfg.n_actions,cfg.budget,cfg.horizon,instance_seed=cfg.instance_seed)

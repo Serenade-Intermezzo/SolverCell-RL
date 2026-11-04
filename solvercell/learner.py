@@ -41,6 +41,82 @@ class Replay:
         indices = rng.integers(self.size, size=size)
         return {k: v[indices] for k, v in self.data.items()}
 
+    def state_dict(self, compact=True):
+        """Snapshot valid rows without changing their physical ring indices.
+
+        Before the first wrap, only ``[:size]`` can be sampled; unused rows need
+        not be serialized. Once full, all rows and the next-write position are
+        required. Sampling RNG belongs to the caller and is not touched here.
+        Independent CPU tensors avoid NumPy's pickle byte-encoding overhead
+        while keeping this snapshot independent of later replay writes.
+        """
+        if not isinstance(compact, bool):
+            raise ValueError("Replay compact must be a bool")
+        rows = self.size if compact else self.capacity
+        return {"format_version": 1, "compact": compact,
+                "capacity": self.capacity, "size": self.size, "pos": self.pos,
+                "data": {key: torch.from_numpy(value[:rows].copy())
+                         for key, value in self.data.items()}}
+
+    def load_state_dict(self, state):
+        """Restore a versioned snapshot or the legacy ``replay.__dict__``.
+
+        Capacity, dimensions and dtype must match this replay. Validation is
+        completed before changing any state; compact unused rows are reset to
+        zero exactly as in a fresh buffer. No RNG is read or advanced.
+        """
+        if not isinstance(state, dict):
+            raise ValueError("Replay state must be a dictionary")
+        if "format_version" not in state:
+            if "compact" in state:
+                raise ValueError("Compact replay state requires format_version")
+            compact = False
+        else:
+            version = state["format_version"]
+            if type(version) is not int or version != 1:
+                raise ValueError(f"Unsupported replay format_version: {version!r}")
+            compact = state.get("compact")
+            if not isinstance(compact, bool):
+                raise ValueError("Replay compact must be a bool")
+
+        counters = {}
+        for key in ("capacity", "size", "pos"):
+            value = state.get(key)
+            if isinstance(value, (bool, np.bool_)) or not isinstance(value, (int, np.integer)):
+                raise ValueError(f"Replay {key} must be an integer")
+            counters[key] = int(value)
+        capacity, size, pos = (counters[key] for key in ("capacity", "size", "pos"))
+        if capacity <= 0 or capacity != self.capacity:
+            raise ValueError(f"Replay capacity mismatch: {capacity} != {self.capacity}")
+        if not 0 <= size <= capacity or not 0 <= pos < capacity:
+            raise ValueError("Replay size or position is out of bounds")
+        if size < capacity and pos != size:
+            raise ValueError("Partially filled replay must have pos == size")
+
+        data = state.get("data")
+        if not isinstance(data, dict) or data.keys() != self.data.keys():
+            raise ValueError("Replay data fields do not match")
+        rows = size if compact else capacity
+        arrays = {}
+        for key, target in self.data.items():
+            value = data[key]
+            expected = (rows, *target.shape[1:])
+            if torch.is_tensor(value):
+                if value.device.type != "cpu" or value.dtype != torch.float32 or value.layout != torch.strided:
+                    raise ValueError(f"Replay {key} must be a dense float32 CPU tensor")
+                value = value.detach().numpy()
+            if not isinstance(value, np.ndarray) or value.shape != expected:
+                raise ValueError(f"Replay {key} must have shape {expected}")
+            if value.dtype != target.dtype:
+                raise ValueError(f"Replay {key} dtype mismatch: {value.dtype} != {target.dtype}")
+            arrays[key] = value
+
+        restored = {key: np.zeros_like(target) for key, target in self.data.items()}
+        for key, value in arrays.items():
+            restored[key][:rows] = value
+        self.data = restored
+        self.capacity, self.size, self.pos = capacity, size, pos
+
 
 class Learner:
     """Matched action-critic harness; this class is NOT the original LSFlow learner."""
