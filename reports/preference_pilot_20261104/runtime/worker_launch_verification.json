@@ -1,0 +1,43 @@
+{
+  "recorded_unix": 1793791441.3619268,
+  "workers": {
+    "sphere": {
+      "status": {
+        "env_steps": 506,
+        "phase": "validation",
+        "source_sha256": "9b8a1b044b789a34ca7d3898bb3613db85f9e0008163287cdde5cb1b4b626b8c",
+        "status": "running",
+        "train_steps": 250,
+        "updates": 250,
+        "wall_seconds": 5.596133046085015
+      },
+      "worker": {
+        "pid": 2164519,
+        "comm": "llmagent",
+        "cpus": [
+          24
+        ]
+      },
+      "ps": "    PID COMMAND         COMMAND\n2164519 llmagent        /home/li/SolverCell-RL/.venv/bin/python -m tools.run_preference --config experiments/preference_pilot_20261104/sphere.json --output outputs/preference_pilot_20261104/sphere\n"
+    },
+    "diffusion": {
+      "status": {
+        "env_steps": 0,
+        "phase": "validation",
+        "source_sha256": "9b8a1b044b789a34ca7d3898bb3613db85f9e0008163287cdde5cb1b4b626b8c",
+        "status": "running",
+        "train_steps": 0,
+        "updates": 0,
+        "wall_seconds": 1.336529581923969
+      },
+      "worker": {
+        "pid": 2164520,
+        "comm": "llmagent",
+        "cpus": [
+          25
+        ]
+      },
+      "ps": "    PID COMMAND         COMMAND\n2164520 llmagent        /home/li/SolverCell-RL/.venv/bin/python -m tools.run_preference --config experiments/preference_pilot_20261104/diffusion.json --output outputs/preference_pilot_20261104/diffusion\n"
+    }
+  }
+}
