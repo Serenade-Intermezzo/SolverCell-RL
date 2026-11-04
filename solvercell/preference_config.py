@@ -27,6 +27,7 @@ class PreferenceConfig:
     candidates: int = 8
     bootstrap_candidates: int = 1
     sampling_steps: int = 8
+    diffusion_beta_end: float = .20
     temperature: float = .5
     reward_scale: float = .025
     guide_interval: int = 4
@@ -35,6 +36,8 @@ class PreferenceConfig:
     guide_particles: int = 8
     guide_ess_fraction: float = .5
     guide_temperature: float = .5
+    guide_objective: str = 'absolute'
+    guide_prefixes: int = 4
     train_preferences: tuple = (0., .25, .5, .75, 1.)
     validation_preferences: tuple = (0., .5, 1.)
     heldout_preferences: tuple = (.125, .375, .625, .875)
@@ -64,6 +67,14 @@ class PreferenceConfig:
                 raise ValueError(name + ' must be a positive integer')
         if self.sampling_steps % 2:
             raise ValueError('Use even NFE: spherical Heun takes NFE/2 steps')
+        if not math.isfinite(self.diffusion_beta_end) or not .02 <= self.diffusion_beta_end < 1:
+            raise ValueError('diffusion_beta_end must lie in [.02,1)')
+        if self.guide_objective not in {'absolute', 'grouped_absolute', 'centered'}:
+            raise ValueError('Unknown guide objective')
+        if type(self.guide_prefixes) is not int or self.guide_prefixes < 2:
+            raise ValueError('guide_prefixes must be an integer >=2')
+        if self.guide_objective != 'absolute' and min(self.batch_size, self.guide_batch_size) < self.guide_prefixes:
+            raise ValueError('Centered guide requires at least one complete prefix group')
         if self.replay_capacity < self.batch_size:
             raise ValueError('Replay must hold a training batch')
         for name in ('lr', 'temperature', 'guide_temperature', 'reward_scale'):
@@ -108,6 +119,7 @@ def debug_preference_config(cfg):
     return replace(cfg, train_steps=4, warmup_steps=8, batch_size=2, hidden=32,
                    candidates=2, bootstrap_candidates=1, sampling_steps=2,
                    guide_interval=1, guide_batch_size=2, guide_suffixes=2,
+                   guide_prefixes=2,
                    guide_particles=2, train_preferences=(0., .5, 1.),
                    validation_preferences=(0., .5, 1.), heldout_preferences=(.25, .75),
                    eval_interval=2, eval_episodes=1, final_eval_episodes=2,

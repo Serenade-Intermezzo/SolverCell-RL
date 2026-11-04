@@ -78,7 +78,7 @@ class PreferenceActor(nn.Module):
 
     def __init__(
         self, obs_dim: int, act_dim: int, hidden: int = 128,
-        steps: int = 8, kind: str = "diffusion",
+        steps: int = 8, kind: str = "diffusion", beta_end: float = .20,
     ) -> None:
         super().__init__()
         if min(obs_dim, act_dim, hidden) < 1:
@@ -87,6 +87,8 @@ class PreferenceActor(nn.Module):
             raise ValueError("steps must be positive and even (at least 2), to match actor NFE")
         if kind not in {"diffusion", "sphere"}:
             raise ValueError("kind must be 'diffusion' or 'sphere'")
+        if not math.isfinite(beta_end) or not .02 <= beta_end < 1:
+            raise ValueError('beta_end must lie in [.02,1)')
         if kind == "sphere" and act_dim < 2:
             raise ValueError("sphere requires act_dim >= 2")
         self.obs_dim, self.act_dim = obs_dim, act_dim
@@ -98,7 +100,7 @@ class PreferenceActor(nn.Module):
             nn.Linear(hidden, hidden), nn.SiLU(), nn.Linear(hidden, act_dim),
         )
         # Registered in both comparators for a stable architecture/state schema.
-        betas = torch.linspace(0.02, 0.20, steps)
+        betas = torch.linspace(0.02, beta_end, steps)
         self.register_buffer("betas", betas)
         self.register_buffer("alphas", 1.0 - betas)
         self.register_buffer("alpha_bars", (1.0 - betas).cumprod(0))

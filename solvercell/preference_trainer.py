@@ -202,6 +202,9 @@ def train_preference(cfg, output, *, resume=False, stop_after_updates=None):
         'deployment': 'direct/terminal importance weighting/finite-particle telescoping SMC',
         'inference_scope': 'base-policy value guided improvement, not evaluation-Q of the guided policy',
         'sampler_nfe_per_sample': cfg.sampling_steps, 'original_DPMD_reproduction': False,
+        'diffusion_beta_end': cfg.diffusion_beta_end,
+        'diffusion_terminal_alpha_bar': float(learner.actor.alpha_bars[-1]),
+        'guide_objective': cfg.guide_objective, 'guide_prefixes': cfg.guide_prefixes,
         'preference_split': {'training': list(cfg.train_preferences),
                              'unseen_interpolation': list(cfg.heldout_preferences)}})
     start = time.perf_counter()

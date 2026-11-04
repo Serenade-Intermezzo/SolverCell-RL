@@ -30,6 +30,21 @@ class PreferenceVectorQ(nn.Module):
         return self.net(torch.cat((obs, action, prefs), dim=-1))
 
 
+def centered_guide_loss(predicted, labels, prefixes):
+    """Fit relative log potentials; common within-context offsets are a gauge.
+
+    Consecutive prefixes must share observation, preference and path index.
+    Centering preserves the log-potential scale used by SMC, unlike ranking
+    losses which identify an ordering but not the required density ratios.
+    """
+    if prefixes < 2 or predicted.shape != labels.shape or not predicted.numel() or predicted.numel() % prefixes:
+        raise ValueError('Guide predictions/labels must form complete prefix groups')
+    prediction = predicted.reshape(-1, prefixes)
+    target = labels.detach().reshape(-1, prefixes)
+    return F.mse_loss(prediction - prediction.mean(1, keepdim=True),
+                      target - target.mean(1, keepdim=True))
+
+
 class PreferenceLearner:
     """Fixed preference per continuation; guide fitting changes no base targets.
 
@@ -68,7 +83,8 @@ class PreferenceLearner:
         with torch.random.fork_rng(devices=[]):
             torch.manual_seed(cfg.seed + 701)
             self.actor = PreferenceActor(self.obs_dim, self.cost_dim, hidden=cfg.hidden,
-                                         steps=cfg.sampling_steps, kind=self.kind).to(self.device)
+                                         steps=cfg.sampling_steps, kind=self.kind,
+                                         beta_end=cfg.diffusion_beta_end).to(self.device)
         with torch.random.fork_rng(devices=[]):
             torch.manual_seed(cfg.seed + 702)
             self.q1 = PreferenceVectorQ(self.obs_dim, self.action_dim, cfg.hidden).to(self.device)
@@ -182,7 +198,7 @@ class PreferenceLearner:
         return targets
 
     @torch.no_grad()
-    def guide_training_targets(self, obs, prefs, generator=None):
+    def guide_training_targets(self, obs, prefs, generator=None, path_indices=None):
         """Fresh actual target-actor paths and conditional suffix log-mean-exp.
 
         The suffix index denotes the stored path position, not a forward-noise
@@ -200,7 +216,10 @@ class PreferenceLearner:
         if path.shape != (size, steps + 1, self.cost_dim):
             raise ValueError("Diffusion path has incompatible dimensions")
         self._record_actor(size)
-        indices = torch.randint(steps, (size,), generator=generator, device=self.device)
+        indices = (torch.randint(steps, (size,), generator=generator, device=self.device)
+                   if path_indices is None else torch.as_tensor(path_indices, device=self.device, dtype=torch.long))
+        if indices.shape != (size,) or torch.any(indices < 0) or torch.any(indices >= steps):
+            raise ValueError('Invalid guide path indices')
         prefix = path[torch.arange(size, device=self.device), indices].clone()
         zero_actions = obs.new_zeros((size, self.action_dim))
         baseline = (self._twin_vector(obs, zero_actions, prefs) * prefs).sum(-1)
@@ -280,13 +299,26 @@ class PreferenceLearner:
         self.updates += 1
         if self.guide is not None and self.updates % cfg.guide_interval == 0:
             count = min(size, cfg.guide_batch_size)
+            if cfg.guide_objective != 'absolute':
+                count = (count // cfg.guide_prefixes) * cfg.guide_prefixes
+                if count == 0:
+                    raise ValueError('No complete guide prefix group')
             indices = torch.randperm(size, device=self.device, generator=self.guide_generator)[:count]
             guide_obs, guide_prefs = obs[indices], prefs[indices]
-            prefix, path_index, labels, diagnostics = self.guide_training_targets(guide_obs, guide_prefs)
+            fixed_indices = None
+            if cfg.guide_objective != 'absolute':
+                groups = count // cfg.guide_prefixes
+                guide_obs = guide_obs[:groups].repeat_interleave(cfg.guide_prefixes, 0)
+                guide_prefs = guide_prefs[:groups].repeat_interleave(cfg.guide_prefixes, 0)
+                fixed_indices = torch.randint(cfg.sampling_steps, (groups,), device=self.device,
+                                              generator=self.guide_generator).repeat_interleave(cfg.guide_prefixes)
+            prefix, path_index, labels, diagnostics = self.guide_training_targets(
+                guide_obs, guide_prefs, path_indices=fixed_indices)
             self.guide_optim.zero_grad(set_to_none=True)
             predicted = self.guide(guide_obs, guide_prefs, prefix, path_index)
             self.counters["guide_calls"] += count
-            guide_loss = F.mse_loss(predicted, labels)
+            guide_loss = (centered_guide_loss(predicted, labels, cfg.guide_prefixes)
+                          if cfg.guide_objective == 'centered' else F.mse_loss(predicted, labels))
             guide_loss.backward()
             guide_grad = nn.utils.clip_grad_norm_(self.guide.parameters(), 5.0)
             self.guide_optim.step()
@@ -352,10 +384,12 @@ class PreferenceLearner:
     def _spec(self):
         return {"method": self.cfg.method, "obs_dim": self.obs_dim, "cost_dim": self.cost_dim,
                 "action_dim": self.action_dim, "sampling_steps": self.cfg.sampling_steps,
-                "train_preferences": self.preference_grid.detach().cpu().tolist()}
+                "train_preferences": self.preference_grid.detach().cpu().tolist(),
+                "diffusion_beta_end": self.cfg.diffusion_beta_end,
+                "guide_objective": self.cfg.guide_objective, "guide_prefixes": self.cfg.guide_prefixes}
 
     def state_dict(self):
-        return {"format_version": 1, "spec": self._spec(),
+        return {"format_version": 2, "spec": self._spec(),
                 **{name: getattr(self, name).state_dict() for name in
                    ("actor", "target_actor", "q1", "q2", "tq1", "tq2", "actor_optim", "q_optim")},
                 "guide": None if self.guide is None else self.guide.state_dict(),
@@ -366,7 +400,11 @@ class PreferenceLearner:
                 "guide_updates": self.guide_updates, "counters": self.counters.copy()}
 
     def load_state_dict(self, state):
-        if state.get("format_version") != 1 or state.get("spec") != self._spec():
+        spec = dict(state.get('spec', {}))
+        if state.get('format_version') == 1:
+            for key, value in {'diffusion_beta_end': .2, 'guide_objective': 'absolute', 'guide_prefixes': 4}.items():
+                spec.setdefault(key, value)
+        if state.get("format_version") not in (1, 2) or spec != self._spec():
             raise ValueError("Incompatible preference learner checkpoint specification")
         if set(state["counters"]) != set(self.COUNTER_KEYS):
             raise ValueError("Incompatible checkpoint counters")

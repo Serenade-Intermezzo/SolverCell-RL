@@ -53,7 +53,7 @@ def main():
         assert hashlib.sha256(json.dumps(cfg.to_dict(), sort_keys=True).encode()).hexdigest() == job['config_sha256']
         assert worker['comm'] == 'llmagent'
         assert cfg.device == 'cpu' and worker['config'] == cfg.to_dict()
-        expected_cpus = sorted(set(manifest['cpu_sets'][index]))
+        expected_cpus = sorted(set(job['cpu_set'] if 'cpu_set' in job else manifest['cpu_sets'][index]))
         assert worker['cpu_affinity'] == expected_cpus
         launcher = read(output / 'launcher.json')
         assert launcher['cpus'] == expected_cpus and launcher['pid'] == worker['pid']

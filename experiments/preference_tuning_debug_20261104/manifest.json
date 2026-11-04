@@ -1,0 +1,103 @@
+{
+  "campaign_id": "preference_tuning_debug_20261104",
+  "cpu_sets": [
+    [
+      24
+    ],
+    [
+      25
+    ]
+  ],
+  "design": "docs/PREFERENCE_TUNING_V2.md",
+  "device": "cpu",
+  "expected_source_sha256": "774f049953f9ba727208c91ae6b466eb4665330e17295826a3abeb4c016018d8",
+  "jobs": [
+    {
+      "config": "experiments/preference_tuning_debug_20261104/sphere_t050.json",
+      "config_sha256": "62166514c5b5c6d70a30f55dde7ad001769b48b62441371bf17d8322c65af192",
+      "cpu_set": [
+        24
+      ],
+      "id": "sphere_t050",
+      "output": "outputs/preference_tuning_debug_20261104/sphere_t050"
+    },
+    {
+      "config": "experiments/preference_tuning_debug_20261104/sphere_t010.json",
+      "config_sha256": "73d530ed6615ac3ba06266247d11ba06edc6b9b4793188e0e6212b9d36de7188",
+      "cpu_set": [
+        25
+      ],
+      "id": "sphere_t010",
+      "output": "outputs/preference_tuning_debug_20261104/sphere_t010"
+    },
+    {
+      "config": "experiments/preference_tuning_debug_20261104/diff_b020_t050.json",
+      "config_sha256": "0a141a150aabce364a7170ddc644da8e3cf89b9eca625e8b906eac133d74c7ac",
+      "cpu_set": [
+        24
+      ],
+      "id": "diff_b020_t050",
+      "output": "outputs/preference_tuning_debug_20261104/diff_b020_t050"
+    },
+    {
+      "config": "experiments/preference_tuning_debug_20261104/diff_b060_t050.json",
+      "config_sha256": "6518dd793a7880ea0fe53f544ff1a93113d3ab3cb3aca93c96f68f40e99fcc53",
+      "cpu_set": [
+        25
+      ],
+      "id": "diff_b060_t050",
+      "output": "outputs/preference_tuning_debug_20261104/diff_b060_t050"
+    },
+    {
+      "config": "experiments/preference_tuning_debug_20261104/diff_b020_t010.json",
+      "config_sha256": "643bb3c17285f8d50fbe28404b984e2a0e653d6ba96fc9abea8d570576e9054b",
+      "cpu_set": [
+        24
+      ],
+      "id": "diff_b020_t010",
+      "output": "outputs/preference_tuning_debug_20261104/diff_b020_t010"
+    },
+    {
+      "config": "experiments/preference_tuning_debug_20261104/diff_b060_t010.json",
+      "config_sha256": "f640a8b41bc01824a79bdbbf16c139475405ddbda64cbb48d0d0a6c04bb45237",
+      "cpu_set": [
+        25
+      ],
+      "id": "diff_b060_t010",
+      "output": "outputs/preference_tuning_debug_20261104/diff_b060_t010"
+    },
+    {
+      "config": "experiments/preference_tuning_debug_20261104/group_b060_t010.json",
+      "config_sha256": "50eb6592420603c0bbf21c78965efcdb3e37afd23dec71d93dcd5e59a2e78e0f",
+      "cpu_set": [
+        24
+      ],
+      "id": "group_b060_t010",
+      "output": "outputs/preference_tuning_debug_20261104/group_b060_t010"
+    },
+    {
+      "config": "experiments/preference_tuning_debug_20261104/center_b060_t010.json",
+      "config_sha256": "8f7309d8b5721b5c8179cce5bba5954a09fd0809494bede12dc0efd280496ee6",
+      "cpu_set": [
+        25
+      ],
+      "id": "center_b060_t010",
+      "output": "outputs/preference_tuning_debug_20261104/center_b060_t010"
+    }
+  ],
+  "max_parallel": 2,
+  "parents": {
+    "diffusion": {
+      "file_sha256": "53360b807602919d5dcd32936d6a7ee0a5802709b72483a183a7c937a439032f",
+      "path": "experiments/preference_pilot_20261104/diffusion.json"
+    },
+    "sphere": {
+      "file_sha256": "8859373b44507433f20d57fdd0fd9bf548a2b92433ea9cf281dd46cd3238f8b9",
+      "path": "experiments/preference_pilot_20261104/sphere.json"
+    }
+  },
+  "runner_module": "tools.run_preference",
+  "schema": "preference_tuning_v2",
+  "scope": "declared source-frozen independent two-lane queue; no retries; retain all arms",
+  "stage": "debug"
+}
