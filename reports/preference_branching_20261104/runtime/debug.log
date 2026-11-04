@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/serenade/AI/src/RL/SolverCell-RL/analysis/run_preference_branching.py", line 265, in <module>
+    try:run(args);code=0
+  File "/home/serenade/AI/src/RL/SolverCell-RL/analysis/run_preference_branching.py", line 219, in run
+    cfg,checkpoint,task,learner,before=load_parent(manifest,args.checkpoint_root,key)
+  File "/home/serenade/AI/src/RL/SolverCell-RL/analysis/run_preference_branching.py", line 63, in load_parent
+    before={'models':models_hash(learner),'rngs':{name:getattr(learner,name).get_state().clone()
+  File "/home/serenade/AI/src/RL/SolverCell-RL/analysis/preference_guide_probe.py", line 41, in models_hash
+    for key, value in sorted(getattr(learner, name).state_dict().items()):
+AttributeError: 'NoneType' object has no attribute 'state_dict'

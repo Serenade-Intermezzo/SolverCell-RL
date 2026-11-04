@@ -1,0 +1,137 @@
+{
+  "campaign_id": "preference_branching_20261104",
+  "continuation_repetitions": 8,
+  "cpu_sets": [
+    [
+      24
+    ],
+    [
+      25
+    ]
+  ],
+  "debug": false,
+  "design": "docs/PREFERENCE_BRANCHING_V3.md",
+  "device": "cpu",
+  "episodes": 32,
+  "expected_source_sha256": "05c3cfffb6e7ed1bad6a077085e7da70bfaef41ad88323108052a261740fcd10",
+  "final_preferences": [
+    0.125,
+    0.375,
+    0.625,
+    0.875
+  ],
+  "final_seed_start": 800000,
+  "independent_candidates": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "max_parallel": 2,
+  "parent_source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3",
+  "parents": {
+    "diffusion_seed0": {
+      "files_sha256": {
+        "checkpoint.pt": "2a37af1175b6773201ed8549ec7d9b76ff577e2fcff5dfadf662f2e73b219a2a",
+        "config.json": "58aca5846ae1e8d72827cf30f2fe3de8101cdf6a89361fa5d08906dc5d4363c4",
+        "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+      },
+      "output": "outputs/preference_tuning_20261104/diff_b020_t010"
+    },
+    "diffusion_seed1": {
+      "files_sha256": {
+        "checkpoint.pt": "0529a241730a5e6d55de0110327c78b9b01f11bbc8e463ef5f995c72f11b3096",
+        "config.json": "4776d11eb4cd58240c85031e2fec6c6ae7cf0d3a9db5c3539e045497a6f239e4",
+        "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+      },
+      "output": "outputs/preference_replication_20261104/diffusion_seed1"
+    },
+    "diffusion_seed2": {
+      "files_sha256": {
+        "checkpoint.pt": "910911c348326d3895eafcedbb142aff695ae0307444a45c899f42c5fc4790b1",
+        "config.json": "8f0e6e1fe3d7bede4471f92aa4d3b5b9357b206ee7fbce68fd191d4017194dd1",
+        "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+      },
+      "output": "outputs/preference_replication_20261104/diffusion_seed2"
+    },
+    "sphere_seed0": {
+      "files_sha256": {
+        "checkpoint.pt": "493a3a8e3c92583fc8dcb4816536b6ff10aa47fc9efe52500ac4e8d8e05221c1",
+        "config.json": "e380635a746ad93e0569170e5f5bf83419a5e2dd5067f54d5f76d063efdfa653",
+        "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+      },
+      "output": "outputs/preference_tuning_20261104/sphere_t010"
+    },
+    "sphere_seed1": {
+      "files_sha256": {
+        "checkpoint.pt": "f9f85e1e3f8b2947f2312c08091bee03e5dfc8195005a9f72c2624b2b1327833",
+        "config.json": "2f47261b257d1037288c79c8562c617ac0a640964b448181e9d3fe5b16769d00",
+        "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+      },
+      "output": "outputs/preference_replication_20261104/sphere_seed1"
+    },
+    "sphere_seed2": {
+      "files_sha256": {
+        "checkpoint.pt": "e3c5eb746871c6b6414dd30f71ece8b44fa42d5c102f493004fe12b251dc4bbf",
+        "config.json": "35b771654909508fb1c9745cc9ba63580cb48cfe1af0f3119987b770583d57fd",
+        "source.json": "01ddce6e0890ed6f338e0fd9dcac3bc9282d468efd2621e7fb195b8c729e76e7"
+      },
+      "output": "outputs/preference_replication_20261104/sphere_seed2"
+    }
+  },
+  "runner_script_sha256": "038b1a938abec4d4510a22008cd0fc80213eceaa930bed1196033e1d2340f022",
+  "schema": "preference_branching_v3",
+  "scope": "read-only inference; zero training updates",
+  "screen_preferences": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "screen_seed_start": 700000,
+  "selection_rule": {
+    "maximum_latency_fraction": 1.05,
+    "mean_utility_fraction": 0.98,
+    "minimum_nfe_saving_fraction": 0.1,
+    "minimum_per_preference_fraction": 0.95,
+    "rank": "lower NFE, higher mean utility, lower median randomized inference latency"
+  },
+  "support_candidates": 128,
+  "timing_cycles": 32,
+  "topologies": {
+    "tree_m2_k2": {
+      "branch_index": 2,
+      "children": 4,
+      "roots": 2
+    },
+    "tree_m2_k4": {
+      "branch_index": 4,
+      "children": 4,
+      "roots": 2
+    },
+    "tree_m2_k6": {
+      "branch_index": 6,
+      "children": 4,
+      "roots": 2
+    },
+    "tree_m4_k2": {
+      "branch_index": 2,
+      "children": 2,
+      "roots": 4
+    },
+    "tree_m4_k4": {
+      "branch_index": 4,
+      "children": 2,
+      "roots": 4
+    },
+    "tree_m4_k6": {
+      "branch_index": 6,
+      "children": 2,
+      "roots": 4
+    }
+  },
+  "variance_prefixes": 32,
+  "variance_suffixes": 32
+}
