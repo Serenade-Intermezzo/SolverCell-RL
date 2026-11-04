@@ -12,12 +12,14 @@ def same(x,y,path):
  if isinstance(x,dict):
   assert x.keys()==y.keys(),path
   for k in x:
-   if 'seconds' not in k:same(x[k],y[k],path+'.'+k)
+   if 'seconds' not in str(k):same(x[k],y[k],path+'.'+str(k))
  elif isinstance(x,(tuple,list)):
   assert len(x)==len(y),path
   for i,(v,w) in enumerate(zip(x,y)):same(v,w,path+'.'+str(i))
- elif torch.is_tensor(x) or isinstance(x,np.ndarray):
-  assert torch.equal(torch.as_tensor(x),torch.as_tensor(y)),path
+ elif isinstance(x,np.ndarray):
+  assert np.array_equal(x,np.asarray(y)),path
+ elif torch.is_tensor(x):
+  assert torch.equal(x,torch.as_tensor(y)),path
  else:assert x==y,path
 same(a['config'],b['config'],'config');checks['identical_resolved_configuration']=True
 same(a['learner'],b['learner'],'learner');checks['bitwise_identical_learner_and_optimizer_rng']=True

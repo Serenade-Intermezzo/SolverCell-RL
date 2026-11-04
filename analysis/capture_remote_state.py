@@ -12,7 +12,8 @@ for p in Path('/proc').iterdir():
    workers.append({'pid':int(p.name),'argv':argv})
  except (FileNotFoundError,PermissionError,ProcessLookupError):pass
 states={}
-for name in ('intervention_screen_20261104','temperature_screen_20261104'):
+for name in ('intervention_screen_20261104','temperature_screen_20261104',
+             'native_revision_20261104','native_margin_20261104'):
  p=Path('/home/li/SolverCell-RL/deployments')/name/'source/experiments'/name/'controller_state.json'
  d=json.loads(p.read_text());states[name]={'status':d['status'],'jobs':{k:v['status'] for k,v in d['jobs'].items()},'source':d['source_sha256']}
 gpu=subprocess.run(['nvidia-smi','--query-gpu=name,memory.used,utilization.gpu','--format=csv,noheader'],capture_output=True,text=True).stdout.strip()

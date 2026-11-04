@@ -1,5 +1,7 @@
 # SolverCell-RL
 
+**Current status, 2026-11-04:** all 32 authorized runs are complete, including the [18-run native-structure follow-up](reports/native_revision_study_20261104/RESULTS.md). Cell coupling did not establish a consistent advantage. Point diffusion's promising seed-0 result against quotient spherical flow did not replicate on new seeds 1 and 2. The [diffusion redesign decision](docs/DIFFUSION_REDESIGN_DECISION.md) records the proposed next research direction; it is not a validated algorithm or a new running experiment. The original implementation and design history follow below.
+
 A research workspace for **source-conditioned decision-cell diffusion policies** in combinatorial reinforcement learning. The first experiment uses the released LSFlow Dynamic Intervention environment. This is an experimental method, with no established novelty, convergence or performance claim.
 
 The actor samples continuous objectives, and an exact positive-top-k decoder returns a feasible binary intervention. For a selected target action `a`, the proposed endpoint is the Euclidean projection of the **current initial Gaussian noise** onto the robust decision cell of `a`. The principal control projects the **old sampled objective** onto the same cell. Both share the critic, target-action distribution, margin, stochastic-interpolant loss and stochastic sampler.
@@ -75,3 +77,17 @@ The current method keeps native LSFlow critics, Bellman smoothing, weights and u
 This template uses at most4 CPU workers pinned to24–27 on wflow-server; adjust affinities before using another host. Historical manifests and source snapshots remain immutable.
 
 Future checkpoints serialize only replay rows that can actually be sampled, using CPU tensors instead of NumPy pickle payloads. Legacy replay checkpoints remain loadable. The native six-arm screen launched before this storage-only change; its frozen source is recorded separately.
+
+## Completed native study and current evidence
+
+The six-arm native revision and twelve-arm margin/replication campaign are complete and all 18 final checkpoints passed independent deep audits. Both seed-0 storage rechecks exactly match their old complete trajectories and final scientific state. Shared margin 0.6 was selected by the prespecified validation-only mean across point/cell/independent. It improves cell return but leaves cell below point; the coupling contrast changes sign across margins. Fixed margin-0.1 point-minus-sphere differences are +16.622, −26.211 and −35.580 across seeds 0/1/2, with mean −15.056 and sample SD 27.832. Seed 0 is discovery evidence, while both new seeds favor spherical flow.
+
+- [Complete 18-run report](reports/native_revision_study_20261104/RESULTS.md), [machine-readable study](reports/native_revision_study_20261104/study.json), [learning curves and replication](reports/native_revision_study_20261104/learning_and_replication.png).
+- [Point storage equality](reports/native_revision_study_20261104/point_storage_equivalence.json), [sphere storage equality](reports/native_revision_study_20261104/sphere_storage_equivalence.json), [final remote snapshot](reports/native_revision_study_20261104/final_remote_state.json).
+- [Historical 14-run study](reports/study_20261104/RESULTS.md), kept separate because its adaptation harness differs.
+- [Methodology audit](docs/METHODOLOGY_AUDIT.md), [solver support/prior audit](docs/SOLVER_SUPPORT_AND_PRIOR.md), [feasible-exchange rethink](docs/FEASIBLE_EXCHANGE_RETHINK.md), [diffusion redesign decision](docs/DIFFUSION_REDESIGN_DECISION.md).
+- [Continuation critic and conditional-branch check](docs/NOISE_CONTINUATION_CRITIC.md): the first two-query estimator fails its equal-query variance gate in all 12 fixed test cases. This is an oracle diagnostic, not a trained-policy or RL result; no new training sweep follows from it.
+
+Rebuild the completed report with `python analysis/build_native_study_report.py`. The script verifies saved configs, exits, exact counters, complete validation curves and audit outcomes before computing the validation-only selections. Heldout results are a separate descriptive section. This study matches interactions and updates, while spherical flow uses 24 neural evaluations per sample and diffusion uses 12; it does not establish matched-compute or intrinsic speed superiority. All results are from one environment instance and short 4,000-update runs.
+
+The recorded 2026-11-04 09:36:30 UTC remote snapshot has all four campaigns complete and no experiment workers. Runs used CPU; no GPU training was launched. Frozen sources and manifests remain immutable. See [plan.md](plan.md) for source hashes, complete scope and proposed work.

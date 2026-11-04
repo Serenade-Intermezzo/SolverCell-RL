@@ -1,0 +1,16 @@
+{
+  "verified": true,
+  "old_run": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/quotient_sphere",
+  "new_run": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/sphere_m010_recheck",
+  "old_source": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+  "new_source": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+  "checks": {
+    "identical_resolved_configuration": true,
+    "bitwise_identical_learner_and_optimizer_rng": true,
+    "identical_environment_counters_and_all_rng": true,
+    "identical_valid_replay_rows_and_ring_position": true,
+    "identical_complete_validation_heldout_and_training_episodes": true
+  },
+  "old_checkpoint_bytes": 61424181,
+  "new_checkpoint_bytes": 7140795
+}

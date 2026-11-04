@@ -1,45 +1,59 @@
 # SolverCell-RL plan
 
-## Objective
-Implement decision-cell diffusion, select a released LSFlow benchmark, and run controlled tuning on wflow-server.
+## Objective and current status
 
-## Current status (2026-11-04): completed
-- New independent local research workspace and Git repository created.
-- Pinned upstream `7e50d03e7129974a11061c9ce500bc2dc5593246`; selected source-checked Dynamic Intervention N40/A20/B10/H20.
-- Exact robust-cell projection, stochastic-interpolant diffusion, matched action critic, independent-cell and point controls, spherical reference, native LSFlow adapter, durable controller and aggregation implemented.
-- Initial 8-arm screen and subsequent 6-arm temperature factorial finished on wflow-server: **14/14 complete**, zero failed/partial/live/queued arms.
-- All final checkpoints mirrored locally; complete configuration/source/instance/update/episode/finite-state audits passed independently on server and local copies.
-- Same scientific source SHA for all experiments: `258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914`.
-- Current development subsequently fixes actor metric logging and protects prior manifests from overwrite. Frozen remote source is preserved. Local full suite: 34 tests pass (experiment version: 32).
-- No GPU job was launched. Existing openpi GPU workload was preserved; two CPU workers per campaign, briefly three threads across overlapping stages.
+Build a source-grounded diffusion-policy workspace around a released LSFlow combinatorial-RL benchmark, run bounded controlled experiments on wflow-server, and use the completed evidence to decide whether the proposed mechanism merits further work.
 
-## Steps
-1. [done] Pin and audit source, environment, decoder and experimental recipe.
-2. [done] Implement decision-cell coupling and stochastic sampler with causal controls.
-3. [done] Validate projection using independent QP, upstream trajectories, gradients, RNG recovery and controller behavior.
-4. [done] Freeze, deploy and complete the eight-arm initial screen.
-5. [done] Diagnose Q weights and complete a one-factor temperature follow-up across all three methods.
-6. [done] Audit all completed artifacts, render curves, save report and preserve negative results.
+**2026-11-04: all 32 authorized runs across four campaigns are complete.** The original 14-run matched-harness study and the subsequent 18-run native-structure study remain separate scientific comparisons. There are zero failed, partial, live or queued arms. The final recorded remote snapshot is 09:36:30 UTC; it contains no experiment workers. No additional RL experiment is launched by this plan update or the research redesign notes.
 
-## Result and next research decision
-- Common temperature .1 selected from prespecified validation-only cross-method means.
-- At T=.1, last-window validation: cell147.635, point181.346, independent-cell143.648.
-- Native LSFlow316.331, matched spherical reference160.845.
-- Cell failed the positive mechanism triage gate. Pairing gain against independent-cell changes sign across temperatures. No superiority or stability claim.
-- Next scientific work should narrow the adaptation boundary by keeping native critic/update/decoder while testing a cell target. The W-transpose decoder has structural ties, requiring a different feasible-cell construction. This is a proposed next experiment, not implemented or queued.
+The current research direction is documented in [Diffusion redesign decision](docs/DIFFUSION_REDESIGN_DECISION.md). It is a proposed design, not a validated RL result. The current cell-coupling implementation did not establish a consistent advantage, and point diffusion's promising discovery seed did not replicate against quotient spherical flow on new seeds 1 and 2.
 
-## Deliverables
-- `README.md`: setup, fresh campaign generation and frozen-source reproduction boundary.
-- `reports/study_20261104/RESULTS.md`: complete scientific report and 14-arm table.
-- `reports/study_20261104/learning_curves.png` and `.pdf`: complete trajectories.
-- `reports/study_20261104/study.json`: machine-readable status and metrics.
-- `reports/{intervention_screen_20261104,temperature_screen_20261104}/`: CSV/JSON/LaTeX and independent audits.
-- `outputs/`: all final run artifacts including checkpoints (Git-ignored).
+## Completed work
 
-## Active follow-up: native quotient revision
-- User authorized method/code improvements and further tuning on2026-11-04.
-- Implemented native-policy diffusion replacement and8D decoder quotient, while preserving40D native critics and update rules.
-- Added exact tie-aware original-decoder projection, matched point/cell/independent controls and quotient spherical reference.
-- Tensor-only native paths pass bitwise equivalence; local timing1.008x, no substantial speedup claim.
-- Local debug runs and server30-update preflight pass. Six-arm4k campaign prepared; complete integration tests/source freeze and dispatch next.
-- Design: docs/NATIVE_REVISION_DESIGN.md. Prior14 results remain a completed historical study.
+1. [done] Create an independent local workspace and pin upstream commit `7e50d03e7129974a11061c9ce500bc2dc5593246`.
+2. [done] Audit and port the released Dynamic Intervention environment, preserving N40/A20/B10/H20, the original instance constructor and transition/reward semantics; use instance seed 0 throughout.
+3. [done] Implement exact robust-cell projection, stochastic-interpolant diffusion, point and independent-cell controls, a matched spherical reference, and the native LSFlow adapter.
+4. [done] Validate projection, upstream environment trajectories, finite gradients, train/evaluation RNG isolation, exact checkpoint recovery, controller accounting and durable exit evidence.
+5. [done] Complete and audit the initial eight-arm screen and six-arm temperature factorial; preserve all negative and degraded arms.
+6. [done] Diagnose the adaptation boundary, then retain native critics, Q normalization, update schedules, noisy execution and trimmed Bellman targets while replacing the actor.
+7. [done] Implement the rank-8 quotient actor, tie-aware original-decoder geometry, and matched native point/cell/independent/quotient-flow controls.
+8. [done] Complete and audit the six-arm native revision at training seed 0.
+9. [done] Optimize replay serialization without changing scientific state; verify legacy loading, wrapped-buffer behavior, exact next samples/writes, and unchanged RNGs.
+10. [done] Complete all 12 margin/replication jobs: six margin-factorial arms, two seed-0 full-run equivalence rechecks, and four fixed point/sphere runs at training seeds 1 and 2.
+11. [done] Verify both point and sphere rechecks are bitwise equivalent in final scientific state and exactly equal in complete validation, heldout and training-episode trajectories.
+12. [done] Recompute validation-only shared-margin selection and paired training-seed statistics; preserve full curves, separate final heldout results, and document unequal neural evaluation cost.
+13. [done] Audit the action/cost KL boundary, noisy execution kernel, solver support and prior, and existing diffusion/flow mechanisms; prepare a revised research direction without launching new experiments.
+
+## Scientific outcomes
+
+- Historical matched-harness study: common temperature 0.1 selected using validation-only across-method means. Last-window returns are cell 147.635, point 181.346 and independent cell 143.648. Native LSFlow is 316.331, while the matched spherical adaptation is 160.845. These figures diagnose the large adaptation boundary; they are not pooled with the native-structure study.
+- Native Stage A, seed 0: native reference 316.331, full point 320.364, quotient sphere 318.809, quotient point 335.431, quotient cell 289.115 and independent cell 288.648. The native reference has the highest AUC, 299.974; the point endpoint result does not dominate the full curve.
+- Shared margin 0.6 is selected from {0.1, 0.3, 0.6} using the mean last-window return across point/cell/independent, with AUC as the prespecified tie-breaker. At 0.6, point is 326.995, cell is 308.283 and independent cell is 300.864. Cell improves over its 0.1 anchor but still trails point; the cell-minus-independent sign changes across margins. All margin-factorial evidence remains seed-0-only.
+- Fixed margin-0.1 replication uses the same new source and the parameters fixed before margin results. Point-minus-sphere last-window differences are +16.622, −26.211 and −35.580 for training seeds 0, 1 and 2. Across all three, the mean is −15.056 and sample SD is 27.832. Seed 0 is the known discovery seed; both newly added seeds favor spherical flow. No diffusion superiority, stable coupling benefit or significance claim is supported.
+- One instance and 4,000 training updates per run do not establish cross-instance generalization or full-budget convergence. Final heldout episodes never select margin, method, checkpoint or follow-up parameters.
+- Equal interaction/update budgets and 9,600 recorded decoder calls do not imply equal compute: the Heun spherical sampler uses 24 network evaluations per sample, diffusion uses 12. Recorded wall times do not establish an intrinsic speed advantage.
+- A later fixed-kernel oracle diagnostic fails the equal-Q-query efficiency gate for the simplest conditional-branch estimator: its full-gradient variance trace is 1.473–1.862 times averaging two independent score-function samples in all 12 cases (three real late-replay states × four coordinates, 20,000 estimates each). Integration/finite-difference checks pass, but this is a declared Gaussian test kernel and myopic oracle, not the trained policy or an RL result. The proposed estimator is not promoted to a training sweep.
+
+## Engineering and source boundaries
+
+- Current local full suite: 54 passing tests. Tensor-only native sampling preserves original computation and RNG behavior; the paired local microbenchmark is approximately 1.008×, without a meaningful acceleration claim.
+- A 5,000/100,000-row replay payload shrinks from 57,275,424 to 2,842,248 bytes (95.04%). This is checkpoint replay serialization, not runtime memory or total-model compression. The complete point and sphere rechecks establish exact full-run equivalence across the storage boundary.
+- Historical 14-run scientific source: `258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914`.
+- Native Stage A, 6 runs: source `030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b`, commit `5e2e764`.
+- Native Stage B, 12 runs: source `6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c`, commit `00a7eed`. The hashed source differences from Stage A are `solvercell/learner.py` and `solvercell/trainer.py`, for replay serialization/save/restore. Full-run equality gates passed before historical margin anchors were combined.
+- Frozen manifests, source snapshots and remote outputs remain immutable. At most four single-thread CPU workers used CPUs 24–27 in the native stages; no GPU training was launched. The final remote snapshot records GPU 684 MiB / 4% and the previously observed unrelated worker absent. We did not signal or modify that worker, and do not claim it is still running.
+
+## Deliverables and reproducible analysis
+
+- [Completed native 18-run report](reports/native_revision_study_20261104/RESULTS.md), [machine-readable results](reports/native_revision_study_20261104/study.json), [full curves and replication figure](reports/native_revision_study_20261104/learning_and_replication.png), [PDF figure](reports/native_revision_study_20261104/learning_and_replication.pdf).
+- [Report builder](analysis/build_native_study_report.py): `python analysis/build_native_study_report.py` verifies saved config/source/exit/counters/curves and deep-audit outcomes before rebuilding the report. It does not train or use heldout values for selection.
+- [Point storage equivalence](reports/native_revision_study_20261104/point_storage_equivalence.json), [sphere storage equivalence](reports/native_revision_study_20261104/sphere_storage_equivalence.json), [final remote state](reports/native_revision_study_20261104/final_remote_state.json).
+- [Historical completed 14-run report](reports/study_20261104/RESULTS.md) and its [full learning curves](reports/study_20261104/learning_curves.png).
+- [Native revision design](docs/NATIVE_REVISION_DESIGN.md), [prespecified margin/replication design](docs/NATIVE_MARGIN_FOLLOWUP.md). These preserve preparation-time statements; completed status is recorded here and in the result report.
+- [Methodology audit](docs/METHODOLOGY_AUDIT.md), [solver support/prior audit](docs/SOLVER_SUPPORT_AND_PRIOR.md), [feasible-exchange rethink](docs/FEASIBLE_EXCHANGE_RETHINK.md), [diffusion redesign decision](docs/DIFFUSION_REDESIGN_DECISION.md).
+- [Continuation critic and negative efficiency gate](docs/NOISE_CONTINUATION_CRITIC.md), [fixed-kernel branch diagnostic](reports/continuation_branch_audit/summary.json).
+- All complete run artifacts and checkpoints are mirrored under Git-ignored `outputs/`. Campaign-specific `reports/` preserve CSV/JSON/LaTeX summaries, deployments and independent audits.
+
+## Proposed next research work: no experiments launched
+
+First diagnose whether the actual trained stochastic denoising chain has a decision-credit problem that the proposed estimator can improve at equal cost. The simplest two-query conditional-branch estimator failed its inexpensive gate, so no Rao–Blackwellized-policy training sweep is planned. A future algorithm must target an identified limitation of the existing update and distinguish diffusion-specific stochastic denoising control from generic endpoint weighting or stochastic-flow extensions. Current evidence also does not justify another cell-margin sweep. The research notes specify falsifiable controls and novelty boundaries; implementation and a fresh bounded training design would be separate work.

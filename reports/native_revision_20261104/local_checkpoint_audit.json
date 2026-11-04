@@ -1,0 +1,90 @@
+{
+  "campaign_id": "native_revision_20261104",
+  "runs": [
+    {
+      "id": "native_reference",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/native_reference",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 4000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    },
+    {
+      "id": "full_point",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/full_point",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 4000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    },
+    {
+      "id": "quotient_sphere",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/quotient_sphere",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 4000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    },
+    {
+      "id": "quotient_point",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/quotient_point",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 4000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    },
+    {
+      "id": "quotient_cell",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/quotient_cell",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 4000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    },
+    {
+      "id": "quotient_independent",
+      "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/quotient_independent",
+      "status": "verified_complete",
+      "env_steps": 5000,
+      "train_steps": 4000,
+      "actor_updates": 4000,
+      "episodes": 250,
+      "validation_evaluations": 9,
+      "heldout_episodes": 50,
+      "all_checkpoint_tensors_finite": true,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403"
+    }
+  ],
+  "all_verified_complete": true
+}

@@ -1,0 +1,44 @@
+{
+  "id": "quotient_cell",
+  "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+  "states": 512,
+  "replay_seed": 882013,
+  "source_seed": 882014,
+  "perturbation_seed": 882015,
+  "rows": [
+    {
+      "margin": 0.1,
+      "fallback_fraction": 0.0,
+      "decode_mismatches": 0,
+      "fraction_changed_action": 0.8966064453125,
+      "hamming_mean": 4.98846435546875,
+      "mean_native_critic_change": -0.5166611671447754,
+      "abs_native_critic_change_mean": 3.59635591506958,
+      "normalized_transport": 0.773019015789032,
+      "projected_norm_mean": 0.6781967878341675
+    },
+    {
+      "margin": 0.3,
+      "fallback_fraction": 0.0,
+      "decode_mismatches": 0,
+      "fraction_changed_action": 0.7884521484375,
+      "hamming_mean": 3.598388671875,
+      "mean_native_critic_change": -0.34942853450775146,
+      "abs_native_critic_change_mean": 3.263777494430542,
+      "normalized_transport": 0.9862731695175171,
+      "projected_norm_mean": 0.7003279328346252
+    },
+    {
+      "margin": 0.6,
+      "fallback_fraction": 0.0,
+      "decode_mismatches": 0,
+      "fraction_changed_action": 0.6031494140625,
+      "hamming_mean": 2.235595703125,
+      "mean_native_critic_change": -0.20175816118717194,
+      "abs_native_critic_change_mean": 2.9112985134124756,
+      "normalized_transport": 1.2449458837509155,
+      "projected_norm_mean": 0.7684157490730286
+    }
+  ],
+  "scope": "Offline fixed-checkpoint endpoint diagnostic only, not retraining and not a performance result"
+}

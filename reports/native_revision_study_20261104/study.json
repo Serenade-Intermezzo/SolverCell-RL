@@ -1,0 +1,3064 @@
+{
+  "all_campaigns_completed_runs": 32,
+  "completed_runs": 18,
+  "compute_caveats": {
+    "decoder_calls_each": 9600,
+    "decoder_count_scope": "executed native actions including evaluation; not neural candidate evaluations",
+    "diffusion_nfe_per_sample": 12,
+    "equal_environment_update_budget": true,
+    "equal_nfe": false,
+    "flow_nfe_per_sample": 24,
+    "intrinsic_speed_advantage_established": false
+  },
+  "conclusions": [
+    "Cell endpoint coupling is not supported as a consistent improvement over point or independent controls.",
+    "Shared margin 0.6 improves seed-0 cell return, but cell remains below point and the pairing sign changes across margins.",
+    "Quotient point wins discovery seed 0 but loses both new seeds to quotient spherical flow; no diffusion superiority or stability claim.",
+    "Short, one-instance results do not establish full-budget convergence, cross-instance generalization or a novel diffusion-specific mechanism.",
+    "A subsequent fixed-kernel oracle diagnostic also fails the equal-two-query variance gate for the simplest conditional-branch estimator; it is not a trained-policy or RL result."
+  ],
+  "failed_runs": 0,
+  "final_remote_state": {
+    "campaigns": {
+      "intervention_screen_20261104": {
+        "jobs": {
+          "cell_flow": "complete",
+          "cell_independent": "complete",
+          "cell_m005": "complete",
+          "cell_m010": "complete",
+          "cell_m020": "complete",
+          "lsflow_native": "complete",
+          "point": "complete",
+          "sphere_matched": "complete"
+        },
+        "source": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+        "status": "complete"
+      },
+      "native_margin_20261104": {
+        "jobs": {
+          "cell_m030": "complete",
+          "cell_m060": "complete",
+          "independent_m030": "complete",
+          "independent_m060": "complete",
+          "point_m010_recheck": "complete",
+          "point_m010_seed1": "complete",
+          "point_m010_seed2": "complete",
+          "point_m030": "complete",
+          "point_m060": "complete",
+          "sphere_m010_recheck": "complete",
+          "sphere_m010_seed1": "complete",
+          "sphere_m010_seed2": "complete"
+        },
+        "source": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete"
+      },
+      "native_revision_20261104": {
+        "jobs": {
+          "full_point": "complete",
+          "native_reference": "complete",
+          "quotient_cell": "complete",
+          "quotient_independent": "complete",
+          "quotient_point": "complete",
+          "quotient_sphere": "complete"
+        },
+        "source": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "complete"
+      },
+      "temperature_screen_20261104": {
+        "jobs": {
+          "cell_t010": "complete",
+          "cell_t025": "complete",
+          "independent_t010": "complete",
+          "independent_t025": "complete",
+          "point_t010": "complete",
+          "point_t025": "complete"
+        },
+        "source": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+        "status": "complete"
+      }
+    },
+    "captured_utc": "2026-11-04T09:36:30.364586+00:00",
+    "gpu": "NVIDIA RTX A6000, 684 MiB, 4 %",
+    "training_workers": [],
+    "unrelated_original_worker_exists": false
+  },
+  "fixed_replication": {
+    "all_three_seeds": {
+      "point": {
+        "final_validation_return": {
+          "mean": 349.602498515447,
+          "n": 3,
+          "sample_sd": 11.08763330271569,
+          "values": [
+            345.2949985265732,
+            362.1974982023239,
+            341.31499881744384
+          ]
+        },
+        "last_window_return": {
+          "mean": 341.88374859491984,
+          "n": 3,
+          "sample_sd": 8.851795784366653,
+          "values": [
+            335.431248986721,
+            351.97499841451645,
+            338.244998383522
+          ]
+        },
+        "validation_auc": {
+          "mean": 299.37718745122356,
+          "n": 3,
+          "sample_sd": 6.247665990411921,
+          "values": [
+            293.122969417274,
+            305.61828071922065,
+            299.39031221717596
+          ]
+        }
+      },
+      "point_minus_sphere": {
+        "final_validation_return": {
+          "mean": -9.77999918460847,
+          "n": 3,
+          "sample_sd": 28.71660564620374,
+          "values": [
+            22.024999260902405,
+            -17.55999908447268,
+            -33.80499773025514
+          ]
+        },
+        "last_window_return": {
+          "mean": -15.056249324480708,
+          "n": 3,
+          "sample_sd": 27.83164938215109,
+          "values": [
+            16.622499418258656,
+            -26.211249041557323,
+            -35.579998350143455
+          ]
+        },
+        "validation_auc": {
+          "mean": -12.70953050752479,
+          "n": 3,
+          "sample_sd": 18.240982681028214,
+          "values": [
+            8.3332808300853,
+            -24.026874256134022,
+            -22.434998096525646
+          ]
+        }
+      },
+      "sphere": {
+        "final_validation_return": {
+          "mean": 359.38249770005547,
+          "n": 3,
+          "sample_sd": 31.36018192958005,
+          "values": [
+            323.2699992656708,
+            379.7574972867966,
+            375.119996547699
+          ]
+        },
+        "last_window_return": {
+          "mean": 356.9399979194005,
+          "n": 3,
+          "sample_sd": 33.094549438942664,
+          "values": [
+            318.80874956846236,
+            378.1862474560738,
+            373.82499673366544
+          ]
+        },
+        "validation_auc": {
+          "mean": 312.08671795874835,
+          "n": 3,
+          "sample_sd": 23.961079942626483,
+          "values": [
+            284.7896885871887,
+            329.64515497535467,
+            321.8253103137016
+          ]
+        }
+      }
+    },
+    "fixed_bridge_sigma": 0.5,
+    "fixed_margin": 0.1,
+    "new_seeds_1_2_only": {
+      "final_validation_return": {
+        "mean": -25.68249840736391,
+        "n": 2,
+        "sample_sd": 11.486948702799058,
+        "values": [
+          -17.55999908447268,
+          -33.80499773025514
+        ]
+      },
+      "last_window_return": {
+        "mean": -30.89562369585039,
+        "n": 2,
+        "sample_sd": 6.624706167338032,
+        "values": [
+          -26.211249041557323,
+          -35.579998350143455
+        ]
+      },
+      "validation_auc": {
+        "mean": -23.230936176329834,
+        "n": 2,
+        "sample_sd": 1.1256264272682812,
+        "values": [
+          -24.026874256134022,
+          -22.434998096525646
+        ]
+      }
+    },
+    "pairs": [
+      {
+        "point": {
+          "final_validation_return": 345.2949985265732,
+          "last_window_return": 335.431248986721,
+          "validation_auc": 293.122969417274
+        },
+        "point_id": "point_m010_recheck",
+        "point_minus_sphere": {
+          "final_validation_return": 22.024999260902405,
+          "last_window_return": 16.622499418258656,
+          "validation_auc": 8.3332808300853
+        },
+        "scope": "known discovery seed repeated",
+        "seed": 0,
+        "sphere": {
+          "final_validation_return": 323.2699992656708,
+          "last_window_return": 318.80874956846236,
+          "validation_auc": 284.7896885871887
+        },
+        "sphere_id": "sphere_m010_recheck"
+      },
+      {
+        "point": {
+          "final_validation_return": 362.1974982023239,
+          "last_window_return": 351.97499841451645,
+          "validation_auc": 305.61828071922065
+        },
+        "point_id": "point_m010_seed1",
+        "point_minus_sphere": {
+          "final_validation_return": -17.55999908447268,
+          "last_window_return": -26.211249041557323,
+          "validation_auc": -24.026874256134022
+        },
+        "scope": "new training seed",
+        "seed": 1,
+        "sphere": {
+          "final_validation_return": 379.7574972867966,
+          "last_window_return": 378.1862474560738,
+          "validation_auc": 329.64515497535467
+        },
+        "sphere_id": "sphere_m010_seed1"
+      },
+      {
+        "point": {
+          "final_validation_return": 341.31499881744384,
+          "last_window_return": 338.244998383522,
+          "validation_auc": 299.39031221717596
+        },
+        "point_id": "point_m010_seed2",
+        "point_minus_sphere": {
+          "final_validation_return": -33.80499773025514,
+          "last_window_return": -35.579998350143455,
+          "validation_auc": -22.434998096525646
+        },
+        "scope": "new training seed",
+        "seed": 2,
+        "sphere": {
+          "final_validation_return": 375.119996547699,
+          "last_window_return": 373.82499673366544,
+          "validation_auc": 321.8253103137016
+        },
+        "sphere_id": "sphere_m010_seed2"
+      }
+    ],
+    "selection_scope": "parameters fixed from stage A before margin results; seed 0 is discovery, seeds 1/2 are new"
+  },
+  "heldout_final_checkpoint": {
+    "runs": [
+      {
+        "campaign": "native_revision_20261104",
+        "episode_return_sd": 23.396108211866675,
+        "id": "native_reference",
+        "return_mean": 315.0700009059906,
+        "seed": 0
+      },
+      {
+        "campaign": "native_revision_20261104",
+        "episode_return_sd": 22.077845959913798,
+        "id": "full_point",
+        "return_mean": 318.5490003490448,
+        "seed": 0
+      },
+      {
+        "campaign": "native_revision_20261104",
+        "episode_return_sd": 24.245313885895598,
+        "id": "quotient_sphere",
+        "return_mean": 314.5489995288849,
+        "seed": 0
+      },
+      {
+        "campaign": "native_revision_20261104",
+        "episode_return_sd": 27.50608861375226,
+        "id": "quotient_point",
+        "return_mean": 340.34799902915955,
+        "seed": 0
+      },
+      {
+        "campaign": "native_revision_20261104",
+        "episode_return_sd": 24.303510557483254,
+        "id": "quotient_cell",
+        "return_mean": 293.8920007324219,
+        "seed": 0
+      },
+      {
+        "campaign": "native_revision_20261104",
+        "episode_return_sd": 23.90793211176105,
+        "id": "quotient_independent",
+        "return_mean": 288.5490001869202,
+        "seed": 0
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 27.50608861375226,
+        "id": "point_m010_recheck",
+        "return_mean": 340.34799902915955,
+        "seed": 0
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 24.245313885895598,
+        "id": "sphere_m010_recheck",
+        "return_mean": 314.5489995288849,
+        "seed": 0
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 22.836746434217883,
+        "id": "point_m010_seed1",
+        "return_mean": 361.7599978923798,
+        "seed": 1
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 22.000217912557908,
+        "id": "sphere_m010_seed1",
+        "return_mean": 375.5749974155426,
+        "seed": 1
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 24.543998730228143,
+        "id": "point_m010_seed2",
+        "return_mean": 336.9219988822937,
+        "seed": 2
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 22.844833899652862,
+        "id": "sphere_m010_seed2",
+        "return_mean": 373.41199705123904,
+        "seed": 2
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 27.06759920863306,
+        "id": "point_m030",
+        "return_mean": 342.1079989814758,
+        "seed": 0
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 24.75375167859505,
+        "id": "cell_m030",
+        "return_mean": 297.2370006561279,
+        "seed": 0
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 21.981089367376047,
+        "id": "independent_m030",
+        "return_mean": 301.821000328064,
+        "seed": 0
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 25.110939901627695,
+        "id": "point_m060",
+        "return_mean": 328.0389997673035,
+        "seed": 0
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 21.189980126644862,
+        "id": "cell_m060",
+        "return_mean": 305.8840002441406,
+        "seed": 0
+      },
+      {
+        "campaign": "native_margin_20261104",
+        "episode_return_sd": 20.865801679664205,
+        "id": "independent_m060",
+        "return_mean": 304.6769999790192,
+        "seed": 0
+      }
+    ],
+    "scope": "50 final-checkpoint episodes, seeds 200000:200049; episode SD is not training-seed SD",
+    "used_for_selection": false
+  },
+  "historical_study": {
+    "completed_runs": 14,
+    "path": "reports/study_20261104/RESULTS.md",
+    "pooled_with_native_study": false,
+    "reason": "different adaptation harness; historical tuning context only",
+    "source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914"
+  },
+  "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+  "instance_seed": 0,
+  "live_runs": 0,
+  "margin_selection": {
+    "basis": "mean last-window validation across point/cell/independent; exact tie: mean AUC, then smaller margin",
+    "groups": [
+      {
+        "cell_last_window": 289.1150012612343,
+        "contrasts": {
+          "last_window_return": {
+            "cell_minus_independent": 0.46750056743621826,
+            "cell_minus_point": -46.31624772548673
+          },
+          "validation_auc": {
+            "cell_minus_independent": 1.5120315521955945,
+            "cell_minus_point": -22.410311579704285
+          }
+        },
+        "independent_last_window": 288.64750069379807,
+        "margin": 0.1,
+        "mean_last_window_return": 304.39791698058445,
+        "mean_validation_auc": 277.67875118007265,
+        "members": [
+          {
+            "campaign": "native_revision_20261104",
+            "id": "quotient_point"
+          },
+          {
+            "campaign": "native_revision_20261104",
+            "id": "quotient_cell"
+          },
+          {
+            "campaign": "native_revision_20261104",
+            "id": "quotient_independent"
+          }
+        ],
+        "point_last_window": 335.431248986721
+      },
+      {
+        "cell_last_window": 297.1137500524521,
+        "contrasts": {
+          "last_window_return": {
+            "cell_minus_independent": -2.109999763965618,
+            "cell_minus_point": -34.4762491464615
+          },
+          "validation_auc": {
+            "cell_minus_independent": -1.1626564040780067,
+            "cell_minus_point": -14.815937307477043
+          }
+        },
+        "independent_last_window": 299.2237498164177,
+        "margin": 0.3,
+        "mean_last_window_return": 309.3091663559278,
+        "mean_validation_auc": 280.6308864335219,
+        "members": [
+          {
+            "campaign": "native_margin_20261104",
+            "id": "point_m030"
+          },
+          {
+            "campaign": "native_margin_20261104",
+            "id": "cell_m030"
+          },
+          {
+            "campaign": "native_margin_20261104",
+            "id": "independent_m030"
+          }
+        ],
+        "point_last_window": 331.5899991989136
+      },
+      {
+        "cell_last_window": 308.28250101804736,
+        "contrasts": {
+          "last_window_return": {
+            "cell_minus_independent": 7.418750476837204,
+            "cell_minus_point": -18.71249909400933
+          },
+          "validation_auc": {
+            "cell_minus_independent": 6.383281394839287,
+            "cell_minus_point": -7.872343690693356
+          }
+        },
+        "independent_last_window": 300.86375054121015,
+        "margin": 0.6,
+        "mean_last_window_return": 312.04708389043805,
+        "mean_validation_auc": 283.67916760444643,
+        "members": [
+          {
+            "campaign": "native_margin_20261104",
+            "id": "point_m060"
+          },
+          {
+            "campaign": "native_margin_20261104",
+            "id": "cell_m060"
+          },
+          {
+            "campaign": "native_margin_20261104",
+            "id": "independent_m060"
+          }
+        ],
+        "point_last_window": 326.9950001120567
+      }
+    ],
+    "heldout_used": false,
+    "historical_anchor_counted_once": true,
+    "historical_anchor_gate_passed": true,
+    "selected_margin": 0.6
+  },
+  "partial_runs": 0,
+  "protocol": {
+    "auc": "trapezoidal validation area over steps 0:500:4000 divided by 4000",
+    "budget": 10,
+    "evaluation_policy": "best of 12 native-critic candidates, without behavior execution perturbation",
+    "full_released_budget": 40000,
+    "generalization_scope": "one fixed instance; short-budget training",
+    "horizon": 20,
+    "last_window": "mean of validation returns at training steps 3500 and 4000",
+    "n_actions": 20,
+    "n_arms": 40,
+    "train_steps": 4000,
+    "validation_episodes": 20,
+    "warmup_steps": 1000
+  },
+  "provenance": [
+    {
+      "campaign": "native_revision_20261104",
+      "completed_runs": 6,
+      "cpu_sets": [
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ]
+      ],
+      "git_commit": "5e2e764907cc727c0060e34f20a69362aab44a5f",
+      "local_deep_audit_sha256": "b1f0f6935704c1a274c376f4dae40bd7364278dea8fdd0ed83f1b5260f69a2a3",
+      "manifest": "experiments/native_revision_20261104/manifest.json",
+      "manifest_sha256": "fc0a3a0b0a7f2dba10888e09e66ab6fb4eeec33e3aa659979a6bc735bd115612",
+      "max_parallel": 4,
+      "remote_root": "/home/li/SolverCell-RL/deployments/native_revision_20261104/source",
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "summary_sha256": "bec976018e388a884da394a7845b53035663289cfde76cbfdf12346959f57f7e"
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "completed_runs": 12,
+      "cpu_sets": [
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ]
+      ],
+      "git_commit": "00a7eedece8156c8f7e88f6a887e0268837b94eb",
+      "local_deep_audit_sha256": "f2aea1b250ccc4f1d18f135431109de461e2cd1d786b8dd09c2ff072f5a4f70f",
+      "manifest": "experiments/native_margin_20261104/manifest.json",
+      "manifest_sha256": "377f84b71dff8690e1b03fcb2853585c94f01620ee8d98995684f39ab18ea209",
+      "max_parallel": 4,
+      "remote_root": "/home/li/SolverCell-RL/deployments/native_margin_20261104/source",
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "summary_sha256": "b293eacc6f88cda17cdcabdd2dcd3d6f237ce4732bf1509cdede2ccd77c55cdb"
+    }
+  ],
+  "queued_runs": 0,
+  "runs": [
+    {
+      "campaign": "native_revision_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "lsflow_tensor",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "59d79240a4d8804095ccaf54f2b2ddffbd59af3422d49db66e760eab61ab61f7",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "native_reference",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/native_reference",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "native_reference",
+      "margin": 0.1,
+      "method": "lsflow_tensor",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 315.507500743866,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 315.0700009059906,
+        "heldout_return_std": 23.396108211866675,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 316.33125050067906,
+        "method": "lsflow_tensor",
+        "network_evaluations_per_sample": 24,
+        "parameter_counts": {
+          "actor": 107112,
+          "critic_total": 173570
+        },
+        "projection_seconds": 0.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 8.37868915064418,
+        "updates": 4000,
+        "validation_auc": 299.97421967387197,
+        "wall_seconds": 477.4016461640131,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_revision_20261104/native_reference",
+      "seed": 0,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 168.06000351905823,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 302.70000138282774,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 300.4125015258789,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 302.35500078201295,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 305.74500041007997,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 315.56000051498415,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 314.0825003862381,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 317.1550002574921,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 315.507500743866,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_revision_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "native_full_point_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "5c0765008c7fae147c60422bf430233df3051bb13dce6445d0c72296d2d37533",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "full_point",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/full_point",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "full_point",
+      "margin": 0.1,
+      "method": "native_full_point_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 328.4824997425079,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 318.5490003490448,
+        "heldout_return_std": 22.077845959913798,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 320.3637509822845,
+        "method": "native_full_point_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 117392,
+          "critic_total": 173570
+        },
+        "projection_seconds": 9.999290541512892,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 12.976982386346087,
+        "updates": 4000,
+        "validation_auc": 290.13843876719477,
+        "wall_seconds": 308.23806885804515,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_revision_20261104/full_point",
+      "seed": 0,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 173.0325023651123,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 277.94500119686126,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 279.8100021123886,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 292.78750202655795,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 301.91750140190123,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 304.0724993944168,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 301.57250072956083,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 312.24500222206115,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 328.4824997425079,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_revision_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "native_quotient_sphere",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "720f935eb7e38013d3ae8e0b05754fcf03642606435df1878f7761fde645a04a",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "quotient_sphere",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/quotient_sphere",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "quotient_sphere",
+      "margin": 0.1,
+      "method": "native_quotient_sphere",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 323.2699992656708,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 314.5489995288849,
+        "heldout_return_std": 24.245313885895598,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 318.80874956846236,
+        "method": "native_quotient_sphere",
+        "network_evaluations_per_sample": 24,
+        "parameter_counts": {
+          "actor": 90696,
+          "critic_total": 173570
+        },
+        "projection_seconds": 0.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 9.432258899125681,
+        "updates": 4000,
+        "validation_auc": 284.7896885871887,
+        "wall_seconds": 424.0765691709239,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_revision_20261104/quotient_sphere",
+      "seed": 0,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 131.4650032043457,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 253.40500249862671,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 278.5275009870529,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 285.58000140190126,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 297.23750178813935,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 310.29500062465667,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 311.5575002908707,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 314.34749987125394,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 323.2699992656708,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_revision_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "native_quotient_point_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "dd4d14084aa421b99eb1193477e46f0d6cfc4a0ce66363b55c434d3a49331189",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "quotient_point",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/quotient_point",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "quotient_point",
+      "margin": 0.1,
+      "method": "native_quotient_point_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 345.2949985265732,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 340.34799902915955,
+        "heldout_return_std": 27.50608861375226,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 335.431248986721,
+        "method": "native_quotient_point_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 9.925657009123825,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.130852579307334,
+        "updates": 4000,
+        "validation_auc": 293.122969417274,
+        "wall_seconds": 264.36051539098844,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_revision_20261104/quotient_point",
+      "seed": 0,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 138.70250334739686,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 265.85750205516814,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 271.3300012588501,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 301.67500083446504,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 309.11000096797943,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 310.9449995517731,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 318.5000002861023,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 325.5674994468689,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 345.2949985265732,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_revision_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "native_quotient_cell_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "6455775dd284ea9d9e5d0d69543adccfbc2a1859fefff8ef13f9d1e77d50dd2f",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "quotient_cell",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/quotient_cell",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "quotient_cell",
+      "margin": 0.1,
+      "method": "native_quotient_cell_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 294.35500104427337,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 293.8920007324219,
+        "heldout_return_std": 24.303510557483254,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 289.1150012612343,
+        "method": "native_quotient_cell_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 9.984612104366533,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.193351170748583,
+        "updates": 4000,
+        "validation_auc": 270.71265783756974,
+        "wall_seconds": 263.273055579979,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_revision_20261104/quotient_cell",
+      "seed": 0,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 138.70250334739686,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 266.2425017595291,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 268.5225024461746,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 283.91250071525576,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 281.95750093460083,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 280.1325012683868,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 284.53000190258024,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 283.8750014781952,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 294.35500104427337,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_revision_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "native_quotient_independent_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "5d0bd260b800506840cd691f9f6fb94dc7739c0e8f7a2acdf78491d81cdfbc61",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "quotient_independent",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/quotient_independent",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "quotient_independent",
+      "margin": 0.1,
+      "method": "native_quotient_independent_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 296.05250084400177,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 288.5490001869202,
+        "heldout_return_std": 23.90793211176105,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 288.64750069379807,
+        "method": "native_quotient_independent_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 9.841434837318957,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.252095936516424,
+        "updates": 4000,
+        "validation_auc": 269.20062628537414,
+        "wall_seconds": 262.25903609301895,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_revision_20261104/quotient_independent",
+      "seed": 0,
+      "source_sha256": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 138.70250334739686,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 253.23000135421753,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 273.395001411438,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 272.062501335144,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 280.7050022363663,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 285.7000000476837,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 289.8925012588501,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 281.24250054359436,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 296.05250084400177,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "native_quotient_point_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "dd4d14084aa421b99eb1193477e46f0d6cfc4a0ce66363b55c434d3a49331189",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "point_m010_recheck",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/point_m010_recheck",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "point_m010_recheck",
+      "margin": 0.1,
+      "method": "native_quotient_point_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 345.2949985265732,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 340.34799902915955,
+        "heldout_return_std": 27.50608861375226,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 335.431248986721,
+        "method": "native_quotient_point_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 9.818768636789173,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.629487657915067,
+        "updates": 4000,
+        "validation_auc": 293.122969417274,
+        "wall_seconds": 255.92649459803943,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/point_m010_recheck",
+      "seed": 0,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 138.70250334739686,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 265.85750205516814,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 271.3300012588501,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 301.67500083446504,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 309.11000096797943,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 310.9449995517731,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 318.5000002861023,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 325.5674994468689,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 345.2949985265732,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "native_quotient_sphere",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "720f935eb7e38013d3ae8e0b05754fcf03642606435df1878f7761fde645a04a",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "sphere_m010_recheck",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/sphere_m010_recheck",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "sphere_m010_recheck",
+      "margin": 0.1,
+      "method": "native_quotient_sphere",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 323.2699992656708,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 314.5489995288849,
+        "heldout_return_std": 24.245313885895598,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 318.80874956846236,
+        "method": "native_quotient_sphere",
+        "network_evaluations_per_sample": 24,
+        "parameter_counts": {
+          "actor": 90696,
+          "critic_total": 173570
+        },
+        "projection_seconds": 0.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 9.680672375635277,
+        "updates": 4000,
+        "validation_auc": 284.7896885871887,
+        "wall_seconds": 413.19443932001013,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/sphere_m010_recheck",
+      "seed": 0,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 131.4650032043457,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 253.40500249862671,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 278.5275009870529,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 285.58000140190126,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 297.23750178813935,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 310.29500062465667,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 311.5575002908707,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 314.34749987125394,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 323.2699992656708,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "native_quotient_point_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 1,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "26c289cb58eae9fde5e85847e68e2fb28586a9820193770270a7968906a00503",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "point_m010_seed1",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/point_m010_seed1",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "point_m010_seed1",
+      "margin": 0.1,
+      "method": "native_quotient_point_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 362.1974982023239,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 361.7599978923798,
+        "heldout_return_std": 22.836746434217883,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 351.97499841451645,
+        "method": "native_quotient_point_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 9.951715231640264,
+        "sampling_steps": 12,
+        "seed": 1,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.361518555848104,
+        "updates": 4000,
+        "validation_auc": 305.61828071922065,
+        "wall_seconds": 260.39092263090424,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/point_m010_seed1",
+      "seed": 1,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 159.32000284194947,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 278.90500047206876,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 299.12249920368197,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 310.0749992370605,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 319.3349991798401,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 305.6174996137619,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 329.3799988985062,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 341.752498626709,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 362.1974982023239,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "native_quotient_sphere",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 1,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "7fa65391ccd1e14ef4787d8156f24b81259b00321f3422a7719cf1c5fcd09be5",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "sphere_m010_seed1",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/sphere_m010_seed1",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "sphere_m010_seed1",
+      "margin": 0.1,
+      "method": "native_quotient_sphere",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 379.7574972867966,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 375.5749974155426,
+        "heldout_return_std": 22.000217912557908,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 378.1862474560738,
+        "method": "native_quotient_sphere",
+        "network_evaluations_per_sample": 24,
+        "parameter_counts": {
+          "actor": 90696,
+          "critic_total": 173570
+        },
+        "projection_seconds": 0.0,
+        "sampling_steps": 12,
+        "seed": 1,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 9.616807607146498,
+        "updates": 4000,
+        "validation_auc": 329.64515497535467,
+        "wall_seconds": 415.93844408902805,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/sphere_m010_seed1",
+      "seed": 1,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 173.40000247955322,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 286.2924998998642,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 295.2174994468689,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 326.87749853134153,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 351.44499893188475,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 359.5499980926514,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 364.58499739170077,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 376.61499762535095,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 379.7574972867966,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "native_quotient_point_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 2,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "cd9f188912a4ff828fd8ce0cdb02c23fcabd498eeaa6e348ee092c87e0d6f1a1",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "point_m010_seed2",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/point_m010_seed2",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "point_m010_seed2",
+      "margin": 0.1,
+      "method": "native_quotient_point_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 341.31499881744384,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 336.9219988822937,
+        "heldout_return_std": 24.543998730228143,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 338.244998383522,
+        "method": "native_quotient_point_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 9.940989117487334,
+        "sampling_steps": 12,
+        "seed": 2,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.35405135069108,
+        "updates": 4000,
+        "validation_auc": 299.39031221717596,
+        "wall_seconds": 260.51755978295114,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/point_m010_seed2",
+      "seed": 2,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 159.54500210285187,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 267.8675008058548,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 286.62500076293946,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 304.4600003004074,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 315.31249887943267,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 312.3499995470047,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 322.90249903202056,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 335.1749979496002,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 341.31499881744384,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.1,
+        "method": "native_quotient_sphere",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 2,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "dffa1592d3f541e1533768f3ba55acb7028b551126322cce4d5315086fce4ede",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "sphere_m010_seed2",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/sphere_m010_seed2",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "sphere_m010_seed2",
+      "margin": 0.1,
+      "method": "native_quotient_sphere",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 375.119996547699,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 373.41199705123904,
+        "heldout_return_std": 22.844833899652862,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 373.82499673366544,
+        "method": "native_quotient_sphere",
+        "network_evaluations_per_sample": 24,
+        "parameter_counts": {
+          "actor": 90696,
+          "critic_total": 173570
+        },
+        "projection_seconds": 0.0,
+        "sampling_steps": 12,
+        "seed": 2,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 9.456576228780559,
+        "updates": 4000,
+        "validation_auc": 321.8253103137016,
+        "wall_seconds": 422.98606780800037,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/sphere_m010_seed2",
+      "seed": 2,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 160.0550015926361,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 275.2099977016449,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 286.95249738693235,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 323.3624981403351,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 322.2049988746643,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 358.9899972677231,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 367.76499714851377,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 372.52999691963197,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 375.119996547699,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.3,
+        "method": "native_quotient_point_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "21c78c6ec75c4c7f10547ba0e8518a04c91481ca862668fb70e926188df41864",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "point_m030",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/point_m030",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "point_m030",
+      "margin": 0.3,
+      "method": "native_quotient_point_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 338.1674987077713,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 342.1079989814758,
+        "heldout_return_std": 27.06759920863306,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 331.5899991989136,
+        "method": "native_quotient_point_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 9.98996164451819,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.32336841965353,
+        "updates": 4000,
+        "validation_auc": 290.12062583714726,
+        "wall_seconds": 261.03921006503515,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/point_m030",
+      "seed": 0,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 138.70250334739686,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 266.6225019931793,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 272.45500128269197,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 300.03750026226044,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 302.9575012922287,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 302.2200006246567,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 313.22500052452085,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 325.01249969005585,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 338.1674987077713,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.3,
+        "method": "native_quotient_cell_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "c1d9789ab594de4164a32a5d187445ec92755728b686fe0c749f462951318229",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "cell_m030",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/cell_m030",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "cell_m030",
+      "margin": 0.3,
+      "method": "native_quotient_cell_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 301.6525002717972,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 297.2370006561279,
+        "heldout_return_std": 24.75375167859505,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 297.1137500524521,
+        "method": "native_quotient_cell_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 9.951765453675762,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.286516995508167,
+        "updates": 4000,
+        "validation_auc": 275.3046885296702,
+        "wall_seconds": 261.66850129002705,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/cell_m030",
+      "seed": 0,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 138.70250334739686,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 275.35000162124635,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 270.43750140666964,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 285.382500743866,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 291.17000045776365,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 281.7700005054474,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 285.5750018596649,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 292.574999833107,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 301.6525002717972,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.3,
+        "method": "native_quotient_independent_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "48f191995f84bcad199673493978e8a3d83838afefc0ea65e6ad87b5081b5917",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "independent_m030",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/independent_m030",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "independent_m030",
+      "margin": 0.3,
+      "method": "native_quotient_independent_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 305.839999628067,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 301.821000328064,
+        "heldout_return_std": 21.981089367376047,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 299.2237498164177,
+        "method": "native_quotient_independent_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 9.9771285232855,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.339228174106788,
+        "updates": 4000,
+        "validation_auc": 276.4673449337482,
+        "wall_seconds": 260.76931283599697,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/independent_m030",
+      "seed": 0,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 138.70250334739686,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 253.57000217437744,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 277.68000202178956,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 286.4900007486343,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 287.29750113487245,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 294.95000019073484,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 296.87250170707705,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 292.6075000047684,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 305.839999628067,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.6,
+        "method": "native_quotient_point_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "b2a6fb1332e4b1e33bc148e556585dae044cf4f3cfac3cf60a5b5d6f0efd6a40",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "point_m060",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/point_m060",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "point_m060",
+      "margin": 0.6,
+      "method": "native_quotient_point_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 328.0399996757507,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 328.0389997673035,
+        "heldout_return_std": 25.110939901627695,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 326.9950001120567,
+        "method": "native_quotient_point_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 10.048141418374144,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.18688730010256,
+        "updates": 4000,
+        "validation_auc": 291.05515719652175,
+        "wall_seconds": 263.38511040294543,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/point_m060",
+      "seed": 0,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 138.70250334739686,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 266.35500173568727,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 272.52250134944916,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 300.4250010490417,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 306.45250098705293,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 310.45999977588656,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 312.90500061511995,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 325.9500005483627,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 328.0399996757507,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.6,
+        "method": "native_quotient_cell_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "eb92155c2eec013561e82efac1667d8841073338b72a71302228220c0744f7c5",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "cell_m060",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/cell_m060",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "cell_m060",
+      "margin": 0.6,
+      "method": "native_quotient_cell_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 310.66250054836274,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 305.8840002441406,
+        "heldout_return_std": 21.189980126644862,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 308.28250101804736,
+        "method": "native_quotient_cell_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 10.079135232255794,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.099135983467034,
+        "updates": 4000,
+        "validation_auc": 283.1828135058284,
+        "wall_seconds": 264.91581988800317,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/cell_m060",
+      "seed": 0,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 138.70250334739686,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 275.3050013065338,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 270.9050013065338,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 291.0975006103516,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 294.74500052928926,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 301.00500030517577,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 301.8200005531311,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 305.9025014877319,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 310.66250054836274,
+          "train_steps": 4000
+        }
+      ]
+    },
+    {
+      "campaign": "native_margin_20261104",
+      "config": {
+        "actor_interval": 1,
+        "batch_size": 64,
+        "bootstrap_candidates": 16,
+        "bridge_sigma": 0.5,
+        "budget": 10,
+        "candidates": 12,
+        "checkpoint_interval": 1000,
+        "device": "cpu",
+        "diffusion_scale": 1.0,
+        "endpoint_jitter": 0.0,
+        "eval_episodes": 20,
+        "eval_interval": 500,
+        "eval_seed_start": 100000,
+        "exploration_epsilon": 0.0,
+        "final_eval_episodes": 50,
+        "final_seed_start": 200000,
+        "gamma": 0.99,
+        "hidden": 256,
+        "horizon": 20,
+        "instance_seed": 0,
+        "log_interval": 100,
+        "lr": 0.0004,
+        "margin": 0.6,
+        "method": "native_quotient_independent_diffusion",
+        "n_actions": 20,
+        "n_arms": 40,
+        "reference_profile": "native_structure_revision",
+        "replay_capacity": 100000,
+        "reward_scale": 1.0,
+        "sampling_steps": 12,
+        "seed": 0,
+        "tau": 0.005,
+        "temperature": 1.0,
+        "threads": 1,
+        "train_steps": 4000,
+        "warmup_steps": 1000
+      },
+      "config_sha256": "27867f58e4dbd877af9bf2a2ad807830094d1cb70dbab54fc6085983e14dc3a4",
+      "deep_audit": {
+        "actor_updates": 4000,
+        "all_checkpoint_tensors_finite": true,
+        "env_steps": 5000,
+        "episodes": 250,
+        "heldout_episodes": 50,
+        "id": "independent_m060",
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "output": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/independent_m060",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "verified_complete",
+        "train_steps": 4000,
+        "validation_evaluations": 9
+      },
+      "id": "independent_m060",
+      "margin": 0.6,
+      "method": "native_quotient_independent_diffusion",
+      "metrics": {
+        "actor_updates": 4000,
+        "decoder_calls": 9600,
+        "decoder_calls_scope": "native executed actions including evaluation",
+        "env_steps": 5000,
+        "evaluation_count": 9,
+        "feasibility_rate": 1.0,
+        "final_validation_return": 304.3300010919571,
+        "heldout_episodes": 50,
+        "heldout_return_mean": 304.6769999790192,
+        "heldout_return_std": 20.865801679664205,
+        "instance_hash": "9c2e3ffb7885a57fd1e468c300c0ccdf70833798f42f87212243a4b782ea9403",
+        "last_window_return": 300.86375054121015,
+        "method": "native_quotient_independent_diffusion",
+        "network_evaluations_per_sample": 12,
+        "parameter_counts": {
+          "actor": 92752,
+          "critic_total": 173570
+        },
+        "projection_seconds": 9.96447841974441,
+        "sampling_steps": 12,
+        "seed": 0,
+        "seed_scope": "single_training_seed",
+        "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+        "status": "complete",
+        "train_steps": 4000,
+        "train_updates_per_wall_second": 15.096305382348666,
+        "updates": 4000,
+        "validation_auc": 276.7995321109891,
+        "wall_seconds": 264.9654925430659,
+        "warmup_steps": 1000
+      },
+      "output": "outputs/native_margin_20261104/independent_m060",
+      "seed": 0,
+      "source_sha256": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "status": "complete",
+      "validation_curve": [
+        {
+          "return_mean": 138.70250334739686,
+          "train_steps": 0
+        },
+        {
+          "return_mean": 258.0600018978119,
+          "train_steps": 500
+        },
+        {
+          "return_mean": 270.3900015592575,
+          "train_steps": 1000
+        },
+        {
+          "return_mean": 280.1450002193451,
+          "train_steps": 1500
+        },
+        {
+          "return_mean": 289.9500006198883,
+          "train_steps": 2000
+        },
+        {
+          "return_mean": 296.0624993562698,
+          "train_steps": 2500
+        },
+        {
+          "return_mean": 300.8750010251999,
+          "train_steps": 3000
+        },
+        {
+          "return_mean": 297.39749999046325,
+          "train_steps": 3500
+        },
+        {
+          "return_mean": 304.3300010919571,
+          "train_steps": 4000
+        }
+      ]
+    }
+  ],
+  "source_changes_between_stages": [
+    "solvercell/learner.py",
+    "solvercell/trainer.py"
+  ],
+  "status": "complete",
+  "storage_equivalence": {
+    "point": {
+      "checks": {
+        "bitwise_identical_learner_and_optimizer_rng": true,
+        "identical_complete_validation_heldout_and_training_episodes": true,
+        "identical_environment_counters_and_all_rng": true,
+        "identical_resolved_configuration": true,
+        "identical_valid_replay_rows_and_ring_position": true
+      },
+      "new_checkpoint_bytes": 7177477,
+      "new_run": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/point_m010_recheck",
+      "new_source": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "old_checkpoint_bytes": 61457791,
+      "old_run": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/quotient_point",
+      "old_source": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "verified": true
+    },
+    "sphere": {
+      "checks": {
+        "bitwise_identical_learner_and_optimizer_rng": true,
+        "identical_complete_validation_heldout_and_training_episodes": true,
+        "identical_environment_counters_and_all_rng": true,
+        "identical_resolved_configuration": true,
+        "identical_valid_replay_rows_and_ring_position": true
+      },
+      "new_checkpoint_bytes": 7140795,
+      "new_run": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_margin_20261104/sphere_m010_recheck",
+      "new_source": "6eb3126bc49621d34308013091304b3fb46bb17e9c35bec7062d322cf656a66c",
+      "old_checkpoint_bytes": 61424181,
+      "old_run": "/home/serenade/AI/src/RL/SolverCell-RL/outputs/native_revision_20261104/quotient_sphere",
+      "old_source": "030e1c799e990310b3c2d44a1872b051baefdc141267d42bf048df5c5d1eb53b",
+      "verified": true
+    }
+  },
+  "subsequent_mechanism_diagnostic": {
+    "checks": {
+      "conditional_mean_finite_difference_max_abs_error": 1.7041745792312213e-10,
+      "conditional_score_quadrature_max_abs_error": 6.217248937900877e-15,
+      "decoder_branch_and_torch_reference_checks": true,
+      "scalar_environment_oracle_max_abs_error": 5.329070518200751e-15
+    },
+    "comparison": {
+      "cases": 12,
+      "max_abs_component_mean_difference_over_se": 2.7683877345131704,
+      "rb2_over_sf2_trace_ratio_max": 1.8619908698433456,
+      "rb2_over_sf2_trace_ratio_min": 1.4730470304275616,
+      "rb2_trace_lower_than_sf2_cases": 0
+    },
+    "coordinates": [
+      0,
+      5,
+      10,
+      15
+    ],
+    "decision": "two-query branch estimator fails the equal-query variance gate; diagnose actual denoising-step credit before proposing training",
+    "kernel_scope": "declared test kernel; not the trained policy's actual terminal kernel",
+    "path": "reports/continuation_branch_audit/summary.json",
+    "rl_training_launched": false,
+    "samples_per_estimator": 20000,
+    "scope": "frozen exact myopic action-value oracle; no learned critic, policy optimization, or RL result",
+    "sha256": "aa3860022e59015e94fabe46ff3c672a707f71d9aff70667882e926b67ffa3d0"
+  },
+  "total_environment_steps": 90000,
+  "total_training_updates": 72000
+}
