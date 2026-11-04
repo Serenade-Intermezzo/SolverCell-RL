@@ -1,0 +1,131 @@
+{
+  "candidates": {
+    "tree_m2_k2": {
+      "actor_nfe_per_decision": 52,
+      "eligible": false,
+      "mean_utility": 287.0250005722046,
+      "median_latency_fraction_vs_is8": 0.9662993569236543,
+      "minimum_preference_fraction": 0.946496293936885,
+      "paired_validation": {
+        "0.5": {
+          "episode_mean_se": 5.675000071525573,
+          "mean": -16.224998831748962
+        }
+      },
+      "topology": {
+        "branch_index": 2,
+        "children": 4,
+        "roots": 2
+      },
+      "utility_fraction_vs_is8": 0.946496293936885
+    },
+    "tree_m2_k4": {
+      "actor_nfe_per_decision": 40,
+      "eligible": false,
+      "mean_utility": 285.249999165535,
+      "median_latency_fraction_vs_is8": 0.9553471325183875,
+      "minimum_preference_fraction": 0.9406430328976155,
+      "paired_validation": {
+        "0.5": {
+          "episode_mean_se": 1.4999992847442625,
+          "mean": -18.00000023841858
+        }
+      },
+      "topology": {
+        "branch_index": 4,
+        "children": 4,
+        "roots": 2
+      },
+      "utility_fraction_vs_is8": 0.9406430328976155
+    },
+    "tree_m2_k6": {
+      "actor_nfe_per_decision": 28,
+      "eligible": false,
+      "mean_utility": 273.35000121593475,
+      "median_latency_fraction_vs_is8": 0.9452981923460425,
+      "minimum_preference_fraction": 0.9014014897055628,
+      "paired_validation": {
+        "0.5": {
+          "episode_mean_se": 10.25,
+          "mean": -29.8999981880188
+        }
+      },
+      "topology": {
+        "branch_index": 6,
+        "children": 4,
+        "roots": 2
+      },
+      "utility_fraction_vs_is8": 0.9014014897055628
+    },
+    "tree_m4_k2": {
+      "actor_nfe_per_decision": 56,
+      "eligible": true,
+      "mean_utility": 313.14999973773956,
+      "median_latency_fraction_vs_is8": 0.954479514444019,
+      "minimum_preference_fraction": 1.0326463325745912,
+      "paired_validation": {
+        "0.5": {
+          "episode_mean_se": 24.300000190734863,
+          "mean": 9.90000033378601
+        }
+      },
+      "topology": {
+        "branch_index": 2,
+        "children": 2,
+        "roots": 4
+      },
+      "utility_fraction_vs_is8": 1.0326463325745912
+    },
+    "tree_m4_k4": {
+      "actor_nfe_per_decision": 48,
+      "eligible": false,
+      "mean_utility": 285.0750005245209,
+      "median_latency_fraction_vs_is8": 0.9758284240675238,
+      "minimum_preference_fraction": 0.9400659557620572,
+      "paired_validation": {
+        "0.5": {
+          "episode_mean_se": 17.724998831748962,
+          "mean": -18.174998879432678
+        }
+      },
+      "topology": {
+        "branch_index": 4,
+        "children": 2,
+        "roots": 4
+      },
+      "utility_fraction_vs_is8": 0.9400659557620572
+    },
+    "tree_m4_k6": {
+      "actor_nfe_per_decision": 40,
+      "eligible": true,
+      "mean_utility": 303.2499985694885,
+      "median_latency_fraction_vs_is8": 0.9491439346595977,
+      "minimum_preference_fraction": 0.9999999972482604,
+      "paired_validation": {
+        "0.5": {
+          "episode_mean_se": 2.5000005960464473,
+          "mean": -8.344650268554688e-07
+        }
+      },
+      "topology": {
+        "branch_index": 6,
+        "children": 2,
+        "roots": 4
+      },
+      "utility_fraction_vs_is8": 0.9999999972482604
+    }
+  },
+  "evaluated_topology": "tree_m4_k6",
+  "heldout_used": false,
+  "promotion_eligible": true,
+  "reason": "eligible lowest-NFE topology",
+  "scope": "seed0 validation-only engineering selection; no final episodes used",
+  "selection_rule": {
+    "maximum_latency_fraction": 1.05,
+    "mean_utility_fraction": 0.98,
+    "minimum_nfe_saving_fraction": 0.1,
+    "minimum_per_preference_fraction": 0.95,
+    "rank": "lower NFE, higher mean utility, lower median randomized inference latency"
+  },
+  "source_sha256": "05c3cfffb6e7ed1bad6a077085e7da70bfaef41ad88323108052a261740fcd10"
+}

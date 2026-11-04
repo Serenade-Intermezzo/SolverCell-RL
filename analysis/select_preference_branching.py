@@ -1,5 +1,6 @@
 """Lock one branching topology using seed0 validation and randomized timing."""
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -45,7 +46,10 @@ def main():
         chosen=min(eligible,key=lambda name:(candidates[name]['actor_nfe_per_decision'],
             -candidates[name]['mean_utility'],candidates[name]['median_latency_fraction_vs_is8']))
     else:chosen=max(candidates,key=lambda name:(candidates[name]['mean_utility'],-candidates[name]['actor_nfe_per_decision']))
-    result={'source_sha256':manifest['expected_source_sha256'],'scope':'seed0 validation-only engineering selection; no final episodes used',
+    result={'manifest_sha256':hashlib.sha256(args.manifest.read_bytes()).hexdigest(),
+        'screen_summary_sha256':hashlib.sha256((args.screen/'summary.json').read_bytes()).hexdigest(),
+        'selector_script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        'source_sha256':manifest['expected_source_sha256'],'scope':'seed0 validation-only engineering selection; no final episodes used',
         'promotion_eligible':bool(eligible),'evaluated_topology':chosen,
         'reason':'eligible lowest-NFE topology' if eligible else 'no promotion; best utility topology evaluated diagnostically',
         'candidates':candidates,'selection_rule':rule,'heldout_used':False}

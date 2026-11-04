@@ -13,12 +13,21 @@ from solvercell.storage import atomic_json
 def read(path):return json.loads(Path(path).read_text())
 
 
+def weights_for_stage(manifest,stage):
+    return manifest['screen_preferences'] if stage=='screen' else manifest['final_preferences']
+
+
 def audit(path,manifest,stage,seed,selection):
     row=read(path/'summary.json');invocation=read(path/'invocation.json');worker=read(path/'worker.json')
     assert row['status']==read(path/'status.json')['status']=='complete'
     assert read(path/'exit.json')['returncode']==0
     assert row['stage']==stage and row['seed']==seed
     assert worker['comm']=='llmagent'
+    assert len(worker['cpu_affinity'])==1 and worker['cpu_affinity'][0] in (24,25) if not manifest['debug'] else True
+    assert invocation['manifest_sha256']==manifest['_file_sha256']
+    assert invocation['selection_sha256']==(selection['_file_sha256'] if stage=='final' else None)
+    assert {p['model'] for p in row['parents']}=={f'sphere_seed{seed}',f'diffusion_seed{seed}'}
+    assert len(row['evaluations'])==len(weights_for_stage(manifest,stage))*(2*len(manifest['independent_candidates'])+(len(manifest['topologies']) if stage=='screen' else 1))
     assert row['source_sha256']==invocation['source_sha256']==manifest['expected_source_sha256']
     assert invocation['analysis_script_sha256']==manifest['runner_script_sha256']
     weights=manifest['screen_preferences'] if stage=='screen' else manifest['final_preferences']
@@ -29,6 +38,9 @@ def audit(path,manifest,stage,seed,selection):
             values=[v for v in row['evaluations'] if v['model']==parent['model'] and v['low_response_weight']==weight]
             expected=len(manifest['independent_candidates'])+(len(manifest['topologies']) if stage=='screen' else 1) if parent['model'].startswith('diffusion') else len(manifest['independent_candidates'])
             assert len(values)==expected
+            expected_modes={'direct' if n==1 else f'is{n}' for n in manifest['independent_candidates']}
+            if parent['model'].startswith('diffusion'):expected_modes.update(manifest['topologies'] if stage=='screen' else [selection['evaluated_topology']])
+            assert {v['mode'] for v in values}==expected_modes
             for value in values:
                 assert value['episodes']==manifest['episodes'] and value['episode_lengths']==[20]*manifest['episodes']
                 assert value['seed_start']==manifest['screen_seed_start' if stage=='screen' else 'final_seed_start']
@@ -54,6 +66,8 @@ def main():
     p.add_argument('--manifest',required=True,type=Path)
     p.add_argument('--output',required=True,type=Path)
     args=p.parse_args();out=args.output;manifest=read(args.manifest);selection=read(out/'selection.json')
+    manifest['_file_sha256']=hashlib.sha256(args.manifest.read_bytes()).hexdigest()
+    selection['_file_sha256']=hashlib.sha256((out/'selection.json').read_bytes()).hexdigest()
     assert selection['heldout_used'] is False and selection['source_sha256']==manifest['expected_source_sha256']
     screen=audit(ROOT/f"outputs/{manifest['campaign_id']}/screen",manifest,'screen',0,selection)
     finals=[audit(ROOT/f"outputs/{manifest['campaign_id']}/final_seed{seed}",manifest,'final',seed,selection) for seed in (0,1,2)]
@@ -75,7 +89,7 @@ def main():
         'source_sha256':manifest['expected_source_sha256'],'selection':selection,'screen':screen,
         'finals':finals,'comparisons':comparisons}
     atomic_json(out/'study.json',study)
-    lines=['# Shared-prefix preference sampling: completed study','',
+    lines=['# Shared-prefix preference sampling: '+('engineering preflight only' if manifest['debug'] else 'completed study'),'',
         'All runs passed source/parent hash, exit, complete H20 evaluation, scalarization, feasibility and actual compute audits. '
         'The trained v2 models, optimizer/RNG states and checkpoints remain unchanged. No new training was performed.', '',
         f"Source: `{manifest['expected_source_sha256']}`. Parent scientific source: `{manifest['parent_source_sha256']}`. "
@@ -96,8 +110,8 @@ def main():
     for r in comparisons:
         lines.append(f"| {r['model_training_seed']} | {r['scope']} | {r['reference_mean']:.3f} | {r['branch_mean']:.3f} | "
             f"{r['paired_mean_difference']:+.3f} | {r['episode_mean_se']:.3f} | {r['environment_inclusive_wall_ratio']:.3f} |")
-    lines += ['', 'Final episode seeds800000–800031 are common across modes and preferences. '
-        'Paired SE first averages each episode over the four preferences, preserving within-seed dependence. '
+    lines += ['', f"Final episode seeds{manifest['final_seed_start']}–{manifest['final_seed_start']+manifest['episodes']-1} are common across modes and preferences. "
+        f"Paired SE first averages each episode over the {len(manifest['final_preferences'])} preferences, preserving within-seed dependence. "
         'Model seeds1/2 were not used for topology selection, but are existing v2 checkpoints, not newly trained replications. '
         'Three known models and one instance cannot establish broad noninferiority or intrinsic sampler speed.', '',
         '## Budget boundary','',

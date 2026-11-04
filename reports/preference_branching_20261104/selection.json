@@ -1,0 +1,182 @@
+{
+  "candidates": {
+    "tree_m2_k2": {
+      "actor_nfe_per_decision": 52,
+      "eligible": true,
+      "mean_utility": 333.7390622422099,
+      "median_latency_fraction_vs_is8": 0.9891246902605926,
+      "minimum_preference_fraction": 0.989389310515105,
+      "paired_validation": {
+        "0.0": {
+          "episode_mean_se": 8.223537253945835,
+          "mean": 2.121875301003456
+        },
+        "0.5": {
+          "episode_mean_se": 6.72940445508268,
+          "mean": -3.175000138580799
+        },
+        "1.0": {
+          "episode_mean_se": 1.3999424074651363,
+          "mean": 0.9500001817941666
+        }
+      },
+      "topology": {
+        "branch_index": 2,
+        "children": 4,
+        "roots": 2
+      },
+      "utility_fraction_vs_is8": 0.9998970113213416
+    },
+    "tree_m2_k4": {
+      "actor_nfe_per_decision": 40,
+      "eligible": true,
+      "mean_utility": 327.23333281030256,
+      "median_latency_fraction_vs_is8": 0.981498322652354,
+      "minimum_preference_fraction": 0.9754732242676061,
+      "paired_validation": {
+        "0.0": {
+          "episode_mean_se": 9.22166398524303,
+          "mean": -10.178125411272049
+        },
+        "0.5": {
+          "episode_mean_se": 6.293203827621535,
+          "mean": -7.339062787592411
+        },
+        "1.0": {
+          "episode_mean_se": 1.1578838850452358,
+          "mean": -2.103124752640724
+        }
+      },
+      "topology": {
+        "branch_index": 4,
+        "children": 4,
+        "roots": 2
+      },
+      "utility_fraction_vs_is8": 0.9804055578135455
+    },
+    "tree_m2_k6": {
+      "actor_nfe_per_decision": 28,
+      "eligible": true,
+      "mean_utility": 330.96458290268976,
+      "median_latency_fraction_vs_is8": 0.9727140658448314,
+      "minimum_preference_fraction": 0.9844964900220319,
+      "paired_validation": {
+        "0.0": {
+          "episode_mean_se": 9.19820782952728,
+          "mean": -3.6343757808208466
+        },
+        "0.5": {
+          "episode_mean_se": 7.167525068621238,
+          "mean": -4.6390619948506355
+        },
+        "1.0": {
+          "episode_mean_se": 1.485066652240816,
+          "mean": -0.15312489867210388
+        }
+      },
+      "topology": {
+        "branch_index": 6,
+        "children": 4,
+        "roots": 2
+      },
+      "utility_fraction_vs_is8": 0.9915845483422682
+    },
+    "tree_m4_k2": {
+      "actor_nfe_per_decision": 56,
+      "eligible": true,
+      "mean_utility": 328.6723957036932,
+      "median_latency_fraction_vs_is8": 0.9921221988564091,
+      "minimum_preference_fraction": 0.965442155154914,
+      "paired_validation": {
+        "0.0": {
+          "episode_mean_se": 8.354151171620723,
+          "mean": -3.4906243979930878
+        },
+        "0.5": {
+          "episode_mean_se": 6.142266859464712,
+          "mean": -10.340625114738941
+        },
+        "1.0": {
+          "episode_mean_se": 0.8881186490690056,
+          "mean": -1.4718747586011887
+        }
+      },
+      "topology": {
+        "branch_index": 2,
+        "children": 2,
+        "roots": 4
+      },
+      "utility_fraction_vs_is8": 0.9847170539762586
+    },
+    "tree_m4_k4": {
+      "actor_nfe_per_decision": 48,
+      "eligible": false,
+      "mean_utility": 323.8609367435177,
+      "median_latency_fraction_vs_is8": 0.9921923412589752,
+      "minimum_preference_fraction": 0.9528576275280991,
+      "paired_validation": {
+        "0.0": {
+          "episode_mean_se": 9.333963554986166,
+          "mean": -15.312501221895218
+        },
+        "0.5": {
+          "episode_mean_se": 8.33364970530429,
+          "mean": -14.106250055134296
+        },
+        "1.0": {
+          "episode_mean_se": 0.961291484836045,
+          "mean": -0.31874987483024597
+        }
+      },
+      "topology": {
+        "branch_index": 4,
+        "children": 2,
+        "roots": 4
+      },
+      "utility_fraction_vs_is8": 0.9703017098386784
+    },
+    "tree_m4_k6": {
+      "actor_nfe_per_decision": 40,
+      "eligible": true,
+      "mean_utility": 329.8770831823349,
+      "median_latency_fraction_vs_is8": 0.9818746636199684,
+      "minimum_preference_fraction": 0.9807863659348126,
+      "paired_validation": {
+        "0.0": {
+          "episode_mean_se": 8.15942514112459,
+          "mean": -11.118749886751175
+        },
+        "0.5": {
+          "episode_mean_se": 6.426875325821593,
+          "mean": -1.7390623092651367
+        },
+        "1.0": {
+          "episode_mean_se": 2.2611615626042716,
+          "mean": 1.168750360608101
+        }
+      },
+      "topology": {
+        "branch_index": 6,
+        "children": 2,
+        "roots": 4
+      },
+      "utility_fraction_vs_is8": 0.9883263510162194
+    }
+  },
+  "evaluated_topology": "tree_m2_k6",
+  "heldout_used": false,
+  "manifest_sha256": "d08bc9c97301f9b6667a4e2b08af34431ed1acd257900ccf6bd383410b58636a",
+  "promotion_eligible": true,
+  "reason": "eligible lowest-NFE topology",
+  "scope": "seed0 validation-only engineering selection; no final episodes used",
+  "screen_summary_sha256": "b5461c1add4f1dd1aafc11a3527ad5acdf14bf4e18c87a0bf78dc7a5262c9360",
+  "selection_rule": {
+    "maximum_latency_fraction": 1.05,
+    "mean_utility_fraction": 0.98,
+    "minimum_nfe_saving_fraction": 0.1,
+    "minimum_per_preference_fraction": 0.95,
+    "rank": "lower NFE, higher mean utility, lower median randomized inference latency"
+  },
+  "selector_script_sha256": "f668ea559e852c38c643af24b579e585f607a42e12d0bfd15b23ca805acf68d6",
+  "source_sha256": "05c3cfffb6e7ed1bad6a077085e7da70bfaef41ad88323108052a261740fcd10"
+}
