@@ -1,0 +1,64 @@
+{
+  "campaign_id": "intervention_screen_20261104",
+  "cpu_sets": [
+    [
+      24
+    ],
+    [
+      25
+    ]
+  ],
+  "device": "cpu",
+  "expected_source_sha256": "258f8ec3afa41bab34e4456f19b114bb09c64d0a56ef22a914b24ad20258c914",
+  "jobs": [
+    {
+      "config": "experiments/intervention_screen_20261104/cell_m010.json",
+      "config_sha256": "ff3cb31f2a9f39664c2736c5d1a5dd29aae77b5ff1c7b911f10a51eccd47c0e9",
+      "id": "cell_m010",
+      "output": "outputs/intervention_screen_20261104/cell_m010"
+    },
+    {
+      "config": "experiments/intervention_screen_20261104/point.json",
+      "config_sha256": "1ab5fe546e2496d971b439e1864fa41a8d54952baf8be50adaabcda2f10f98ca",
+      "id": "point",
+      "output": "outputs/intervention_screen_20261104/point"
+    },
+    {
+      "config": "experiments/intervention_screen_20261104/cell_independent.json",
+      "config_sha256": "17ed946c07eeaec5c6c24ce67cf55d3a7d085ee141b9f12666d349456d5c76d2",
+      "id": "cell_independent",
+      "output": "outputs/intervention_screen_20261104/cell_independent"
+    },
+    {
+      "config": "experiments/intervention_screen_20261104/sphere_matched.json",
+      "config_sha256": "7e42275a26034174628a620d1bac04044c0ee52efe81b1fd94fc477f8ac267fb",
+      "id": "sphere_matched",
+      "output": "outputs/intervention_screen_20261104/sphere_matched"
+    },
+    {
+      "config": "experiments/intervention_screen_20261104/cell_flow.json",
+      "config_sha256": "34ae582cc5b14f64515a8eb7137e46c7a6673526767cf7b419bed39841093398",
+      "id": "cell_flow",
+      "output": "outputs/intervention_screen_20261104/cell_flow"
+    },
+    {
+      "config": "experiments/intervention_screen_20261104/cell_m005.json",
+      "config_sha256": "4cde391a05eac796003d68d250911efcb29435d74f54e0e7fa935708bc35a850",
+      "id": "cell_m005",
+      "output": "outputs/intervention_screen_20261104/cell_m005"
+    },
+    {
+      "config": "experiments/intervention_screen_20261104/cell_m020.json",
+      "config_sha256": "ab01ca670b0d207760611bc4bd1aaa03dc2658b480c9b35e51e3c07742a5f218",
+      "id": "cell_m020",
+      "output": "outputs/intervention_screen_20261104/cell_m020"
+    },
+    {
+      "config": "experiments/intervention_screen_20261104/lsflow_native.json",
+      "config_sha256": "045339bbb8305c4ff672e0d16900d684a69c00ac1df8d78143dc1e717ea572db",
+      "id": "lsflow_native",
+      "output": "outputs/intervention_screen_20261104/lsflow_native"
+    }
+  ],
+  "max_parallel": 2
+}
