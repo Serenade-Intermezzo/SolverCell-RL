@@ -1,0 +1,14 @@
+{
+  "status": "verified_uploaded",
+  "verification_scope": "First complete content upload; subsequent publication-status documentation is verified separately against the final remote ref.",
+  "repository": "https://github.com/Serenade-Intermezzo/SolverCell-RL",
+  "visibility": "public",
+  "public_upload_explicitly_authorized": true,
+  "branch": "main",
+  "verified_content_commit": "e44197d8a8d3c43c402ebc29d2a6aad19a53e25b",
+  "verified_blob_count": 299,
+  "github_tree_sha": "e44197d8a8d3c43c402ebc29d2a6aad19a53e25b",
+  "default_branch": "main",
+  "full_tree_blob_shas_match": true,
+  "scientific_source_sha256": "33fcff51897f7485ddce4a303d089526d0cada8e165a4c380e7c9509db6680b3"
+}
