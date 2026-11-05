@@ -1,0 +1,14 @@
+{
+ "K": 12,
+ "rounds": 8,
+ "n_out": 256,
+ "n_eval": 512,
+ "fit_steps": 400,
+ "batch": 64,
+ "lr": 0.001,
+ "ref_chunks": 32,
+ "arm": "plain",
+ "instance": 2,
+ "beta": 10,
+ "fit_seed": 2
+}

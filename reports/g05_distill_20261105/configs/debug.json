@@ -1,0 +1,1 @@
+{"arm":"structured","instance":0,"beta":5,"fit_seed":0,"K":12,"rounds":2,"n_out":32,"n_eval":32,"fit_steps":5,"batch":16,"lr":0.001,"ref_chunks":1}
